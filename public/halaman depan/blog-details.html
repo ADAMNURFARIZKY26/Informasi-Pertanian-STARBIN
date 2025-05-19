@@ -27,6 +27,9 @@
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
 
+  <!-- mycss -->
+  <link href="assets/css/mycss/detail-blogs.css" rel="stylesheet">
+  
   <!-- =======================================================
   * Template Name: Impact
   * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
@@ -37,33 +40,15 @@
 </head>
 
 <body class="blog-details-page">
-
   <header id="header" class="header fixed-top">
-
-    <div class="topbar d-flex align-items-center">
-      <div class="container d-flex justify-content-center justify-content-md-between">
-        <div class="contact-info d-flex align-items-center">
-          <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-          <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
-        </div>
-        <div class="social-links d-none d-md-flex align-items-center">
-          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-      </div>
-    </div><!-- End Top Bar -->
-
-    <div class="branding d-flex align-items-cente">
-
-      <div class="container position-relative d-flex align-items-center justify-content-between">
-        <a href="index.html" class="logo d-flex align-items-center">
+    <div class="topbar d-flex align-items-center"  style="padding: 35px 0;">
+     <div class="container position-relative d-flex align-items-center justify-content-between">
+        <div class="logo d-flex align-items-center">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
           <h1 class="sitename">Impact</h1>
           <span>.</span>
-        </a>
+        </div>
 
         <nav id="navmenu" class="navmenu">
           <ul>
@@ -94,63 +79,58 @@
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
-
       </div>
-
-    </div>
-
+    </div><!-- End Top Bar -->
   </header>
 
   <main class="main">
+    <div class="container"> 
+      <!-- Page Title -->
+      <div class="blog-detail-header">
+        <div class="blog-detail-heading position-relative overflow-hidden">
+          
+          <!-- Gambar thumbnail dinamis -->
+          <img src="assets/img/konten/bg-pertanian.jpg" alt="Thumbnail Berita"
+              class="img-fluid position-absolute w-100 h-100 object-fit-cover z-0" style="top: 0; left: 0;">
 
-    <!-- Page Title -->
-    <div class="page-title">
-      <div class="heading">
-        <div class="container">
-          <div class="row d-flex justify-content-center text-center">
-            <div class="col-lg-8">
-              <h1>Blog Details</h1>
-              <p class="mb-0">Odio et unde deleniti. Deserunt numquam exercitationem. Officiis quo odio sint voluptas consequatur ut a odio voluptatem. Sit dolorum debitis veritatis natus dolores. Quasi ratione sint. Sit quaerat ipsum dolorem.</p>
+          <!-- Overlay gelap (opsional) -->
+          <div class="position-absolute top-0 start-0 w-100 h-100 bg-dark opacity-50 z-1"></div>
+
+          <!-- Konten -->
+          <div class="container position-relative z-2 py-5">
+            <div class="row d-flex justify-content-center text-center">
+              <div class="col-lg-8 text-white text-shadow">
+                <h1 class="text-white text-shadow">Detail Berita</h1>
+                <p class="mb-0 text-white text-shadow">
+                  Jurusan Pertanian SMK memainkan peran penting dalam mencetak tenaga terampil di bidang agrikultur. Berita ini mengulas berbagai inovasi, pelatihan, dan capaian siswa yang mendukung kemajuan pertanian nasional.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <nav class="breadcrumbs">
-        <div class="container">
-          <ol>
-            <li><a href="index.html">Home</a></li>
-            <li class="current">Blog Details</li>
-          </ol>
-        </div>
-      </nav>
-    </div><!-- End Page Title -->
 
-    <div class="container">
       <div class="row">
-
         <div class="col-lg-8">
-
           <!-- Blog Details Section -->
           <section id="blog-details" class="blog-details section">
             <div class="container">
-
               <article class="article">
+                <h2 class="title">Judul Berita</h2>
 
-                <div class="post-img">
-                  <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+                <div class="post-img" style="margin-top: 30px;">
+                  <img src="assets/img/blog/blog-1.jpg" alt="Dokumentasi berita 1" class="img-fluid">
                 </div>
-
-                <h2 class="title">Dolorum optio tempore voluptas dignissimos cumque fuga qui quibusdam quia</h2>
 
                 <div class="meta-top">
                   <ul>
-                    <li class="d-flex align-items-center"><i class="bi bi-person"></i> <a href="blog-details.html">John Doe</a></li>
                     <li class="d-flex align-items-center"><i class="bi bi-clock"></i> <a href="blog-details.html"><time datetime="2020-01-01">Jan 1, 2022</time></a></li>
-                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>
+                    <li class="d-flex align-items-center"><i class="bi bi-chat-dots"></i> <a href="blog-details.html">12 Comments</a></li>  <!-- Mungkin perlu apabila akan diadakan fitur komentar -->
                   </ul>
                 </div><!-- End meta top -->
 
                 <div class="content">
+                  <!-- Deskripsi Berita -->
                   <p>
                     Similique neque nam consequuntur ad non maxime aliquam quas. Quibusdam animi praesentium. Aliquam et laboriosam eius aut nostrum quidem aliquid dicta.
                     Et eveniet enim. Qui velit est ea dolorem doloremque deleniti aperiam unde soluta. Est cum et quod quos aut ut et sit sunt. Voluptate porro consequatur assumenda perferendis dolore.
@@ -159,89 +139,72 @@
                   <p>
                     Sit repellat hic cupiditate hic ut nemo. Quis nihil sunt non reiciendis. Sequi in accusamus harum vel aspernatur. Excepturi numquam nihil cumque odio. Et voluptate cupiditate.
                   </p>
+                  <!-- End deskripsi berita -->
 
+                  <!-- Mungkin bila diperlukan -->
                   <blockquote>
                     <p>
                       Et vero doloremque tempore voluptatem ratione vel aut. Deleniti sunt animi aut. Aut eos aliquam doloribus minus autem quos.
                     </p>
                   </blockquote>
 
+                  <!-- Deskripsi -->
                   <p>
                     Sed quo laboriosam qui architecto. Occaecati repellendus omnis dicta inventore tempore provident voluptas mollitia aliquid. Id repellendus quia. Asperiores nihil magni dicta est suscipit perspiciatis. Voluptate ex rerum assumenda dolores nihil quaerat.
                     Dolor porro tempora et quibusdam voluptas. Beatae aut at ad qui tempore corrupti velit quisquam rerum. Omnis dolorum exercitationem harum qui qui blanditiis neque.
                     Iusto autem itaque. Repudiandae hic quae aspernatur ea neque qui. Architecto voluptatem magni. Vel magnam quod et tempora deleniti error rerum nihil tempora.
                   </p>
 
-                  <h3>Et quae iure vel ut odit alias.</h3>
+                  <h3>Subjudul</h3>
                   <p>
                     Officiis animi maxime nulla quo et harum eum quis a. Sit hic in qui quos fugit ut rerum atque. Optio provident dolores atque voluptatem rem excepturi molestiae qui. Voluptatem laborum omnis ullam quibusdam perspiciatis nulla nostrum. Voluptatum est libero eum nesciunt aliquid qui.
                     Quia et suscipit non sequi. Maxime sed odit. Beatae nesciunt nesciunt accusamus quia aut ratione aspernatur dolor. Sint harum eveniet dicta exercitationem minima. Exercitationem omnis asperiores natus aperiam dolor consequatur id ex sed. Quibusdam rerum dolores sint consequatur quidem ea.
                     Beatae minima sunt libero soluta sapiente in rem assumenda. Et qui odit voluptatem. Cum quibusdam voluptatem voluptatem accusamus mollitia aut atque aut.
                   </p>
-                  <img src="assets/img/blog/blog-inside-post.jpg" class="img-fluid" alt="">
+                  <img src="assets/img/blog/blog-inside-post.jpg" class="img-fluid" alt="Dokumentasi berita 2">
 
-                  <h3>Ut repellat blanditiis est dolore sunt dolorum quae.</h3>
+                  <h3>Subjudul</h3>
                   <p>
                     Rerum ea est assumenda pariatur quasi et quam. Facilis nam porro amet nostrum. In assumenda quia quae a id praesentium. Quos deleniti libero sed occaecati aut porro autem. Consectetur sed excepturi sint non placeat quia repellat incidunt labore. Autem facilis hic dolorum dolores vel.
                     Consectetur quasi id et optio praesentium aut asperiores eaque aut. Explicabo omnis quibusdam esse. Ex libero illum iusto totam et ut aut blanditiis. Veritatis numquam ut illum ut a quam vitae.
                   </p>
                   <p>
                     Alias quia non aliquid. Eos et ea velit. Voluptatem maxime enim omnis ipsa voluptas incidunt. Nulla sit eaque mollitia nisi asperiores est veniam.
-                  </p>
-
-                </div><!-- End post content -->
+                  </p> <!-- End Deskripsi -->
+                </div> <!-- End post content -->
 
                 <div class="meta-bottom">
-                  <i class="bi bi-folder"></i>
-                  <ul class="cats">
-                    <li><a href="#">Business</a></li>
-                  </ul>
-
                   <i class="bi bi-tags"></i>
                   <ul class="tags">
-                    <li><a href="#">Creative</a></li>
-                    <li><a href="#">Tips</a></li>
-                    <li><a href="#">Marketing</a></li>
+                    <li>Creative</li>
+                    <li>Tips</li>
+                    <li>Marketing</li>
                   </ul>
                 </div><!-- End meta bottom -->
-
               </article>
-
             </div>
           </section><!-- /Blog Details Section -->
 
-          <!-- Blog Author Section -->
-          <section id="blog-author" class="blog-author section">
+          <!-- Blog Comments Section -->
+          <section id="blog-comments" class="blog-comments section">
+            <!-- Komentar Form -->
+            <div class="p-3 mb-4 rounded" style="max-width: 600px;">
+              <label for="commentInput" class="form-label fw-bold mb-2" style="font-size: larger;">Komentar</label>
+              <div class="input-group">
+                <input type="text" id="commentInput" class="form-control" placeholder="Tulis Komentar" aria-label="Tulis Komentar"/>
 
-            <div class="container">
-              <div class="author-container d-flex align-items-center">
-                <img src="assets/img/blog/blog-author.jpg" class="rounded-circle flex-shrink-0" alt="">
-                <div>
-                  <h4>Jane Smith</h4>
-                  <div class="social-links">
-                    <a href="https://x.com/#"><i class="bi bi-twitter-x"></i></a>
-                    <a href="https://facebook.com/#"><i class="bi bi-facebook"></i></a>
-                    <a href="https://instagram.com/#"><i class="biu bi-instagram"></i></a>
-                  </div>
-                  <p>
-                    Itaque quidem optio quia voluptatibus dolorem dolor. Modi eum sed possimus accusantium. Quas repellat voluptatem officia numquam sint aspernatur voluptas. Esse et accusantium ut unde voluptas.
-                  </p>
-                </div>
+                <button class="btn btn-primary" type="button" id="button-addon2">
+                  <i class="bi bi-send-fill"></i>
+                </button>
               </div>
             </div>
 
-          </section><!-- /Blog Author Section -->
-
-          <!-- Blog Comments Section -->
-          <section id="blog-comments" class="blog-comments section">
-
-            <div class="container">
-
-              <h4 class="comments-count">8 Comments</h4>
+            <div class="container" style="margin-bottom: 100px;">
+              <h5 class="comments-count">8 Komentar</h4>
 
               <div id="comment-1" class="comment">
                 <div class="d-flex">
-                  <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt=""></div>
+                  <div class="comment-img"><img src="assets/img/blog/comments-1.jpg" alt="Avatar"></div>
                   <div>
                     <h5><a href="">Georgia Reader</a> <a href="#" class="reply"><i class="bi bi-reply-fill"></i> Reply</a></h5>
                     <time datetime="2020-01-01">01 Jan,2022</time>
@@ -252,7 +215,7 @@
                   </div>
                 </div>
               </div><!-- End comment #1 -->
-
+              <hr>
               <div id="comment-2" class="comment">
                 <div class="d-flex">
                   <div class="comment-img"><img src="assets/img/blog/comments-2.jpg" alt=""></div>
@@ -264,7 +227,7 @@
                     </p>
                   </div>
                 </div>
-
+                <hr>
                 <div id="comment-reply-1" class="comment comment-reply">
                   <div class="d-flex">
                     <div class="comment-img"><img src="assets/img/blog/comments-3.jpg" alt=""></div>
@@ -280,7 +243,7 @@
                       </p>
                     </div>
                   </div>
-
+                  <hr>
                   <div id="comment-reply-2" class="comment comment-reply">
                     <div class="d-flex">
                       <div class="comment-img"><img src="assets/img/blog/comments-4.jpg" alt=""></div>
@@ -292,13 +255,10 @@
                         </p>
                       </div>
                     </div>
-
                   </div><!-- End comment reply #2-->
-
                 </div><!-- End comment reply #1-->
-
               </div><!-- End comment #2-->
-
+              <hr>
               <div id="comment-3" class="comment">
                 <div class="d-flex">
                   <div class="comment-img"><img src="assets/img/blog/comments-5.jpg" alt=""></div>
@@ -311,9 +271,8 @@
                     </p>
                   </div>
                 </div>
-
               </div><!-- End comment #3 -->
-
+              <hr>
               <div id="comment-4" class="comment">
                 <div class="d-flex">
                   <div class="comment-img"><img src="assets/img/blog/comments-6.jpg" alt=""></div>
@@ -325,69 +284,24 @@
                     </p>
                   </div>
                 </div>
-
               </div><!-- End comment #4 -->
-
             </div>
-
           </section><!-- /Blog Comments Section -->
-
-          <!-- Comment Form Section -->
-          <section id="comment-form" class="comment-form section">
-            <div class="container">
-
-              <form action="">
-
-                <h4>Post Comment</h4>
-                <p>Your email address will not be published. Required fields are marked * </p>
-                <div class="row">
-                  <div class="col-md-6 form-group">
-                    <input name="name" type="text" class="form-control" placeholder="Your Name*">
-                  </div>
-                  <div class="col-md-6 form-group">
-                    <input name="email" type="text" class="form-control" placeholder="Your Email*">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col form-group">
-                    <input name="website" type="text" class="form-control" placeholder="Your Website">
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col form-group">
-                    <textarea name="comment" class="form-control" placeholder="Your Comment*"></textarea>
-                  </div>
-                </div>
-
-                <div class="text-center">
-                  <button type="submit" class="btn btn-primary">Post Comment</button>
-                </div>
-
-              </form>
-
-            </div>
-          </section><!-- /Comment Form Section -->
-
         </div>
 
         <div class="col-lg-4 sidebar">
-
           <div class="widgets-container">
-
             <!-- Search Widget -->
             <div class="search-widget widget-item">
-
               <h3 class="widget-title">Search</h3>
               <form action="">
                 <input type="text">
                 <button type="submit" title="Search"><i class="bi bi-search"></i></button>
               </form>
-
             </div><!--/Search Widget -->
 
             <!-- Categories Widget -->
             <div class="categories-widget widget-item">
-
               <h3 class="widget-title">Categories</h3>
               <ul class="mt-3">
                 <li><a href="#">General <span>(25)</span></a></li>
@@ -402,7 +316,6 @@
 
             <!-- Recent Posts Widget -->
             <div class="recent-posts-widget widget-item">
-
               <h3 class="widget-title">Recent Posts</h3>
 
               <div class="post-item">
@@ -444,12 +357,10 @@
                   <time datetime="2020-01-01">Jan 1, 2020</time>
                 </div>
               </div><!-- End recent post item-->
-
             </div><!--/Recent Posts Widget -->
 
             <!-- Tags Widget -->
             <div class="tags-widget widget-item">
-
               <h3 class="widget-title">Tags</h3>
               <ul>
                 <li><a href="#">App</a></li>
@@ -464,16 +375,11 @@
                 <li><a href="#">Tips</a></li>
                 <li><a href="#">Marketing</a></li>
               </ul>
-
             </div><!--/Tags Widget -->
-
           </div>
-
         </div>
-
       </div>
     </div>
-
   </main>
 
   <footer id="footer" class="footer accent-background">
