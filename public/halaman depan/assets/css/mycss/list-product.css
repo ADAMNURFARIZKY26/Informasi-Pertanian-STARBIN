@@ -2,116 +2,178 @@ main {
     padding-top: 70px;
 }
 
+/* CSS optimasi untuk slideshow */
 .swiper {
   border-radius: 12px;
+  will-change: transform; /* Membantu optimasi rendering GPU */
+  contain: content; /* Meningkatkan performa rendering dengan memberi tahu browser */
 }
 
 .product-slideshow {
-    max-width: 85%;
-    margin: 0 auto;
-    position: relative;
-    overflow: visible;
-    border-radius: 16px;
-}
-.product-slideshow .swiper-slide img {
-    width: 100%;
-    min-height: 260px;
-    max-height: 260px;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: filter 0.15s;
-}
-.product-slideshow .swiper-slide img:active {
-    filter: brightness(0.97);
-}
-.custom-swiper-btn {
-    position: absolute;
-    top: 50%;
-    z-index: 10;
-    transform: translateY(-50%) scale(0.85) translateX(0);
-    background-color: #fff;
-    border-radius: 50%;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #18924b;
-    font-size: 1rem;
-    border: 1px solid #e0e0e0;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity .2s, transform .2s, background .2s, color .2s;
-    outline: none;
-    box-shadow: none;
-}
-.product-slideshow.show-nav .custom-swiper-btn,
-.custom-swiper-btn:focus {
-    opacity: 1;
-    pointer-events: auto;
-    transform: translateY(-50%) scale(1) translateX(0);
-}
-.button-next.custom-swiper-btn {
-    right: 8px;
-}
-.button-prev.custom-swiper-btn {
-    left: 8px;
-}
-.product-slideshow:not(.show-nav) .button-next.custom-swiper-btn {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-50%) scale(0.85) translateX(16px);
-}
-.product-slideshow:not(.show-nav) .button-prev.custom-swiper-btn {
-    opacity: 0;
-    pointer-events: none;
-    transform: translateY(-50%) scale(0.85) translateX(-16px);
-}
-.custom-swiper-btn span {
-    display: block;
-    font-size: 1rem;
-    font-weight: 600;
-    line-height: 1;
-    text-align: center;
-    width: 100%;
-    user-select: none;
-}
-.swiper-pagination {
-    bottom: 10px !important;
-    text-align: center;
-}
-.swiper-pagination-bullet {
-    background-color: #e0e0e0;
-    opacity: 1;
-    width: 8px;
-    height: 8px;
-    margin: 0 3px !important;
-    border-radius: 50%;
-    transition: background .2s, width 0.15s;
-    box-shadow: none;
-}
-.swiper-pagination-bullet-active {
-    background: #00AA5B;
-    width: 18px;
-    border-radius: 8px;
-}
-@media (max-width: 600px) {
-    .product-slideshow .swiper-slide img {
-        max-height: 120px;
-    }
-    .custom-swiper-btn {
-        width: 24px;
-        height: 24px;
-        font-size: 0.8rem;
-    }
-    .button-next.custom-swiper-btn {
-        right: 2px;
-    }
-    .button-prev.custom-swiper-btn {
-        left: 2px;
-    }
-    .swiper-pagination {
-        bottom: 2px !important;
-    }
+  max-width: 90%;
+  margin: 0 auto;
+  position: relative;
+  overflow: visible;
+  border-radius: 16px;
 }
 
+/* Optimasi untuk slide dan gambar */
+.product-slideshow .swiper-slide {
+  transform: translateZ(0); /* Force GPU acceleration */
+  backface-visibility: hidden; /* Meningkatkan performa animasi */
+}
+
+.product-slideshow .swiper-slide img {
+  width: 100%;
+  min-height: 280px;
+  max-height: 280px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: filter 0.15s ease;
+  transform: translateZ(0); /* Force GPU acceleration */
+  will-change: opacity; /* Memberi tahu browser untuk optimasi pada properti opacity */
+}
+
+.product-slideshow .swiper-slide img:active {
+  filter: brightness(0.97);
+}
+
+/* Optimasi lazy loading dengan transition yang lebih smooth */
+.product-slideshow .swiper-lazy img {
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.product-slideshow .swiper-lazy-loaded img {
+  opacity: 1;
+}
+
+/* Tombol navigasi dengan transform optimized */
+.custom-swiper-btn {
+  position: absolute;
+  top: 50%;
+  z-index: 10;
+  transform: translateY(-50%) scale(0.85) translateX(0);
+  background-color: #fff;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #18924b;
+  font-size: 1rem;
+  border: 1px solid #e0e0e0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+  outline: none;
+  box-shadow: none;
+  will-change: transform, opacity; /* Optimasi untuk perubahan yang akan terjadi */
+}
+
+.product-slideshow.show-nav .custom-swiper-btn,
+.custom-swiper-btn:focus {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(-50%) scale(1) translateX(0);
+}
+
+.button-next.custom-swiper-btn {
+  right: 8px;
+}
+
+.button-prev.custom-swiper-btn {
+  left: 8px;
+}
+
+.product-slideshow:not(.show-nav) .button-next.custom-swiper-btn {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.85) translateX(16px);
+}
+
+.product-slideshow:not(.show-nav) .button-prev.custom-swiper-btn {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-50%) scale(0.85) translateX(-16px);
+}
+
+.custom-swiper-btn span {
+  display: block;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+  width: 100%;
+  user-select: none;
+}
+
+/* Optimasi pagination bullets */
+.swiper-pagination {
+  bottom: 10px !important;
+  text-align: center;
+}
+
+.swiper-pagination-bullet {
+  background-color: #e0e0e0;
+  opacity: 1;
+  width: 8px;
+  height: 8px;
+  margin: 0 3px !important;
+  border-radius: 50%;
+  transition: background 0.2s ease, width 0.15s ease;
+  box-shadow: none;
+  transform: translateZ(0); /* Force GPU acceleration */
+}
+
+.swiper-pagination-bullet-active {
+  background: #00AA5B;
+  width: 18px;
+  border-radius: 8px;
+}
+
+/* Overlay optimasi */
+.swiper-wrapper .swiper-slide .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 12px; /* Menyamakan dengan border radius gambar */
+  pointer-events: none; /* Mencegah overlay mengganggu interaksi */
+}
+
+/* Optimasi preloader */
+.swiper-lazy-preloader {
+  border-width: 2px;
+  margin: -16px 0 0 -16px;
+  animation-duration: 0.8s; /* Sedikit lebih cepat dari default */
+}
+
+/* section produk unggulan*/
+.section-header {
+    position: relative;
+}
+
+.section-divider {
+    width: 60px;
+    height: 3px;
+    background: #00AA5B;
+    margin-top: 0.5rem;
+}
+
+/* Card produk*/
+/* Scroll horizontal */
+.product-scroll-wrapper {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0 1rem;
+  scroll-snap-type: x mandatory;
+}
+
+/* section produk unggulan */
+  .hover-lift:hover { transform: translateY(-2px); }
