@@ -11,55 +11,41 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com" rel="preconnect" />
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-            rel="stylesheet"
-        />
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"/>
 
         <!-- Vendor CSS Files -->
-        <link
-            href="assets/vendor/bootstrap/css/bootstrap.min.css"
-            rel="stylesheet"
-        />
-        <link
-            href="assets/vendor/bootstrap-icons/bootstrap-icons.css"
-            rel="stylesheet"
-        />
-        <link href="assets/vendor/aos/aos.css" rel="stylesheet" />
-        <link
-            href="assets/vendor/glightbox/css/glightbox.min.css"
-            rel="stylesheet"
-        />
-        <link
-            href="assets/vendor/swiper/swiper-bundle.min.css"
-            rel="stylesheet"
-        />
+        <link href="assets/vendor/bootstrap/css/bootstrap.css" rel="stylesheet"/>
+        <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+        <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet"/>
+        <link href="assets/vendor/aos/aos.css" rel="stylesheet"/>
+        <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet"/>
+        <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"/>
 
         <!-- Main CSS File -->
-        <link href="assets/css/main.css" rel="stylesheet" />
+        <link href="assets/css/main.css" rel="stylesheet"/>
 
         <!-- mycss -->
-        <link rel="stylesheet" href="assets/css/mycss/list-product.css" />
-        <link rel="stylesheet" href="assets/css/mycss/landingpage.css" />
+        <link rel="stylesheet" href="assets/css/mycss/list-product.css"/>
+        <link rel="stylesheet" href="assets/css/mycss/landingpage.css"/>
     </head>
 
     <body class="produk-page">
         <header id="header" class="header fixed-top">
-            <div
-                class="topbar d-flex align-items-center"
-                style="padding: 35px 0"
-            >
-                <div
-                    class="container position-relative d-flex align-items-center justify-content-between"
-                >
+            <div class="topbar d-flex align-items-center" style="padding: 35px 0">
+                <div class="container position-relative d-flex align-items-center justify-content-between">
                     <div class="logo d-flex align-items-center">
                         <!-- Uncomment the line below if you also wish to use an image logo -->
-                        <img
-                            src="assets/img/Logo/logo-pertanian-starbin.png"
-                            alt="Logo"
-                        />
+                        <img src="assets/img/Logo/logo-pertanian-starbin.png" alt="Logo"/>
                         <h1 class="sitename">Example</h1>
                         <span>.</span>
+                    </div>
+                    
+                    <!-- Search Bar -->
+                    <div class="search-product flex-fill mx mx-lg-3" style="max-width: 500px;">
+                        <div class="position-relative">
+                            <i class="bi bi-search position-absolute top-50 translate-middle-y start-0 ms-3 text-muted"></i>
+                            <input type="text" class="form-control search-input ps-5 rounded-2" placeholder="Cari Produk" aria-label="Cari Produk">
+                        </div>
                     </div>
 
                     <nav id="navmenu" class="navmenu">
@@ -122,46 +108,63 @@
 
         <main class="main">
             <div class="container">
-                <!-- Slideshow ATPH Produk -->
+                <!-- Slideshow -->
                 <section class="product-slideshow position-relative">
+                    <!-- Breadcrumbs -->
+                    <nav aria-label="breadcrumb" class="breadcrumbs py-2 md">
+                        <div class="container">
+                            <ol class="breadcrumb mb-0">
+                                <li class="breadcrumb-item"><a href="index.html">Beranda</a></li>
+                                <li class="breadcrumb-item text-dark" aria-current="page">Daftar Produk</li>
+                            </ol>
+                        </div>
+                    </nav>
+
                     <div class="swiper productSwiper">
                         <div class="swiper-wrapper">
                             <!-- Slide pertama menggunakan src langsung + data-src sebagai fallback -->
                             <div class="swiper-slide swiper-lazy">
                                 <div class="overlay"></div>
-                                <img
-                                    src="assets/img/konten/IMG_20250508_085646.jpg"
-                                    data-src="assets/img/konten/IMG_20250508_085646.jpg"
-                                    alt="Produk 1"
-                                    class="img-fluid rounded shadow"
-                                />
+                                <img src="assets/img/konten/IMG_20250508_085646.jpg" data-src="assets/img/konten/IMG_20250508_085646.jpg" alt="Produk 1" class="img-fluid rounded shadow"/>
+
+                                <!-- Overlay Nama produk -->
+                                <div class="overlay-caption position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-50 text-white text-center py-4 px-3">
+                                    <p class="nama-produk mb-0 fs-5 fw-semibold">Produk 1</p>
+                                </div>
+
                                 <div class="swiper-lazy-preloader"></div>
                             </div>
+
                             <div class="swiper-slide swiper-lazy">
                                 <div class="overlay"></div>
-                                <img
-                                    data-src="assets/img/konten/IMG_20250508_085646.jpg"
-                                    alt="Produk 2"
-                                    class="img-fluid rounded shadow"
-                                />
+                                <img data-src="assets/img/konten/IMG_20250508_085646.jpg" alt="Produk 2" class="img-fluid rounded shadow"/>
+
+                                <!-- Overlay Nama produk -->
+                                <div class="overlay-caption position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-50 text-white text-center py-4 px-3">
+                                    <p class="nama-produk mb-0 fs-5 fw-semibold">Produk 2</p>
+                                </div>
                                 <div class="swiper-lazy-preloader"></div>
                             </div>
+
                             <div class="swiper-slide swiper-lazy">
                                 <div class="overlay"></div>
-                                <img
-                                    data-src="assets/img/konten/IMG_20250508_085646.jpg"
-                                    alt="Produk 3"
-                                    class="img-fluid rounded shadow"
-                                />
+                                <img data-src="assets/img/konten/IMG_20250508_085646.jpg" alt="Produk 3" class="img-fluid rounded shadow"/>
+
+                                <!-- Overlay Nama produk -->
+                                <div class="overlay-caption position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-50 text-white text-center py-4 px-3">
+                                    <p class="nama-produk mb-0 fs-5 fw-semibold">Produk 3</p>
+                                </div>
                                 <div class="swiper-lazy-preloader"></div>
                             </div>
+
                             <div class="swiper-slide swiper-lazy">
                                 <div class="overlay"></div>
-                                <img
-                                    data-src="assets/img/konten/IMG_20250508_085646.jpg"
-                                    alt="Produk 4"
-                                    class="img-fluid rounded shadow"
-                                />
+                                <img data-src="assets/img/konten/IMG_20250508_085646.jpg" alt="Produk 4" class="img-fluid rounded shadow"/>
+
+                                <!-- Overlay Nama produk -->
+                                <div class="overlay-caption position-absolute bottom-0 start-0 w-100 bg-dark bg-opacity-50 text-white text-center py-4 px-3">
+                                    <p class="nama-produk mb-0 fs-5 fw-semibold">Produk 4</p>
+                                </div>
                                 <div class="swiper-lazy-preloader"></div>
                             </div>
                         </div>
@@ -185,88 +188,353 @@
                 <!-- End Slideshow ATPH Produk -->
 
                 <!-- card produk unggulan -->
-                <div class="container-fluid" style="max-width: 1200px;">
-                  <div class="mx-auto p-3">
-                      <h2 class="fs-4 fw-semibold text-dark mb-4">Kategori Pilihan</h2>
-                      
-                      <div class="bg-white rounded-4 p-4 shadow-sm">
-                          <div class="d-flex gap-3 overflow-auto py-2">
-                              <!-- Produk 1 -->
-                              <div class="text-center flex-shrink-0 hover-lift" style="width: 120px; transition: transform 0.2s ease; cursor: pointer;">
-                                  <div class="rounded-3 mx-auto mb-3" style="width: 80px; height: 80px;">
-                                      <img src="/api/placeholder/80/80" alt="Produk 1" class="w-100 h-100 object-fit-cover rounded-3">
-                                  </div>
-                                  <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Makanan</div>
-                                  <div class="text-muted" style="font-size: 0.75rem;">Kering</div>
-                              </div>
-                              
-                              <!-- Produk 2 -->
-                              <div class="text-center flex-shrink-0 hover-lift" style="width: 120px; transition: transform 0.2s ease; cursor: pointer;">
-                                  <div class="rounded-3 mx-auto mb-3" style="width: 80px; height: 80px;">
-                                      <img src="/api/placeholder/80/80" alt="Figure" class="w-100 h-100 object-fit-cover rounded-3">
-                                  </div>
-                                  <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Figure</div>
-                                  <div class="text-muted" style="font-size: 0.75rem;">Koleksi</div>
-                              </div>
-                              
-                              <!-- Produk 3 -->
-                              <div class="text-center flex-shrink-0 hover-lift" style="width: 120px; transition: transform 0.2s ease; cursor: pointer;">
-                                  <div class="rounded-3 mx-auto mb-3" style="width: 80px; height: 80px;">
-                                      <img src="/api/placeholder/80/80" alt="Tas Selempang Pria" class="w-100 h-100 object-fit-cover rounded-3">
-                                  </div>
-                                  <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Tas Selempang</div>
-                                  <div class="text-muted" style="font-size: 0.75rem;">Pria</div>
-                              </div>
-                              
-                              <!-- Produk 4 -->
-                              <div class="text-center flex-shrink-0 hover-lift" style="width: 120px; transition: transform 0.2s ease; cursor: pointer;">
-                                  <div class="rounded-3 mx-auto mb-3" style="width: 80px; height: 80px;">
-                                      <img src="/api/placeholder/80/80" alt="Flat Shoes Wanita" class="w-100 h-100 object-fit-cover rounded-3">
-                                  </div>
-                                  <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Flat Shoes</div>
-                                  <div class="text-muted" style="font-size: 0.75rem;">Wanita</div>
-                              </div>
-                              
-                              <!-- Produk 5 -->
-                              <div class="text-center flex-shrink-0 hover-lift" style="width: 120px; transition: transform 0.2s ease; cursor: pointer;">
-                                  <div class="rounded-3 mx-auto mb-3" style="width: 80px; height: 80px;">
-                                      <img src="/api/placeholder/80/80" alt="Smartphone Terbaru" class="w-100 h-100 object-fit-cover rounded-3">
-                                  </div>
-                                  <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Smartphone</div>
-                                  <div class="text-muted" style="font-size: 0.75rem;">Terbaru</div>
-                              </div>
-                              
-                              <!-- Produk 6 -->
-                              <div class="text-center flex-shrink-0 hover-lift" style="width: 120px; transition: transform 0.2s ease; cursor: pointer;">
-                                  <div class="rounded-3 mx-auto mb-3" style="width: 80px; height: 80px;">
-                                      <img src="/api/placeholder/80/80" alt="Kosmetik Premium" class="w-100 h-100 object-fit-cover rounded-3">
-                                  </div>
-                                  <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Kosmetik</div>
-                                  <div class="text-muted" style="font-size: 0.75rem;">Premium</div>
-                              </div>
-                              
-                              <!-- Produk 7 -->
-                              <div class="text-center flex-shrink-0 hover-lift" style="width: 120px; transition: transform 0.2s ease; cursor: pointer;">
-                                  <div class="rounded-3 mx-auto mb-3" style="width: 80px; height: 80px;">
-                                      <img src="/api/placeholder/80/80" alt="Gaming Console" class="w-100 h-100 object-fit-cover rounded-3">
-                                  </div>
-                                  <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Gaming</div>
-                                  <div class="text-muted" style="font-size: 0.75rem;">Console</div>
-                              </div>
-                              
-                              <!-- Produk 8 -->
-                              <div class="text-center flex-shrink-0 hover-lift" style="width: 120px; transition: transform 0.2s ease; cursor: pointer;">
-                                  <div class="rounded-3 mx-auto mb-3" style="width: 80px; height: 80px;">
-                                      <img src="/api/placeholder/80/80" alt="Buku Edukasi" class="w-100 h-100 object-fit-cover rounded-3">
-                                  </div>
-                                  <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Buku</div>
-                                  <div class="text-muted" style="font-size: 0.75rem;">Edukasi</div>
-                              </div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <!-- end card produk unggulan -->
+                <div class="container-fluid">
+                    <div class="mx-auto">
+                        <div class="good-product-container bg-white rounded-4 p-4 w-100">
+                            <h2 class="fs-4 fw-semibold pb-2">Produk Unggulan</h2>
+
+                            <div class="d-flex gap-3 overflow-auto py-2">
+                                <!-- Produk 1 -->
+                                <a href="product-details.html" class="text-decoration-none">
+                                    <div class="card-product-unggulan text-center flex-shrink-0 hover-lift mb-4 rounded-3">
+                                        <div class="rounded-3 mx-auto mb-3 img-product-unggulan border" >
+                                            <img src="" data-src="" data-src="" alt="Produk unggulan 1" class="w-100 h-100 object-fit-cover rounded-3">
+                                        </div>
+                                        <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Brokoli</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">Sayuran</div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Produk 2 -->
+                                <a href="product-details.html" class="text-decoration-none">
+                                    <div class="card-product-unggulan text-center flex-shrink-0 hover-lift mb-4 rounded-3">
+                                        <div class="rounded-3 mx-auto mb-3 img-product-unggulan border" >
+                                            <img src="" data-src="" data-src="" alt="Produk unggulan 2" class="w-100 h-100 object-fit-cover rounded-3">
+                                        </div>
+                                        <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Cabai</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">Sayuran</div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Produk 3 -->
+                                <a href="product-details.html" class="text-decoration-none">
+                                    <div class="card-product-unggulan text-center flex-shrink-0 hover-lift mb-4 rounded-3">
+                                        <div class="rounded-3 mx-auto mb-3 img-product-unggulan border" >
+                                            <img src="" data-src="" data-src="" alt="Produk unggulan 3" class="w-100 h-100 object-fit-cover rounded-3">
+                                        </div>
+                                        <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Tomat</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">Sayuran</div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Produk 4 -->
+                                <a href="product-details.html" class="text-decoration-none">
+                                    <div class="card-product-unggulan text-center flex-shrink-0 hover-lift mb-4 rounded-3">
+                                        <div class="rounded-3 mx-auto mb-3 img-product-unggulan border" >
+                                            <img src="" data-src="" data-src="" alt="Produk unggulan 4" class="w-100 h-100 object-fit-cover rounded-3">
+                                        </div>
+                                        <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Melon</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">Sayuran</div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Produk 5 -->
+                                <a href="product-details.html" class="text-decoration-none">
+                                    <div class="card-product-unggulan text-center flex-shrink-0 hover-lift mb-4 rounded-3">
+                                        <div class="rounded-3 mx-auto mb-3 img-product-unggulan border" >
+                                            <img src="" data-src="" data-src="" alt="Produk unggulan 5" class="w-100 h-100 object-fit-cover rounded-3">
+                                        </div>
+                                        <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Jagung</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">Buah</div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Produk 6 -->
+                                <a href="product-details.html" class="text-decoration-none">
+                                    <div class="card-product-unggulan text-center flex-shrink-0 hover-lift mb-4 rounded-3">
+                                        <div class="rounded-3 mx-auto mb-3 img-product-unggulan border" >
+                                            <img src="" data-src="" data-src="" alt="Produk unggulan 6" class="w-100 h-100 object-fit-cover rounded-3">
+                                        </div>
+                                        <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Padi</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">Buah</div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Produk 7 -->
+                                <a href="product-details.html" class="text-decoration-none">
+                                    <div class="card-product-unggulan text-center flex-shrink-0 hover-lift mb-4 rounded-3">
+                                        <div class="rounded-3 mx-auto mb-3 img-product-unggulan border" >
+                                            <img src="" data-src="" data-src="" alt="Produk unggulan 7" class="w-100 h-100 object-fit-cover rounded-3">
+                                        </div>
+                                        <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Apel</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">Buah</div>
+                                    </div>
+                                </a>
+                                
+                                <!-- Produk 8 -->
+                                <a href="product-details.html" class="text-decoration-none">
+                                    <div class="card-product-unggulan text-center flex-shrink-0 hover-lift mb-4 rounded-3">
+                                        <div class="rounded-3 mx-auto mb-3 img-product-unggulan border" >
+                                            <img src="" data-src="" data-src="" alt="Produk unggulan 8" class="w-100 h-100 object-fit-cover rounded-3">
+                                        </div>
+                                        <div class="fw-semibold text-dark mb-1" style="font-size: 0.875rem; line-height: 1.2;">Semangka</div>
+                                        <div class="text-muted" style="font-size: 0.75rem;">Buah</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end card produk unggulan -->
+                
+                <!-- Daftar produk -->
+                <div class="container-fluid px-3" style="margin-top: 70px;">
+                    <div class="mt-4 mb-3">
+                        <div class="mb-3 d-flex justify-content-between align-items-center">
+                            <h2 class="fs-4 fw-semibold mb-0">Daftar Produk</h2>
+                            <span class="ms-3 fw-medium fs-5" style="color: #00AA5B; cursor: pointer;">Lihat semua produk</span>
+                        </div>
+                    </div>
+
+                    <div class="products-grid mb-4">
+                        <!-- Product 1 -->
+                        <div class="product-item">
+                            <a href="product-details.html" class="text-decoration-none">
+                                <div class="card product-card border border-light-subtle h-100 shadow-sm">
+                                    <div class="product-image-container position-relative rounded-top overflow-hidden">
+                                        <img src="" data-src="" alt="Produk 1" class="product-image w-100">
+                                        <span class="discount-badge position-absolute bg-danger text-white px-2 py-1 rounded small">45%</span>
+                                    </div>
+                                    <div class="card-body p-3 position-relative">
+                                        <div class="product-name text-dark">tatakan amplas sanding block</div>
+                                        <div class="product-price fw-bold text-dark mb-2">Rp250.000</div>
+                                        <div class="product-meta d-flex align-items-center text-muted mb-2">
+                                            <i class="bi bi-star-fill rating-star me-1"></i>
+                                            <span class="me-1">5.0</span>
+                                            <span>• 15 terjual</span>
+                                        </div>
+                                        <button class="cart-button btn btn-success position-absolute rounded d-flex align-items-center justify-content-center p-0">
+                                            <i class="bi bi-cart text-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Product 2 -->
+                        <div class="product-item">
+                            <a href="product-details.html" class="text-decoration-none">
+                                <div class="card product-card border border-light-subtle h-100 shadow-sm">
+                                    <div class="product-image-container position-relative rounded-top overflow-hidden">
+                                        <img data-src="" alt="Produk 2" class="product-image w-100">
+                                        <span class="discount-badge position-absolute bg-danger text-white px-2 py-1 rounded small">45%</span>
+                                    </div>
+                                    <div class="card-body p-3 position-relative">
+                                        <div class="product-name text-dark">Karbol Sereh 5 liter Sabun Pel...</div>
+                                        <div class="product-price fw-bold text-dark mb-2">Rp47.000</div>
+                                        <div class="product-meta d-flex align-items-center text-muted mb-2">
+                                            <i class="bi bi-star-fill rating-star me-1"></i>
+                                            <span class="me-1">5.0</span>
+                                            <span>• 100+ terjual</span>
+                                        </div>
+                                        <button class="cart-button btn btn-success position-absolute rounded d-flex align-items-center justify-content-center p-0">
+                                            <i class="bi bi-cart text-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Product 3 -->
+                        <div class="product-item">
+                            <a href="product-details.html" class="text-decoration-none">
+                                <div class="card product-card border border-light-subtle h-100 shadow-sm">
+                                    <div class="product-image-container position-relative rounded-top overflow-hidden">
+                                        <img data-src="" alt="Produk 3" class="product-image w-100">
+                                        <span class="discount-badge position-absolute bg-danger text-white px-2 py-1 rounded small">53%</span>
+                                    </div>
+                                    <div class="card-body p-3 position-relative">
+                                        <div class="product-name text-dark">Helm Bogo Dewasa Thinos ...</div>
+                                        <div class="product-price fw-bold text-dark mb-2">Rp98.700</div>
+                                        <div class="product-meta d-flex align-items-center text-muted mb-2">
+                                            <i class="bi bi-star-fill rating-star me-1"></i>
+                                            <span class="me-1">4.8</span>
+                                            <span>• 10rb+ terjual</span>
+                                        </div>
+                                        <button class="cart-button btn btn-success position-absolute rounded d-flex align-items-center justify-content-center p-0">
+                                            <i class="bi bi-cart text-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Product 4 -->
+                        <div class="product-item">
+                            <a href="product-details.html" class="text-decoration-none">
+                                <div class="card product-card border border-light-subtle h-100 shadow-sm">
+                                    <div class="product-image-container position-relative rounded-top overflow-hidden">
+                                        <img data-src="" alt="Produk 4" class="product-image w-100">
+                                    </div>
+                                    <div class="card-body p-3 position-relative">
+                                        <div class="product-name text-dark">Xiaomi Poco M7 Pro 5G Ring ...</div>
+                                        <div class="product-price fw-bold text-dark mb-2">Rp50.000</div>
+                                        <div class="product-meta d-flex align-items-center text-muted mb-2">
+                                            <span>21 terjual</span>
+                                        </div>
+                                        <button class="cart-button btn btn-success position-absolute rounded d-flex align-items-center justify-content-center p-0">
+                                            <i class="bi bi-cart text-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Product 5 -->
+                        <div class="product-item">
+                            <a href="product-details.html" class="text-decoration-none">
+                                <div class="card product-card border border-light-subtle h-100 shadow-sm">
+                                    <div class="product-image-container position-relative rounded-top overflow-hidden">
+                                        <img data-src="" alt="Produk 5" class="product-image w-100">
+                                        <span class="discount-badge position-absolute bg-danger text-white px-2 py-1 rounded small">72g</span>
+                                    </div>
+                                    <div class="card-body p-3 position-relative">
+                                        <div class="product-name text-dark">SABUN BATANG GIV 72GRAM...</div>
+                                        <div class="product-price fw-bold text-dark mb-2">Rp3.149</div>
+                                        <div class="product-meta d-flex align-items-center text-muted mb-2">
+                                            <i class="bi bi-star-fill rating-star me-1"></i>
+                                            <span class="me-1">4.3</span>
+                                            <span>• 250+ terjual</span>
+                                        </div>
+                                        <button class="cart-button btn btn-success position-absolute rounded d-flex align-items-center justify-content-center p-0">
+                                            <i class="bi bi-cart text-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Product 6 -->
+                        <div class="product-item">
+                            <a href="product-details.html" class="text-decoration-none">
+                                <div class="card product-card border border-light-subtle h-100 shadow-sm">
+                                    <div class="product-image-container position-relative rounded-top overflow-hidden">
+                                        <img data-src="" alt="Produk 6" class="product-image w-100">
+                                    </div>
+                                    <div class="card-body p-3 position-relative">
+                                        <div class="product-name text-dark">Gantungan Kunci SMILE Bahan...</div>
+                                        <div class="product-price fw-bold text-dark mb-2">Rp99.000</div>
+                                        <div class="product-meta d-flex align-items-center text-muted mb-2">
+                                            <i class="bi bi-star-fill rating-star me-1"></i>
+                                            <span class="me-1">4.2</span>
+                                            <span>• 250+ terjual</span>
+                                        </div>
+                                        <button class="cart-button btn btn-success position-absolute rounded d-flex align-items-center justify-content-center p-0">
+                                            <i class="bi bi-cart text-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Product 7 -->
+                        <div class="product-item">
+                            <a href="product-details.html" class="text-decoration-none">
+                                <div class="card product-card border border-light-subtle h-100 shadow-sm">
+                                    <div class="product-image-container position-relative rounded-top overflow-hidden">
+                                        <img data-src="" alt="Produk 7" class="product-image w-100">
+                                    </div>
+                                    <div class="card-body p-3 position-relative">
+                                        <div class="product-name text-dark">Plastic Polytainer Jerigen...</div>
+                                        <div class="product-price fw-bold text-dark mb-2">Rp35.000</div>
+                                        <div class="product-meta d-flex align-items-center text-muted mb-2">
+                                            <i class="bi bi-star-fill rating-star me-1"></i>
+                                            <span class="me-1">4.1</span>
+                                            <span>• 50+ terjual</span>
+                                        </div>
+                                        <button class="cart-button btn btn-success position-absolute rounded d-flex align-items-center justify-content-center p-0">
+                                            <i class="bi bi-cart text-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Product 8 -->
+                        <div class="product-item">
+                            <a href="product-details.html" class="text-decoration-none">
+                                <div class="card product-card border border-light-subtle h-100 shadow-sm">
+                                    <div class="product-image-container position-relative rounded-top overflow-hidden">
+                                        <img data-src="" alt="Produk 8" class="product-image w-100">
+                                    </div>
+                                    <div class="card-body p-3 position-relative">
+                                        <div class="product-name text-dark">Holder HP Mobil Dashboard...</div>
+                                        <div class="product-price fw-bold text-dark mb-2">Rp25.000</div>
+                                        <div class="product-meta d-flex align-items-center text-muted mb-2">
+                                            <i class="bi bi-star-fill rating-star me-1"></i>
+                                            <span class="me-1">4.7</span>
+                                            <span>• 300+ terjual</span>
+                                        </div>
+                                        <button class="cart-button btn btn-success position-absolute rounded d-flex align-items-center justify-content-center p-0">
+                                            <i class="bi bi-cart text-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Product 9 -->
+                        <div class="product-item">
+                            <a href="product-details.html" class="text-decoration-none">
+                                <div class="card product-card border border-light-subtle h-100 shadow-sm">
+                                    <div class="product-image-container position-relative rounded-top overflow-hidden">
+                                        <img data-src="" alt="Produk 9" class="product-image w-100">
+                                    </div>
+                                    <div class="card-body p-3 position-relative">
+                                        <div class="product-name text-dark">Tas Ransel Sekolah Anak...</div>
+                                        <div class="product-price fw-bold text-dark mb-2">Rp85.000</div>
+                                        <div class="product-meta d-flex align-items-center text-muted mb-2">
+                                            <i class="bi bi-star-fill rating-star me-1"></i>
+                                            <span class="me-1">4.6</span>
+                                            <span>• 120+ terjual</span>
+                                        </div>
+                                        <button class="cart-button btn btn-success position-absolute rounded d-flex align-items-center justify-content-center p-0">
+                                            <i class="bi bi-cart text-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        
+                        <!-- Product 10 -->
+                        <div class="product-item">
+                            <a href="product-details.html0" class="text-decoration-none">
+                                <div class="card product-card border border-light-subtle h-100 shadow-sm">
+                                    <div class="product-image-container position-relative rounded-top overflow-hidden">
+                                        <img data-src="" alt="Produk 10" class="product-image w-100">
+                                        <span class="discount-badge position-absolute bg-danger text-white px-2 py-1 rounded small">5%</span>
+                                    </div>
+                                    <div class="card-body p-3 position-relative">
+                                        <div class="product-name text-dark">Sarung Tangan Karet Orange...</div>
+                                        <div class="product-price fw-bold text-dark mb-2">Rp15.000</div>
+                                        <div class="product-meta d-flex align-items-center text-muted mb-2">
+                                            <i class="bi bi-star-fill rating-star me-1"></i>
+                                            <span class="me-1">4.4</span>
+                                            <span>• 200+ terjual</span>
+                                        </div>
+                                        <button class="cart-button btn btn-success position-absolute rounded d-flex align-items-center justify-content-center p-0">
+                                            <i class="bi bi-cart text-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Load more product -->
+                <div class="d-flex justify-content-center">
+                    <button class="btn-load-product bg-white rounded p-3 text-success fw-bold mb-4">Muat Lebih Banyak Produk</button>
+                </div>
             </div>
         </main>
 

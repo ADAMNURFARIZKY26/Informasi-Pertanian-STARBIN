@@ -1,156 +1,207 @@
 main {
-    padding-top: 70px;
+    padding-top: 50px;
 }
 
-/* CSS optimasi untuk slideshow */
+.border-success {
+    --bs-border-opacity: 1;
+    border-color: rgba(
+        var(--bs-success-rgb),
+        var(--bs-border-opacity)
+    ) !important;
+}
+
+/* variable from template */
+:root {
+    --default-font: "Roboto", system-ui, -apple-system, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
+        "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+        "Noto Color Emoji";
+    --heading-font: "Montserrat", sans-serif;
+    --nav-font: "Poppins", sans-serif;
+}
+
+/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+:root {
+    --background-color: #ffffff; /* Background color for the entire website, including individual sections */
+    --default-color: #222222; /* Default color used for the majority of the text content across the entire website */
+    --heading-color: #172a28; /* Color for headings, subheadings and title throughout the website */
+    --accent-color: #008374; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
+    --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
+    --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+}
+
+/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+:root {
+    --nav-color: #ffffff; /* The default color of the main navmenu links */
+    --nav-hover-color: #008374; /* Applied to main navmenu links when they are hovered over or active */
+    --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
+    --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
+    --nav-dropdown-color: #01433c; /* Used for navigation links of the dropdown items in the navigation menu. */
+    --nav-dropdown-hover-color: #008374; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+}
+
+/* Section slideshow */
 .swiper {
-  border-radius: 12px;
-  will-change: transform; /* Membantu optimasi rendering GPU */
-  contain: content; /* Meningkatkan performa rendering dengan memberi tahu browser */
+    border-radius: 12px;
+    will-change: transform; /* Membantu optimasi rendering GPU */
+    contain: content; /* Meningkatkan performa rendering dengan memberi tahu browser */
 }
 
 .product-slideshow {
-  max-width: 90%;
-  margin: 0 auto;
-  position: relative;
-  overflow: visible;
-  border-radius: 16px;
+    max-width: 95%;
+    margin: 0 auto;
+    position: relative;
+    overflow: visible;
+    border-radius: 16px;
 }
+
+.overlay-caption .nama-produk {
+  max-width: 90%;           /* Batasi lebar agar tidak melebihi gambar */
+  margin-inline: auto;      /* Pusatkan horizontal */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;    /* Maksimal 2 baris */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;  /* Tambahkan "..." jika melebihi 2 baris */
+  white-space: normal;
+}
+
 
 /* Optimasi untuk slide dan gambar */
 .product-slideshow .swiper-slide {
-  transform: translateZ(0); /* Force GPU acceleration */
-  backface-visibility: hidden; /* Meningkatkan performa animasi */
+    transform: translateZ(0); /* Force GPU acceleration */
+    backface-visibility: hidden; /* Meningkatkan performa animasi */
 }
 
 .product-slideshow .swiper-slide img {
-  width: 100%;
-  min-height: 280px;
-  max-height: 280px;
-  object-fit: cover;
-  border-radius: 12px;
-  transition: filter 0.15s ease;
-  transform: translateZ(0); /* Force GPU acceleration */
-  will-change: opacity; /* Memberi tahu browser untuk optimasi pada properti opacity */
+    width: 100%;
+    min-height: 350px;
+    max-height: 350px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: filter 0.15s ease;
+    transform: translateZ(0); /* Force GPU acceleration */
+    will-change: opacity; /* Memberi tahu browser untuk optimasi pada properti opacity */
 }
 
 .product-slideshow .swiper-slide img:active {
-  filter: brightness(0.97);
+    filter: brightness(0.97);
 }
 
 /* Optimasi lazy loading dengan transition yang lebih smooth */
 .product-slideshow .swiper-lazy img {
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .product-slideshow .swiper-lazy-loaded img {
-  opacity: 1;
+    opacity: 1;
 }
 
 /* Tombol navigasi dengan transform optimized */
 .custom-swiper-btn {
-  position: absolute;
-  top: 50%;
-  z-index: 10;
-  transform: translateY(-50%) scale(0.85) translateX(0);
-  background-color: #fff;
-  border-radius: 50%;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #18924b;
-  font-size: 1rem;
-  border: 1px solid #e0e0e0;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, color 0.2s ease;
-  outline: none;
-  box-shadow: none;
-  will-change: transform, opacity; /* Optimasi untuk perubahan yang akan terjadi */
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    transform: translateY(-50%) scale(0.85) translateX(0);
+    background-color: #fff;
+    border-radius: 50%;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #18924b;
+    font-size: 1rem;
+    border: 1px solid #e0e0e0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease,
+        color 0.2s ease;
+    outline: none;
+    box-shadow: none;
+    will-change: transform, opacity; /* Optimasi untuk perubahan yang akan terjadi */
 }
 
 .product-slideshow.show-nav .custom-swiper-btn,
 .custom-swiper-btn:focus {
-  opacity: 1;
-  pointer-events: auto;
-  transform: translateY(-50%) scale(1) translateX(0);
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scale(1) translateX(0);
 }
 
 .button-next.custom-swiper-btn {
-  right: 8px;
+    right: 8px;
 }
 
 .button-prev.custom-swiper-btn {
-  left: 8px;
+    left: 8px;
 }
 
 .product-slideshow:not(.show-nav) .button-next.custom-swiper-btn {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-50%) scale(0.85) translateX(16px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%) scale(0.85) translateX(16px);
 }
 
 .product-slideshow:not(.show-nav) .button-prev.custom-swiper-btn {
-  opacity: 0;
-  pointer-events: none;
-  transform: translateY(-50%) scale(0.85) translateX(-16px);
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-50%) scale(0.85) translateX(-16px);
 }
 
 .custom-swiper-btn span {
-  display: block;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1;
-  text-align: center;
-  width: 100%;
-  user-select: none;
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1;
+    text-align: center;
+    width: 100%;
+    user-select: none;
 }
 
 /* Optimasi pagination bullets */
 .swiper-pagination {
-  bottom: 10px !important;
-  text-align: center;
+    bottom: 10px !important;
+    text-align: center;
 }
 
 .swiper-pagination-bullet {
-  background-color: #e0e0e0;
-  opacity: 1;
-  width: 8px;
-  height: 8px;
-  margin: 0 3px !important;
-  border-radius: 50%;
-  transition: background 0.2s ease, width 0.15s ease;
-  box-shadow: none;
-  transform: translateZ(0); /* Force GPU acceleration */
+    background-color: #e0e0e0;
+    opacity: 1;
+    width: 8px;
+    height: 8px;
+    margin: 0 3px !important;
+    border-radius: 50%;
+    transition: background 0.2s ease, width 0.15s ease;
+    box-shadow: none;
+    transform: translateZ(0); /* Force GPU acceleration */
 }
 
 .swiper-pagination-bullet-active {
-  background: #00AA5B;
-  width: 18px;
-  border-radius: 8px;
+    background: #00aa5b;
+    width: 18px;
+    border-radius: 8px;
 }
 
 /* Overlay optimasi */
 .swiper-wrapper .swiper-slide .overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 12px; /* Menyamakan dengan border radius gambar */
-  pointer-events: none; /* Mencegah overlay mengganggu interaksi */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 12px; /* Menyamakan dengan border radius gambar */
+    pointer-events: none; /* Mencegah overlay mengganggu interaksi */
 }
 
 /* Optimasi preloader */
 .swiper-lazy-preloader {
-  border-width: 2px;
-  margin: -16px 0 0 -16px;
-  animation-duration: 0.8s; /* Sedikit lebih cepat dari default */
+    border-width: 2px;
+    margin: -16px 0 0 -16px;
+    animation-duration: 0.8s; /* Sedikit lebih cepat dari default */
 }
 
 /* section produk unggulan*/
@@ -161,19 +212,166 @@ main {
 .section-divider {
     width: 60px;
     height: 3px;
-    background: #00AA5B;
+    background: #00aa5b;
     margin-top: 0.5rem;
 }
 
 /* Card produk*/
 /* Scroll horizontal */
 .product-scroll-wrapper {
-  display: flex;
-  gap: 1rem;
-  overflow-x: auto;
-  padding: 0 1rem;
-  scroll-snap-type: x mandatory;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    padding: 0 1rem;
+    scroll-snap-type: x mandatory;
 }
 
 /* section produk unggulan */
-  .hover-lift:hover { transform: translateY(-2px); }
+.good-product-container {
+    box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.12);
+}
+
+.good-product-container h2 {
+    width: fit-content;
+}
+
+.hover-lift:hover {
+    transform: translateY(-2px);
+}
+
+.card-product-unggulan {
+    width: 120px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+}
+
+.img-product-unggulan {
+    width: 100px;
+    height: 100px;
+}
+
+h2 {
+    font-family: var(--heading-font);
+    color: var(--heading-color);
+}
+
+/* Section Daftar produk*/
+.product-image-container {
+    height: 180px;
+    overflow: hidden;
+}
+
+.product-image {
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-card:hover {
+    cursor: pointer;
+}
+
+.discount-badge {
+    top: 8px;
+    left: 8px;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.product-name {
+    font-size: 12px;
+    line-height: 1.33;
+    min-height: 32px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.product-price {
+    font-size: 14px;
+}
+
+.product-meta {
+    font-size: 11px;
+}
+
+.rating-star {
+    color: #ffc107;
+    font-size: 10px;
+}
+
+.cart-button {
+    width: 24px;
+    height: 24px;
+    bottom: 8px;
+    right: 8px;
+}
+
+.cart-button i {
+    font-size: 10px;
+}
+
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+@media (max-width: 1200px) {
+    .products-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .products-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .products-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .product-image-container {
+        height: 150px;
+    }
+    .product-name {
+        font-size: 11px;
+        min-height: 28px;
+    }
+    .product-price {
+        font-size: 13px;
+    }
+    .products-grid {
+        gap: 6px;
+    }
+}
+
+.btn-load-product {
+    border: 1px solid rgb(0, 170, 91);
+    color: rgb(0, 170, 91);
+}
+
+.search-product {
+    box-sizing: border-box;
+}
+
+.search-input {
+    border: 2px solid rgb(165, 159, 159) !important;
+}
+
+.search-input:focus {
+    border-color: #00aa5b !important;
+    box-shadow: 0 0 0 0.2rem #00aa5b !important;
+}
+.nav-link.active,
+.nav-link:hover {
+    color: #00aa5b !important;
+}

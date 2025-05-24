@@ -6,33 +6,6 @@
 }
 
 /* Breadcrumbs */
-.blog-breadcrumbs {
-    font-size: 18px;
-}
-
-/* Hilangkan bg dari template */
-.blog-breadcrumbs .container{
-    background-color: none;
-}
-
-.blog-breadcrumbs .breadcrumb-item a {
-  text-decoration: none;
-  color: #6c757d; /* abu-abu */
-}
-
-/* Menghilangjan efek hover dari template */
-.blog-breadcrumbs .breadcrumb-item a:hover {
-  text-decoration: none;
-  color: #6c757d; /* abu-abu */
-}
-
-.blog-breadcrumbs .breadcrumb-item.active {
-  color: #0d6efd; /* biru */
-  font-weight: 500;
-}
-
-.blog-breadcrumbs .breadcrumb-item + .breadcrumb-item::before {
-  content: "/";
-  color: #6c757d;
-  padding: 0 5px;
+.breadcrumbs .breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
 }
