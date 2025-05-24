@@ -1,0 +1,89 @@
+#header {
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+#header.hide-on-scroll {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+main div .heading {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  min-height: 500px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+main div .heading .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+main div .heading .container {
+  position: relative;
+  z-index: 2;
+}
+
+.custom-card {
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 132, 103, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+  border: 2px solid #008467;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 132, 103, 0.3);
+}
+
+.custom-card h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #008467;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.overlay-hover {
+position: absolute;
+bottom: 0;
+top: 0;
+left: 0;
+right: 0;
+opacity: 0;
+text-align: center;
+transition: opacity 0.3s ease;
+background: rgba(0, 132, 103, 0.85);
+padding: 4px 10px;
+border-radius: 10px;
+}
+.custom-card:hover .overlay-hover {
+  opacity: 1;
+}
+
+.overlay-text {
+  color: #fff;
+  font-size: 0.85rem;
+  line-height: 180px;
+}
+.section-header h1 {
+  border-bottom: 3px solid #008467;
+  padding-bottom: 5px;
+  display: inline-block;
+  font-size: 1.6rem;
+}
