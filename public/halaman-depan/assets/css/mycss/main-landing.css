@@ -1,0 +1,263 @@
+.custom-pill-btn {
+    border-radius: 5px; /* membuat bulat */
+    padding: 5px 10px;
+    border: 2px solid rgba(255, 255, 255, 0.3); /* border putih transparan */
+    background-color: rgba(255, 255, 255, 0.05); /* latar transparan */
+    color: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.custom-pill-btn:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: white;
+    color: white;
+}
+
+.btn-outline-success {
+    border: 2px solid #008467;
+    color: #008467;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-success:hover {
+    background-color: #008467;
+    color: white;
+}
+
+.btn-selengkapnya {
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    color: #008467;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.btn-selengkapnya:hover {
+    transform: scale(1.05);
+    color: #005f4e;
+}
+
+.card-pengetahuan h1 {
+    font-size: 2rem;
+    color: #00b56a; /* hijau terang */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7); /* agar tetap terbaca di bg gelap */
+}
+
+.card-pengetahuan {
+    aspect-ratio: 4 / 3;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    background-color: #000;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.card-pengetahuan:hover {
+    transform: scale(1.02);
+}
+
+.card-pengetahuan .bg-image {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(50%);
+    z-index: 1;
+    transition: filter 0.3s ease;
+}
+
+.card-pengetahuan:hover .bg-image {
+    filter: brightness(35%); /* brightness lebih redup saat hover */
+}
+
+.card-pengetahuan .card-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    padding-top: 5rem; /* mendorong isi ke bawah */
+}
+
+.card-pengetahuan .selengkapnya {
+    opacity: 0;
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: translateY(5px);
+    color: #00b56a;
+    font-weight: 600;
+}
+
+.card-pengetahuan:hover .selengkapnya {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card-pengetahuan h1 {
+    font-size: 1.75rem;
+    color: #00b56a;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
+}
+
+.card-pengetahuan p {
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.7);
+}
+
+.card-blog {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-blog:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-blog .blog-img {
+    transition: transform 0.4s ease;
+}
+
+.card-blog:hover .blog-img {
+    transform: scale(1.05);
+}
+
+.line-decorator {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background-color: #ccc;
+    z-index: 0;
+}
+
+.btn-selengkapnya-custom {
+    position: relative;
+    background: none;
+    color: #008467;
+    font-size: 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 1;
+    padding: 0.5rem 1.5rem;
+    transition: transform 0.3s ease;
+    background-color: #fff;
+}
+
+.btn-selengkapnya-custom:hover {
+    transform: scale(1.05);
+    color: #06926f;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1050;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: scale(0.95);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.overlay.show {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.overlay-content {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Menonaktifkan link di list 'Dropdown' */
+.disabled-link {
+    pointer-events: none;
+    cursor: default;
+    color: inherit;
+}
+
+/* Breadcrumbs */
+.breadcrumbs .breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+}
+.portfolio-content:hover img {
+    transform: scale(1.05);
+}
+
+.portfolio-content {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.portfolio-content:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transform: translateY(-4px);
+}
+
+.btn-outline-success:hover {
+    background-color: #06926f !important;
+    color: #fff !important;
+    border-color: #06926f !important;
+}
+
+.edukasi-card {
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.edukasi-card p {
+    font-size: 1rem;
+}
+
+.edukasi-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0, 132, 103, 0.3);
+}
+
+.bg-image {
+    z-index: 0;
+}
+
+/* Tambahan shadow yang lebih pekat untuk teks agar tidak menyatu */
+.edukasi-card h2,
+.edukasi-card .selengkapnya {
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    /* bayangan gelap agar teks terang terlihat */
+}
+
+/* Ubah warna "Selengkapnya" jadi lebih terang dan tegas */
+.selengkapnya {
+    opacity: 0;
+    color: #21e2ad;
+    /* hijau muda neon agar kontras */
+    font-weight: 600;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    /* shadow tambahan */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover tetap agar muncul dengan animasi */
+.edukasi-link:hover .selengkapnya {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Tambahkan lapisan gelap transparan penuh pada seluruh card body */
+.edukasi-body {
+    background-color: rgba(0, 0, 0, 0.3);
+    /* dinaikkan sedikit jadi 0.6 untuk kontras lebih */
+    backdrop-filter: blur(1px);
+    /* blur latar belakang agar tulisan makin kontras */
+    border-radius: 0.75rem;
+}

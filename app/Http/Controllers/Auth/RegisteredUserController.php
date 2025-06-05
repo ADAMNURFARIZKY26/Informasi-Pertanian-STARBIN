@@ -3,19 +3,18 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User;
-use Illuminate\Auth\Events\Registered;
+use App\Models\PendingRegistration;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Str;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Validator;
 
 class RegisteredUserController extends Controller
 {
     /**
-     * Display the registration view.
+     * Show the registration form.
      */
     public function create(): View
     {
@@ -23,28 +22,44 @@ class RegisteredUserController extends Controller
     }
 
     /**
-     * Handle an incoming registration request.
-     *
-     * @throws \Illuminate\Validation\ValidationException
+     * Handle registration logic.
      */
     public function store(Request $request): RedirectResponse
     {
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+        $validator = Validator::make($request->all(), [
+            'name'           => ['required', 'string', 'max:255'],
+            'email'          => ['required', 'string', 'email', 'max:255', 'unique:pending_registrations,email'],
+            'password'       => ['required', 'string', 'min:8'],
+            'telepon'        => ['required', 'string', 'max:20'],
+            'tanggal_lahir'  => ['required', 'date'],
+            'jenis_kelamin'  => ['required', 'in:Laki-laki,Perempuan'],
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
+        // Generate OTP 6 digit
+        $otp = rand(100000, 999999);
+
+        // Simpan data sementara
+        $pending = PendingRegistration::create([
+            'name'           => $request->name,
+            'email'          => $request->email,
+            'password'       => bcrypt($request->password),
+            'telepon'        => $request->telepon,
+            'tanggal_lahir'  => $request->tanggal_lahir,
+            'jenis_kelamin'  => $request->jenis_kelamin,
+            'otp'            => $otp,
         ]);
 
-        event(new Registered($user));
+        // Kirim OTP ke email
+        Mail::to($request->email)->send(new \App\Mail\OtpVerificationMail($otp));
 
-        Auth::login($user);
+        // Simpan session untuk identifikasi user yang sedang verifikasi
+        session(['pending_registration_email' => $request->email]);
 
-        return redirect(route('dashboard', absolute: false));
+        // Redirect ke halaman verifikasi OTP
+        return redirect()->route('verification.otp.form')->with('status', 'Kode OTP telah dikirim ke email Anda.');
     }
 }
