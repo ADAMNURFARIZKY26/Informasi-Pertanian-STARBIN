@@ -1,0 +1,1653 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        sans-serif;
+}
+
+:root {
+    --tokopedia-green: #00aa5b;
+    --tokopedia-dark-green: #00963b;
+    --tokopedia-gray: rgb(179, 187, 201);
+    --tokopedia-light-gray: rgb(230, 233, 240);
+}
+
+/* Override bootsrap class */
+.text-muted {
+    color: var(--tokopedia-gray) !important;
+}
+
+.border-light-subtle {
+    border: 1px solid var(--tokopedia-light-gray) !important;
+}
+
+.btn-success {
+    background-color: var(--tokopedia-green) !important;
+    border-color: var(--tokopedia-dark-green) !important;
+}
+
+.btn-outline-success {
+    color: var(--tokopedia-green) !important;
+    border-color: var(--tokopedia-green) !important;
+}
+
+.btn-outline-success:hover {
+    background-color: var(--tokopedia-light-gray) !important;
+}
+
+/* Badge */
+.badge.bg-success {
+    background-color: var(--tokopedia-green) !important;
+}
+
+.btn-primary {
+    background-color: var(--tokopedia-green) !important;
+    border-color: var(--tokopedia-green) !important;
+}
+
+.btn-primary:hover {
+    background-color: var(--tokopedia-dark-green) !important;
+    border-color: var(--tokopedia-dark-green) !important;
+}
+/* End override */
+
+/* Utilitas */
+.text-tokopedia {
+    color: var(--tokopedia-dark-green) !important;
+}
+
+.bg-tokopedia {
+    background-color: var(--tokopedia-green) !important;
+}
+
+/* End utilistas */
+
+/* General style */
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+.breadcrumb {
+    background: transparent;
+    padding: 0;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    content: ">";
+    color: var(--tokopedia-gray);
+}
+
+.main-product-thumbnail {
+    height: 400px;
+    border: 1px solid #e5e7e9;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+}
+
+.main-product-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background: #fff;
+}
+
+.product-thumbnail {
+    width: 60px;
+    height: 60px;
+    border: 1px solid #e5e7e9;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.product-thumbnail:hover,
+.product-thumbnail.active {
+    border-color: var(--tokopedia-green);
+}
+
+.product-thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.discount-badge {
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.seller-info {
+    border: 1px solid #e5e7e9;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 20px;
+}
+
+.seller-badge {
+    background: #e8f5e8;
+    color: var(--tokopedia-green);
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.rating-stars {
+    color: #ffc107;
+}
+
+.spec-table {
+    border: 1px solid #e5e7e9;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.spec-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #e5e7e9;
+    vertical-align: top;
+}
+
+.spec-table tr:last-child td {
+    border-bottom: none;
+}
+
+.spec-table .spec-label {
+    background: var(--tokopedia-light-gray);
+    font-weight: 600;
+    width: 30%;
+    color: #31353bad;
+}
+
+.reviews-section {
+    border: 1px solid #e5e7e9;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.review-item {
+    border-bottom: 1px solid #e5e7e9;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+}
+
+.review-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.review-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--tokopedia-light-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    color: var(--tokopedia-gray);
+}
+
+.quantity-selector {
+    border: 1px solid #e5e7e9;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+}
+
+.quantity-btn {
+    background: none;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    color: var(--tokopedia-gray);
+    font-size: 1.2rem;
+}
+
+.quantity-btn:hover {
+    color: var(--tokopedia-green);
+}
+
+.quantity-input {
+    border: none;
+    text-align: center;
+    width: 50px;
+    padding: 8px 4px;
+    font-weight: 600;
+}
+
+.quantity-input:focus {
+    outline: none;
+}
+
+.variant-option {
+    border: 1px solid #e5e7e9;
+    border-radius: 6px;
+    padding: 8px 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-block;
+}
+
+.variant-option:hover,
+.variant-option.selected {
+    border-color: var(--tokopedia-green);
+    color: var(--tokopedia-green);
+}
+
+.info-pengiriman {
+    font-size: 0.875rem;
+}
+
+.product-tags {
+    margin: 16px 0;
+}
+
+.product-tag {
+    background: #e8f5e8;
+    color: var(--tokopedia-green);
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    margin-right: 8px;
+    margin-bottom: 4px;
+    display: inline-block;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #31353bad;
+    margin-bottom: 16px;
+}
+
+.wishlist-btn {
+    border: 1px solid #e5e7e9;
+    background: white;
+    color: var(--tokopedia-gray);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.wishlist-btn:hover {
+    border-color: var(--tokopedia-orange);
+    color: var(--tokopedia-orange);
+}
+
+.share-btn {
+    border: 1px solid #e5e7e9;
+    background: white;
+    color: var(--tokopedia-gray);
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-left: 8px;
+}
+
+.share-btn:hover {
+    border-color: var(--tokopedia-green);
+    color: var(--tokopedia-green);
+}
+
+/* Purchase panel (Sisi Kanan) */
+.purchase-panel {
+    border-radius: 8px !important;
+}
+
+/* Selector kuantitas plus minus */
+.quantity-selector-modern {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--tokopedia-light-gray);
+    border-radius: 8px;
+    overflow: hidden;
+    width: 120px;
+}
+
+.quantity-btn-modern {
+    background-color: white;
+    border: none;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    border-radius: 8px;
+}
+
+.quantity-btn-modern:hover {
+    background: var(--tokopedia-light-gray);
+}
+
+.quantity-btn-modern:active {
+    background: #dee2e6;
+}
+
+.quantity-input-modern {
+    border: none;
+    background: transparent;
+    text-align: center;
+    width: 48px;
+    height: 36px;
+    font-weight: 600;
+    color: #212529;
+    font-size: 14px;
+    outline: none;
+}
+
+.quantity-selector-modern:focus-within {
+    border: 1px solid var(--tokopedia-green) !important;
+}
+
+/* Price / Harga */
+.price-section {
+    padding: 5px;
+}
+
+/* Button beli dan keranjang */
+
+.buy-btn.btn-primary-custom {
+    background: var(--tokopedia-green);
+    border: 1px solid var(--tokopedia-green);
+    color: white;
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.buy-btn.btn-primary-custom:hover {
+    background: var(--tokopedia-dark-green);
+    border-color: var(--tokopedia-dark-green);
+    color: white;
+}
+
+.cart-btn.btn-outline-custom {
+    border: 1px solid var(--tokopedia-green);
+    color: var(--tokopedia-green);
+    font-weight: 600;
+    padding: 12px 24px;
+    border-radius: 8px;
+    background: white;
+    transition: all 0.2s;
+}
+
+.cart-btn.btn-outline-custom:hover {
+    background: var(--tokopedia-light-gray);
+    color: var(--tokopedia-green);
+    border: 1px solid var(--tokopedia-green);
+}
+
+/* Tombol icon aksi */
+.btn-icon-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon-text i {
+    font-size: 1.1rem;
+}
+
+.btn-icon-text span {
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+/* Divider Styling */
+.text-success {
+    color: var(--tokopedia-green) !important;
+    font-weight: 600 !important;
+}
+
+.text-success:hover {
+    color: var(--tokopedia-dark-green) !important;
+    text-decoration: underline !important;
+}
+
+/* Stock Information */
+.stock-info {
+    background: rgba(0, 170, 91, 0.1);
+    color: var(--tokopedia-green);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+/* Discount Badge - Tokopedia Orange */
+.badge.bg-danger {
+    background-color: var(--tokopedia-orange) !important;
+    font-weight: 600;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .purchase-panel {
+        position: static !important;
+        margin-bottom: 2rem;
+    }
+
+    .quantity-selector-modern {
+        width: 100px;
+    }
+
+    .quantity-btn-modern {
+        width: 32px;
+        height: 32px;
+    }
+
+    .quantity-input-modern {
+        width: 36px;
+        height: 32px;
+    }
+}
+
+/* Animation for quantity changes */
+.quantity-change-animation {
+    animation: pulse 0.3s ease;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+/* End Purchase Panel */
+
+@media (max-width: 768px) {
+    .main-product-thumbnail {
+        margin-bottom: 20px;
+    }
+
+    .btn-primary-custom,
+    .btn-outline-custom {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* Rating Section */
+.rating-out-of {
+    color: var(--tokopedia-gray);
+}
+
+.rating-bar-container {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.rating-bar {
+    height: 100%;
+    background-color: var(--tokopedia-green);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.rating-number {
+    min-width: 12px;
+}
+
+.rating-count {
+    min-width: 30px;
+}
+
+/* Komentar & Ulasan */
+.container-comment-section {
+    max-width: 1200px;
+}
+
+.review-layout {
+    display: flex;
+}
+
+/* Filter Sidebar Styles */
+.container-comment-section .review-layout .filter-comment-sidebar {
+    width: 280px;
+    height: fit-content;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.filter-comment-header {
+    padding: 0 20px;
+    border-bottom: 1px solid #e5e5e5;
+    text-align: left;
+}
+
+.filter-comment-title {
+    margin: 0;
+}
+
+.filter-comment-section {
+    padding: 16px 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.filter-comment-section:last-child {
+    border-bottom: none;
+}
+
+.filter-comment-section-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 600;
+    color: #212121;
+    margin-bottom: 12px;
+    cursor: pointer;
+}
+
+.filter-comment-section-title .chevron {
+    transition: transform 0.2s ease;
+}
+
+.filter-comment-section.collapsed .chevron {
+    transform: rotate(-90deg);
+}
+
+.filter-comment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-comment-section.collapsed .filter-comment-options {
+    display: none;
+}
+
+.filter-comment-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #6d7588;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+.filter-comment-option:hover {
+    color: #212121;
+}
+
+.filter-comment-checkbox {
+    width: 22px;
+    height: 22px;
+    border: 1px solid #c7c7c7;
+    border-radius: 2px;
+    position: relative;
+    background-color: white;
+}
+
+.filter-comment-checkbox.checked {
+    background-color: #00aa5b;
+    border-color: #00aa5b;
+}
+
+.filter-comment-checkbox.checked::after {
+    content: "✓";
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: -2px;
+    left: 3px;
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.star-filter {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.star-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.star-rating .bi-star-fill {
+    color: #ffc400;
+    font-size: 12px;
+}
+
+.star-rating .bi-star {
+    color: #e5e5e5;
+    font-size: 12px;
+}
+
+/* Komentar section */
+.comment-section {
+    max-width: 600px;
+    margin-left: 20px;
+}
+
+.comment-item {
+    padding: 16px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.comment-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.comment-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--tokopedia-green);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    flex-shrink: 0;
+}
+
+.comment-info {
+    flex: 1;
+}
+
+.comment-user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.username {
+    font-weight: 600;
+    color: #333;
+    font-size: 14px;
+}
+
+.seller-badge {
+    background-color: var(--tokopedia-green);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.comment-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.star-rating {
+    display: flex;
+    gap: 2px;
+}
+
+.comment-time {
+    color: #666;
+    font-size: 12px;
+}
+
+.comment-content {
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 14px;
+}
+
+.comment-text {
+    line-height: 1.6;
+}
+
+.comment-text.collapsed {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.toggle-button {
+    color: var(--tokopedia-green);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 0;
+    margin-top: 4px;
+}
+
+.toggle-button:hover {
+    color: var(--tokopedia-dark-green);
+}
+
+.comment-media {
+    display: flex;
+    gap: 8px;
+    margin: 12px 0;
+}
+
+.media-item {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    background-color: var(--tokopedia-light-gray);
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+}
+
+.media-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.media-item .play-icon {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 20px;
+}
+
+.play-icon i:hover {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+.comment-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: #666;
+    font-size: 12px;
+}
+
+.media-video {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.media-image {
+    width: 80px;
+    height: 80px;
+}
+
+.media-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+.helpful-count {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.helpful-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.reply-toggle {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--tokopedia-green);
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.reply-toggle:hover {
+    color: var(--tokopedia-dark-green);
+}
+
+.dropdown-icon {
+    transition: transform 0.3s ease;
+}
+
+.dropdown-icon.rotated {
+    transform: rotate(180deg);
+}
+
+/* Bagian Balasan Komentar */
+.comment-replies-section {
+    padding-left: 16px;
+}
+
+.reply-item {
+    padding: 12px 0;
+    border-bottom: 1px solid #f8f8f8;
+}
+
+.reply-item:last-child {
+    border-bottom: none;
+}
+
+.menu-button {
+    background: none;
+    border: none;
+    color: #666;
+    cursor: pointer;
+    padding: 4px;
+    font-size: 16px;
+}
+
+.menu-button:hover {
+    color: #333;
+}
+
+/* Pagination Komentar */
+.commentar-pagination .page-link {
+    border: none;
+    color: var(--tokopedia-gray);
+    background-color: transparent;
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+}
+
+.commentar-pagination .page-item.active .page-link {
+    color: var(--tokopedia-green);
+    font-weight: 600;
+    border-bottom: 2px solid var(--tokopedia-green);
+    background-color: transparent;
+}
+
+.commentar-pagination .page-link:hover {
+    color: var(--tokopedia-green);
+    text-decoration: none;
+}
+
+.commentar-pagination .page-item.disabled .page-link {
+    color: #ccc;
+    pointer-events: none;
+}
+
+/* Filter Komentar */
+.filter-ulasan:focus {
+    border-color: var(--tokopedia-green) !important;
+}
+
+.dropdown-item:active {
+    background-color: var(--tokopedia-light-gray);
+    color: black;
+}
+
+.dropdown-item.active-sort {
+    position: relative;
+}
+
+.dropdown-item.active-sort::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background-color: var(--tokopedia-green);
+    border-radius: 4px;
+}
+
+.dropdown-item.active-sort {
+    background: var(--tokopedia-light-gray) !important;
+}
+
+/* Gallery Product */
+.photo-gallery-wrapper {
+    padding: 10px 0;
+    border-top: 1px solid var(--tokopedia-light-gray);
+    border-bottom: 1px solid var(--tokopedia-light-gray);
+}
+
+.commentar-media {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    border: 1px solid #e5e7e9;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.commentar-media:hover,
+.commentar-media.active {
+    border-color: var(--tokopedia-green);
+}
+
+.commentar-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.more-commentar-media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    width: 70px;
+    height: 70px;
+    overflow: hidden;
+}
+
+.more-commentar-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.25;
+    border-radius: 4px;
+}
+
+.photo-counter-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    pointer-events: none;
+    font-size: 0.875rem;
+}
+
+/* ============================================ */
+/* MEDIA QUERIES UNTUK RESPONSIF MOBILE */
+/* ============================================ */
+
+/* Tablet & Mobile (768px ke bawah) */
+@media (max-width: 768px) {
+    .container-comment-section {
+        padding: 0 16px;
+    }
+
+    .review-layout {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Filter sidebar menjadi full width di mobile */
+    .container-comment-section .review-layout .filter-comment-sidebar {
+        width: 100%;
+        position: static;
+        order: -1; /* Filter muncul di atas komentar */
+    }
+
+    /* Hapus margin hardcoded pada comment section */
+    .comment-section {
+        margin: 0 !important;
+        max-width: 100%;
+    }
+
+    /* Perbaiki header filter */
+    .filter-comment-header {
+        padding: 16px 20px;
+    }
+
+    .filter-comment-header .h4 {
+        font-size: 18px;
+    }
+
+    /* Kompakkan filter sections */
+    .filter-comment-section {
+        padding: 12px 20px;
+    }
+
+    .filter-comment-section-title {
+        font-size: 15px;
+    }
+
+    .filter-comment-option {
+        font-size: 13px;
+        padding: 6px 0;
+    }
+}
+
+/* Mobile kecil (480px ke bawah) */
+@media (max-width: 480px) {
+    .container-comment-section {
+        padding: 0 12px;
+    }
+
+    /* Perbaiki comment header */
+    .comment-header {
+        gap: 10px;
+    }
+
+    .comment-avatar {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+
+    .username {
+        font-size: 13px;
+    }
+
+    .comment-time {
+        font-size: 11px;
+    }
+
+    .comment-content {
+        font-size: 13px;
+    }
+
+    /* Perbaiki star rating */
+    .star-rating .bi-star-fill,
+    .star-rating .bi-star {
+        font-size: 11px;
+    }
+
+    /* Kompakkan media items */
+    .comment-media {
+        gap: 6px;
+        margin: 10px 0;
+    }
+
+    .media-item {
+        width: 50px;
+        height: 50px;
+    }
+
+    .media-item .play-icon {
+        width: 16px;
+        height: 16px;
+        font-size: 8px;
+    }
+
+    .media-image {
+        width: 60px;
+        height: 60px;
+    }
+
+    /* Perbaiki comment actions */
+    .comment-actions {
+        gap: 12px;
+        font-size: 11px;
+        flex-wrap: wrap;
+    }
+
+    .helpful-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    /* Kompakkan filter sections untuk mobile kecil */
+    .filter-comment-section {
+        padding: 10px 16px;
+    }
+
+    .filter-comment-header {
+        padding: 12px 16px;
+    }
+
+    .filter-comment-header .h4 {
+        font-size: 16px;
+    }
+
+    .filter-comment-section-title {
+        font-size: 14px;
+    }
+
+    .filter-comment-option {
+        font-size: 12px;
+        gap: 6px;
+    }
+
+    .filter-comment-checkbox {
+        width: 20px;
+        height: 20px;
+    }
+
+    .filter-comment-checkbox.checked::after {
+        font-size: 13px;
+        top: -1px;
+        left: 2px;
+    }
+
+    /* Replies section */
+    .comment-replies-section {
+        padding-left: 12px;
+    }
+
+    .reply-item {
+        padding: 10px 0;
+    }
+
+    /* Menu button */
+    .menu-button {
+        padding: 2px;
+        font-size: 14px;
+    }
+}
+
+/* Untuk perangkat yang sangat kecil (320px ke bawah) */
+@media (max-width: 320px) {
+    .container-comment-section {
+        padding: 0 8px;
+    }
+
+    .comment-header {
+        gap: 8px;
+    }
+
+    .comment-avatar {
+        width: 35px;
+        height: 35px;
+        font-size: 12px;
+    }
+
+    .filter-comment-section {
+        padding: 8px 12px;
+    }
+
+    .filter-comment-header {
+        padding: 10px 12px;
+    }
+
+    .comment-actions {
+        gap: 8px;
+        font-size: 10px;
+    }
+
+    .media-item {
+        width: 45px;
+        height: 45px;
+    }
+
+    .media-image {
+        width: 55px;
+        height: 55px;
+    }
+}
+/* End of Media Queries */
+
+/* Modals */
+
+/* Modal Preview Produk */
+.modal-main-image {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    max-height: 70vh;
+    object-fit: contain;
+    display: block;
+}
+
+@media (min-width: 768px) {
+    .modal-main-image {
+        max-height: 500px;
+    }
+}
+
+.other-thumb {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    overflow: hidden;
+    border-radius: 6px;
+}
+
+.other-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Modal Comentar Media / Gallery Modal */
+.modal-commentar-media .modal-dialog {
+    max-width: 1000px; /* Sesuaikan dengan preferensi Anda */
+}
+
+.modal-commentar-media .modal-content {
+    border: none;
+    border-radius: 8px; /* Sesuai gambar referensi */
+    overflow: hidden; /* Mencegah konten keluar dari border-radius */
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    z-index: 1056; /* Di atas konten modal */
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.modal-close-btn:active {
+    border: none;
+    box-shadow: none;
+    color: #333;
+}
+
+.modal-main-content {
+    background-color: #000; /* Latar belakang area gambar utama */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Pusatkan gambar jika lebih kecil dari container */
+}
+
+.main-image-container {
+    position: relative;
+    display: flex; /* Untuk memusatkan gambar jika tidak memenuhi tinggi */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    background-color: white;
+    overflow: hidden;
+    flex-grow: 1; /* Biarkan container ini tumbuh untuk mengisi ruang */
+    min-height: 300px; /* Tinggi minimum untuk gambar */
+}
+
+.displayed-image {
+    max-width: 100%;
+    max-height: 70vh; /* Batasi tinggi gambar agar tidak terlalu besar */
+    object-fit: contain;
+    display: block;
+}
+
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.3);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
+    line-height: 1;
+    opacity: 0; /* Sembunyikan */
+    z-index: 10;
+}
+
+.nav-btn:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+    color: white;
+}
+
+.main-image-container:hover .nav-btn {
+    opacity: 1; /* Tampilkan saat hover di container gambar */
+}
+
+.prev-image-btn {
+    left: unset;
+    right: unset;
+    inset-inline-start: 15px;
+}
+
+
+.prev-image-btn:disabled,
+.next-image-btn:disabled {
+    display: none;
+}
+
+.next-image-btn {
+    left: unset;
+    right: unset;
+    inset-inline-end: 15px;
+}
+
+.image-comment-section {
+    background-color: #f8f9fa; /* Warna latar belakang komentar */
+    color: #333;
+    min-height: 120px; /* Beri ruang minimal untuk komentar */
+    border-top: 1px solid #e0e0e0;
+}
+
+.comment-user-avatar {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+}
+
+.comment-rating i {
+    color: #ffc107; /* Warna bintang kuning */
+    font-size: 0.9rem;
+}
+
+.modal-thumbnail-sidebar {
+    background-color: #fff;
+    border-left: 1px solid #dee2e6; /* Pemisah halus */
+}
+
+.thumbnail-list {
+    overflow-y: auto;
+    max-height: calc(
+        70vh + 120px - 60px - 60px
+    ); /* Sesuaikan dengan tinggi gambar utama + komentar - header - footer */
+    /* 70vh (gambar) + 120px (min-comment) - 60px (header) - 60px (footer) -> ini perlu disesuaikan lebih baik */
+    /* Atau cara yg lebih sederhana jika tinggi modal tetap */
+    max-height: calc(100vh - 200px); /* Perkiraan tinggi untuk scroll */
+}
+
+.thumbnail-item {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 4px;
+    transition: border-color 0.2s ease;
+    margin: 4px;
+}
+
+.thumbnail-item img,
+.thumbnail-item video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: none;
+    border-radius: 4px;
+}
+
+.video-play-pause-icon {
+  z-index: 10;
+  pointer-events: none;
+  transition: transform 0.2s, opacity 0.2s;
+}
+.icon-animate {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+.thumbnail-item-wrapper {
+  position: relative;
+}
+
+.thumbnail-item.active-thumbnail {
+    border-color: var(--tokopedia-green); /* Bootstrap success color */
+    border-width: 2px;
+}
+
+.media-type-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem; /* Ukuran ikon play */
+    color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+    width: 40px; /* Sesuaikan ukuran background ikon */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none; /* Agar tidak mengganggu klik pada gambar di bawahnya */
+}
+
+/* Responsif */
+@media (max-width: 991.98px) {
+    .modal-commentar-media .modal-main-content {
+        order: 1;
+    }
+    .modal-commentar-media .modal-thumbnail-sidebar {
+        order: 2;
+        border-left: none;
+        border-top: 1px solid #dee2e6;
+        height: 155px; 
+        display: flex; 
+        flex-direction: column; 
+    }
+
+    .modal-commentar-media .displayed-image {
+        object-fit: cover;
+    }
+
+    .modal-commentar-media .thumbnail-list {
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .modal-commentar-media .thumbnail-item {
+        flex-shrink: 0; 
+        margin-bottom: 0; 
+        margin-right: 8px; 
+    }
+    .modal-commentar-media .thumbnail-item:last-child {
+        margin-right: 0;
+    }
+
+    .modal-commentar-media .displayed-image {
+        max-height: 50vh;
+    }
+    .modal-commentar-media .modal-close-btn {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .modal-commentar-media .modal-dialog {
+        margin: 0;
+        max-width: 100%;
+        min-height: 100vh; 
+    }
+    .modal-commentar-media .modal-content {
+        min-height: 100vh;
+        border-radius: 0; 
+    }
+    .modal-commentar-media .main-image-container {
+        min-height: 250px;
+    }
+
+    .modal-commentar-media .displayed-image {
+        object-fit: cover;
+    }
+    
+    .modal-commentar-media .modal-thumbnail-sidebar {
+        height: 155px; 
+    }
+
+    .modal-commentar-media .midal-thumbnail-sidebar .thumbnail-item {
+        height: 70px;
+        padding: 0 !important;
+    }
+}
+/* End modal komentar media */
+
+/* Modal Gallery Komentar */
+.modal-gallery-grid-view .modal-dialog {
+    max-width: 1000px;
+}
+
+.gallery-grid-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    justify-content: center;
+}
+
+.gallery-grid-item {
+    width: calc(20% - 8px); /* 5 gambar per baris (100% / 5 = 20%), 8px adalah penyesuaian dari gap (10px * 4 celah / 5 item) */
+    aspect-ratio: 1 / 1; /* Membuat item menjadi kotak */
+    border: 1px solid var(--tokopedia-light-gray);
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.gallery-grid-item img,
+.gallery-grid-item video {
+    width: 100%;
+    height: 100%; /* Bagian atas untuk gambar */
+    object-fit: contain; /* S,oesuai permintaan Anda */
+    background-color: #fff;
+}
+
+.gallery-grid-item-info {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+    text-align: center;
+    flex-grow: 1; /* Mengisi sisa ruang */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.gallery-grid-item-info .comment-rating {
+    /* Class dari modal sebelumnya, bisa dipakai ulang */
+    line-height: 1;
+}
+.gallery-grid-item-info .comment-rating i {
+    font-size: 0.85rem; /* Kecilkan bintang sedikit */
+}
+
+.gallery-grid-item.active-item {
+    border-color: var(--tokopedia-green); /* Bootstrap success color */
+    border-width: 3px;
+}
+
+/* Responsif untuk grid item */
+@media (max-width: 991.98px) {
+    /* Tablet */
+    .gallery-grid-item {
+        width: calc(25% - 7.5px); /* 4 gambar per baris */
+    }
+}
+
+@media (max-width: 767.98px) {
+    /* Mobile besar */
+    .gallery-grid-item {
+        width: calc(33.333% - 6.7px); /* 3 gambar per baris */
+    }
+}
+
+@media (max-width: 575.98px) {
+    /* Mobile kecil */
+    .gallery-grid-item {
+        width: calc(50% - 5px); /* 2 gambar per baris */
+    }
+}
+/* End Modal Gallery Comentar */
+
+
+
+/* <====== Modal Uploaded Comentar Media ======> */
+.modal-uploaded-commentar-media .modal-dialog {
+    max-width: 1000px; 
+}
+
+.modal-uploaded-commentar-media .modal-content {
+    border: none;
+    border-radius: 8px; 
+    overflow: hidden; 
+}
+
+@media (max-width: 991.98px) {
+    .modal-uploaded-commentar-media .modal-main-content {
+        order: 1;
+    }
+
+    .modal-commentar-media .displayed-image {
+        object-fit: cover;
+    }
+
+    .modal-uploaded-commentar-media .modal-thumbnail-sidebar {
+        order: 2;
+        border-left: none;
+        border-top: 1px solid #dee2e6;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .modal-uploaded-commentar-media .thumbnail-list {
+        flex-direction: row;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+
+    .modal-uploaded-commentar-media .thumbnail-item {
+        flex-shrink: 0; 
+        margin-bottom: 0; 
+        margin-right: 8px; 
+    }
+    .modal-uploaded-commentar-media .thumbnail-item:last-child {
+        margin-right: 0; 
+    }
+
+    .modal-uploaded-commentar-media .displayed-image {
+        max-height: 50vh;
+    }
+    .modal-uploaded-commentar-media .modal-close-btn {
+        top: 10px;
+        right: 10px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .modal-uploaded-commentar-media .modal-dialog {
+        margin: 0;
+        max-width: 100%;
+        min-height: 100vh;
+    }
+    .modal-uploaded-commentar-media .modal-content {
+        min-height: 100vh;
+        border-radius: 0;
+    }
+    .modal-uploaded-commentar-media .main-image-container {
+        min-height: 250px;
+    }
+
+     .modal-commentar-media .displayed-image {
+        object-fit: cover;
+    }
+
+    .modal-uploaded-commentar-media .modal-thumbnail-sidebar {
+        height: 140px !important; 
+    }
+
+    .modal-uploaded-commentar-media .midal-thumbnail-sidebar .thumbnail-item {
+        height: 70px;
+        padding: 0 !important;
+    }
+}
+/* End Modal Uploaded Comentar Media */

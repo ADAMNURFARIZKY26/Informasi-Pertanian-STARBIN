@@ -8,98 +8,27 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  <!-- Favicons -->
+  
   <link href="{{ asset('halaman-depan/assets/img/Logo/Logo .png') }}" rel="icon">
   <link href="{{ asset('halaman-depan/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-  <!-- Fonts -->
+  
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  <!-- Vendor CSS Files -->
+  
   <link href="{{ asset('halaman-depan/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('halaman-depan/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
   <link href="{{ asset('halaman-depan/assets/vendor/aos/aos.css') }}" rel="stylesheet">
   <link href="{{ asset('halaman-depan/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('halaman-depan/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
-  <!-- Main CSS File -->
+  
   <link href="{{ asset('halaman-depan/assets/css/main.css') }}" rel="stylesheet">
   <link href="{{ asset('halaman-depan/assets/css/mycss/main-landing.css') }}" rel="stylesheet">
-  <style>
-    .portfolio-content:hover img {
-      transform: scale(1.05);
-    }
 
-    .portfolio-content {
-      transition: box-shadow 0.3s ease, transform 0.3s ease;
-    }
-
-    .portfolio-content:hover {
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-      transform: translateY(-4px);
-    }
-
-    .btn-outline-success:hover {
-      background-color: #06926f !important;
-      color: #fff !important;
-      border-color: #06926f !important;
-    }
-
-    .edukasi-card {
-      transition: transform 0.4s ease, box-shadow 0.4s ease;
-    }
-
-    .edukasi-card p {
-      font-size: 1rem;
-    }
-
-    .edukasi-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 30px rgba(0, 132, 103, 0.3);
-    }
-
-    .bg-image {
-      z-index: 0;
-    }
-
-
-    /* Tambahan shadow yang lebih pekat untuk teks agar tidak menyatu */
-    .edukasi-card h2,
-    .edukasi-card .selengkapnya {
-      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
-      /* bayangan gelap agar teks terang terlihat */
-    }
-
-    /* Ubah warna "Selengkapnya" jadi lebih terang dan tegas */
-    .selengkapnya {
-      opacity: 0;
-      color: #21e2ad;
-      /* hijau muda neon agar kontras */
-      font-weight: 600;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-      /* shadow tambahan */
-      transition: opacity 0.3s ease, transform 0.3s ease;
-    }
-
-    /* Hover tetap agar muncul dengan animasi */
-    .edukasi-link:hover .selengkapnya {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Tambahkan lapisan gelap transparan penuh pada seluruh card body */
-    .edukasi-body {
-      background-color: rgba(0, 0, 0, 0.3);
-      /* dinaikkan sedikit jadi 0.6 untuk kontras lebih */
-      backdrop-filter: blur(1px);
-      /* blur latar belakang agar tulisan makin kontras */
-      border-radius: 0.75rem;
-    }
-  </style>
-
-  <!-- =======================================================
+  <!-- ==================================================
   * Template Name: Impact
   * Template URL: https://bootstrapmade.com/impact-bootstrap-business-website-template/
   * Updated: Aug 07 2024 with Bootstrap v5.3.3
@@ -110,32 +39,32 @@
 
 <body class="index-page">
   <header id="header" class="header fixed-top">
-    <div class="topbar d-flex align-items-center" style="padding: 50px 0;">
+    <div class="topbar d-flex align-items-center" style="padding: 40px 0;">
       <div class="container position-relative d-flex align-items-center justify-content-between">
         <div class="logo d-flex align-items-center">
           <img src="{{ asset('halaman-depan/assets/img/Logo/Logo .png') }}" alt="Logo" style="padding-right:10px; width: 70px; height: auto; background-size: cover;">
-          <h1 class="sitename mb-0" style="font-size: 1.7rem;">Pertanian STARBIN</h1>
+          <h1 class="sitename mb-0 fs-4">Pertanian STARBIN</h1>
           <span style="font-size: 2rem;">.</span>
         </div>
         <div class="d-flex align-items-center gap-3">
           <nav id="navmenu" class="navmenu">
             <ul>
-              <li><a href="#beranda" style="font-size: 1.25rem;">Beranda</a></li>
-              <li><a href="#tentangkami" style="font-size: 1.25rem;">Tentang Kami</a></li>
-              <li><a href="#produk" style="font-size: 1.25rem;">Produk</a></li>
-              <li><a href="#edukasi" style="font-size: 1.25rem;">Edukasi</a></li>
-              <li><a href="#blog" style="font-size: 1.25rem;">Blog</a></li>
-              <li><a href="#kontak" style="font-size: 1.25rem;">Kontak</a></li>
+              <li><a href="#beranda" style="font-size: 1rem;">Beranda</a></li>
+              <li><a href="#tentangkami" style="font-size: 1rem;">Tentang Kami</a></li>
+              <li><a href="#produk" style="font-size: 1rem;">Produk</a></li>
+              <li><a href="#edukasi" style="font-size: 1rem;">Edukasi</a></li>
+              <li><a href="#blog" style="font-size: 1rem;">Blog</a></li>
+              <li><a href="#kontak" style="font-size: 1rem;">Kontak</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
           </nav>
-          <!-- Login Badge -->
-          <a href="{{route('login')}}" class="btn btn-outline-light custom-pill-btn" style="font-size: 1.25rem; padding: 10px 15px ;">
+          
+          <a href="{{route('login')}}" class="btn btn-outline-light custom-pill-btn" style="font-size: 1rem; padding: 10px 15px ;">
             Login
           </a>
         </div>
       </div>
-    </div><!-- End Top Bar -->
+    </div>
   </header>
 
   <main class="main">
@@ -193,7 +122,7 @@
 
     <section id="tentangkami" class="about section py-5" style="background-color: #fff;">
       <div class="container">
-        <!-- Section Title -->
+        
         <div class="container section-title" data-aos="fade-up">
           <h2 class="fw-bold" style="color: #06926f;">Tentang Kami</h2>
           <p class="text-muted mt-3">
@@ -201,16 +130,16 @@
           </p>
         </div>
 
-        <!-- Content Row -->
+        
         <div class="row align-items-center gy-4">
-          <!-- Image Section -->
+          
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="shadow rounded-4 overflow-hidden">
               <img src="{{ asset('halaman-depan/assets/img/tentang-kami/pertanian-3.jpg') }}" class="img-fluid w-100" alt="Tentang Kami">
             </div>
           </div>
 
-          <!-- Text Content -->
+          
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="ps-0 ps-lg-4">
               <p class="text-dark mb-4" style="line-height: 1.8;">
@@ -244,16 +173,16 @@
 
     <section id="produk" class="portfolio section py-5" style="background-color: #fff;">
       <div class="container">
-        <!-- Section Title -->
+        
         <div class="container section-title" data-aos="fade-up">
           <h2 style="color: #06926f;">produk Kami</h2>
           <p class="text-muted">Berikut adalah beberapa produk yang kami miliki</p>
         </div>
 
-        <!-- Produk Grid -->
+        
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-            <!-- Kartu Produk -->
+            
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item isotope-item filter-app">
               <a href="portfolio-details.html" class="text-decoration-none text-dark">
                 <div class="portfolio-content h-100 border rounded-4 shadow-sm overflow-hidden bg-white transition hover-shadow">
@@ -270,7 +199,7 @@
               </a>
             </div>
 
-            <!-- Duplikat Produk -->
+            
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item isotope-item filter-app">
               <a href="portfolio-details.html" class="text-decoration-none text-dark">
                 <div class="portfolio-content h-100 border rounded-4 shadow-sm overflow-hidden bg-white transition hover-shadow">
@@ -289,18 +218,18 @@
           </div>
         </div>
 
-        <!-- Tombol Selengkapnya -->
-        <div class="text-center mt-5 position-relative" data-aos="fade-up" data-aos-delay="300">
-          <a href="{{ route('blog') }}" class="btn btn-outline-success px-4 py-2 fs-5">
-            <i class="bi bi-arrow-right me-2"></i> Selengkapnya
+        
+        <div class="mt-5">
+          <a href="list-product.html">
+            <p class="text-center">Selengkapnya untuk produk >>></p>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- z Section -->
+    
     <section id="edukasi" class="services section bg-white py-5">
-      <!-- Section Title -->
+      
       <div class="container section-title text-center mb-5" data-aos="fade-up">
         <h2 class="fw-bold" style="color: #06926f;">Edukasi</h2>
         <p class="text-muted">Kami berbagi wawasan tentang praktik pertanian ramah lingkungan seperti organik dan hidroponik modern.</p>
@@ -309,7 +238,7 @@
       <div class="container">
         <div class="row g-4 justify-content-center" data-aos="fade-up" data-aos-delay="200">
 
-          <!-- Card 1 - Organik -->
+          
           <div class="col-md-6">
             <a href="{{ route('organik') }}" class="text-decoration-none edukasi-link">
               <div class="card border-0 shadow-lg rounded-4 overflow-hidden position-relative edukasi-card h-100">
@@ -329,7 +258,7 @@
             </a>
           </div>
 
-          <!-- Card 2 - Hidroponik -->
+          
           <div class="col-md-6">
             <a href="{{ route('hidroponik') }}" class="text-decoration-none edukasi-link">
               <div class="card border-0 shadow-lg rounded-4 overflow-hidden position-relative edukasi-card h-100">
@@ -354,10 +283,10 @@
     </section>
 
 
-    <!-- Recent Posts Section -->
+    
     <section id="blog" class="recent-posts section py-5">
 
-      <!-- Section Title -->
+      
       <div class="container section-title text-center mb-5" data-aos="fade-up">
         <h2 class="fw-bold text-success">Blog</h2>
         <p class="text-muted">Dapatkan informasi terbaru seputar pertanian, kegiatan jurusan, dan inovasi siswa ATPH SMKN 1 Binong.</p>
@@ -366,7 +295,7 @@
       <div class="container">
         <div class="row gy-4">
 
-          <!-- Blog Card -->
+          
           <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <a href="#" class="card-blog d-block text-decoration-none text-dark rounded-4 overflow-hidden shadow-sm position-relative border h-100">
               <div class="post-img overflow-hidden">
@@ -387,26 +316,26 @@
               </div>
             </a>
           </div>
-          <!-- Tambahkan blog card lainnya jika tersedia -->
+          
         </div>
 
-        <!-- Tombol Selengkapnya -->
-        <div class="text-center mt-5 position-relative" data-aos="fade-up" data-aos-delay="300">
-          <a href="{{ route('blog') }}" class="btn btn-outline-success px-4 py-2  fs-5">
-            <i class="bi bi-arrow-right me-2"></i> Selengkapnya
+        
+        <div class="mt-5">
+          <a href="list-product.html">
+            <p class="text-center">Selengkapnya untuk produk >>></p>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Contact Section -->
+    
     <section id="kontak" class="contact section">
 
-      <!-- Section Title -->
+      
       <div class="container section-title" data-aos="fade-up">
         <h2>Kontak</h2>
         <p>Jika Anda memiliki pertanyaan, ingin bekerja sama, atau membutuhkan informasi lebih lanjut seputar Jurusan ATPH SMKN 1 Binong, jangan ragu untuk menghubungi kami melalui kontak di bawah ini.</p>
-      </div><!-- End Section Title -->
+      </div>
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -420,7 +349,7 @@
                   <h3>Address</h3>
                   <p>A108 Adam Street, New York, NY 535022</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300" style="border-radius: 5px;">
                 <i class="bi bi-telephone flex-shrink-0"></i>
@@ -428,7 +357,7 @@
                   <h3>Call Us</h3>
                   <p>+1 5589 55488 55</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400" style="border-radius: 5px;">
                 <i class="bi bi-envelope flex-shrink-0"></i>
@@ -436,7 +365,7 @@
                   <h3>Email Us</h3>
                   <p>info@example.com</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
               <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500" style="border-radius: 5px;">
                 <i class="bi bi-clock flex-shrink-0"></i>
@@ -444,7 +373,7 @@
                   <h3>Open Hours:</h3>
                   <p>Mon-Sat: 11AM - 23PM</p>
                 </div>
-              </div><!-- End Info Item -->
+              </div>
 
             </div>
 
@@ -494,7 +423,7 @@
 
     <div class="container footer-top">
       <div class="row gy-4">
-        <!-- Kiri: Deskripsi -->
+        
         <div class="col-lg-4 col-md-12 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
             <span class="sitename">Pertanian STARBIN</span>
@@ -508,7 +437,7 @@
           </div>
         </div>
 
-        <!-- Tengah: Navigasi -->
+        
         <div class="col-lg-4 col-6 footer-links" style="padding-left: 100px;">
           <h4>Navigasi</h4>
           <ul>
@@ -521,7 +450,7 @@
           </ul>
         </div>
 
-        <!-- Kanan: Kontak -->
+        
         <div class="col-lg-4 col-md-12 footer-contact text-center text-md-start">
           <h4>Kontak Kami</h4>
           <p>Kab.Subang Kec.Binong</p>
@@ -548,13 +477,13 @@
   </footer>
 
 
-  <!-- Scroll Top -->
+  
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
+  
   <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
+  
   <script src="{{ asset('halaman-depan/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('halaman-depan/assets/vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('halaman-depan/assets/vendor/aos/aos.js') }}"></script>
@@ -564,10 +493,10 @@
   <script src="{{ asset('halaman-depan/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
   <script src="{{ asset('halaman-depan/assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
 
-  <!-- Main JS File -->
+  
   <script src="{{ asset('halaman-depan/assets/js/main.js') }}"></script>
 
-  <!-- myjs -->
+  
   <script src="{{ asset('halaman-depan/assets/js/myjs/landingpage.js') }}"></script>
 
 </body>
