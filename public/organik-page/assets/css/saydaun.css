@@ -43,7 +43,7 @@ main div .heading .container {
   box-shadow: 0 4px 12px rgba(0, 132, 103, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   background-color: #fff;
-  border: 2px solid #008467;
+  border: 2px solid #06926f;
 }
 
 .custom-card:hover {
@@ -54,7 +54,7 @@ main div .heading .container {
 .custom-card h2 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #008467;
+  color: #06926f;
   display: flex;
   align-items: center;
   gap: 6px;
@@ -82,7 +82,7 @@ border-radius: 10px;
   line-height: 180px;
 }
 .section-header h1 {
-  border-bottom: 3px solid #008467;
+  border-bottom: 3px solid #06926f;
   padding-bottom: 5px;
   display: inline-block;
   font-size: 1.6rem;
@@ -104,7 +104,7 @@ border-radius: 10px;
       width: 100%;
       max-width: 100%;
       height: 4px;
-      background-color: #008467;
+      background-color: #06926f;
       margin-top: 6px;
       border-radius: 2px;
     }
@@ -129,7 +129,7 @@ border-radius: 10px;
 
     /* border bottom sebagai pemisah */
     .vegetable-item.border-bottom {
-      border-bottom: 2px solid #008467;
+      border-bottom: 2px solid #06926f;
     }
 
     .veg-img {
@@ -140,7 +140,7 @@ border-radius: 10px;
     }
 
     .veg-title {
-      color: #008467;
+      color: #06926f;
       font-weight: 700;
       font-size: 1.6rem;
       line-height: 1.2;

@@ -1,25 +1,66 @@
-<x-guest-layout>
-    <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Lupa Password</title>
+
+    <!-- icon page-->
+    <link href="{{ asset('halaman-depan/assets/img/Logo/Logo .png') }}" rel="icon">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{{asset('authentikasi/forget-password/asset/css/style.css')}}">
+</head>
+
+<body>
+
+    <div class="container auth-container d-flex align-items-center justify-content-center">
+        <!-- Tombol Kembali -->
+        <a href="/login" class="btn btn-light position-absolute top-0 start-0 m-3 rounded-circle shadow-sm" title="Kembali">
+            <i class="bi bi-arrow-left fs-5 text-dark"></i>
+        </a>
+
+        <div class="row auth-box w-100" style="max-width: 900px;">
+            <!-- Gambar -->
+            <div class="col-md-6 auth-img d-none d-md-flex">
+                <img src="{{asset('authentikasi/forget-password/asset/images/thinking.png')}}" alt="Image" />
+            </div>
+
+            <!-- Form -->
+            <div class="col-md-6 auth-form">
+                <div class="text-center mb-4">
+                    <i class="bi bi-lock-fill" style="font-size: 2rem; color: var(--main-green);"></i>
+                </div>
+                <h4 class="text-center">Lupa Password</h4>
+                <form action="/forget-password" method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Alamat Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="bi bi-envelope-fill text-success"></i></span>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="Masukkan email Anda" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-green w-100 mt-3" style="color: white;">
+                        <i class="bi bi-send-fill me-1"></i> Lanjutkan
+                    </button>
+                </form>
+                <p class="text-center text-muted mt-3" style="font-size: 0.9rem;">
+                    Kami akan melanjutkan proses jika email terdaftar.
+                </p>
+            </div>
+        </div>
     </div>
 
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+    <!-- Bootstrap JS (optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <form method="POST" action="{{ route('password.email') }}">
-        @csrf
+</body>
 
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                {{ __('Email Password Reset Link') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+</html>

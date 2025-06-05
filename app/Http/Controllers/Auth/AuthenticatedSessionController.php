@@ -24,11 +24,28 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        $credentials = $request->only('email', 'password');
+
+        // Coba login
+        if (!Auth::attempt($credentials)) {
+            return back()->with('error', 'Email atau password salah.')->withInput();
+        }
 
         $request->session()->regenerate();
+        $user = Auth::user();
 
-        return redirect()->intended(route('dashboard', absolute: false));
+        // Redirect berdasarkan role
+        switch ($user->role) {
+            case 'Super Admin':
+                return redirect()->route('superadmin.dashboard');
+            case 'Admin':
+                return redirect()->route('admin.dashboard');
+            case 'User':
+                return redirect()->route('user.dashboard');
+            default:
+                Auth::logout();
+                return redirect()->back()->with('error', 'Role tidak dikenali.');
+        }
     }
 
     /**
@@ -42,6 +59,6 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/');
+        return redirect()->route('login');
     }
 }

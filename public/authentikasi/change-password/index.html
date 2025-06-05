@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rubah Password</title>
+
+  <!-- icon page -->
+  <link rel="icon" type="image/png" href="asset/images/thinking.png">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Main CSS -->
+   <link rel="stylesheet" href="asset/css/style.css">
+</head>
+<body>
+
+  <div class="container">
+     <!-- Tombol Kembali -->
+    <a href="#" class="btn btn-light position-absolute top-0 start-0 m-3 rounded-circle shadow-sm" title="Kembali">
+        <i class="bi bi-arrow-left fs-5 text-dark"></i>
+    </a>
+    <div class="change-box">
+      <div class="text-center mb-4">
+        <i class="bi bi-shield-lock-fill" style="font-size: 2rem; color: var(--main-green);"></i>
+        <h4 class="mt-2">Rubah Password</h4>
+      </div>
+
+      <form id="changePasswordForm" action="/change-password" method="POST" novalidate>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password Baru</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-key-fill text-success"></i></span>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Minimal 8 karakter" required>
+          </div>
+          <small id="passwordError" class="text-danger">Password minimal 8 karakter.</small>
+        </div>
+
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Konfirmasi Password</label>
+          <div class="input-group">
+            <span class="input-group-text"><i class="bi bi-check2-square text-success"></i></span>
+            <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Ulangi password" required>
+          </div>
+          <small id="confirmError" class="text-danger">Password tidak cocok.</small>
+        </div>
+
+        <button type="submit" class="btn btn-green w-100">
+          <i class="bi bi-arrow-repeat me-1"></i> Simpan Password
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Validasi JS -->
+  <script src="asset/js/script.js"></script>
+</body>
+</html>
