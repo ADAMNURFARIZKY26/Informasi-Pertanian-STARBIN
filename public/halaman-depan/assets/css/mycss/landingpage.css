@@ -1,0 +1,11 @@
+/* Menonaktifkan link di list 'Dropdown' */
+.disabled-link {
+  pointer-events: none;
+  cursor: default;
+  color: inherit;
+}
+
+/* Breadcrumbs */
+.breadcrumbs .breadcrumb-item + .breadcrumb-item::before {
+  content: ">";
+}
