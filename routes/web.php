@@ -79,10 +79,13 @@ Route::middleware(['auth'])->group(function () {
     // ADMIN
     Route::middleware(['role:Admin'])->group(function () {
         Route::get('/admin/dashboard', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
-        Route::get('/admin/kelolaStaf', [KontenLandingController::class, 'stafView'])->name('stafView');
-        Route::get('/admin/kelolaProduk', [KontenLandingController::class, 'produckView'])->name('produckView');
-        Route::get('/admin/kelolaBlog', [KontenLandingController::class, 'blogView'])->name('blogView');
-        Route::get('/admin/kelolaSosmed', [KontenLandingController::class, 'sosmedView'])->name('sosmedView');
+        Route::get('/admin/kelolaStaf', [KontenLandingController::class, 'stafView'])->name('admin.stafView');
+        Route::get('/admin/kelolaProduk', [KontenLandingController::class, 'produckView'])->name('admin.produckView');
+        Route::get('/admin/kelolaBlog', [KontenLandingController::class, 'blogView'])->name('admin.blogView');
+        // sosmed
+        Route::get('/admin/kelolaSosmed', [KontenLandingController::class, 'sosmedView'])->name('admin.sosmedView');
+        Route::post('/sosmed/store', [KontenLandingController::class, 'store'])->name('sosmed.store');
+        Route::delete('/sosmed/{id}', [KontenLandingController::class, 'destroy'])->name('sosmed.destroy');
     });
 
     // SUPER ADMIN
@@ -92,6 +95,8 @@ Route::middleware(['auth'])->group(function () {
         })->name('superadmin.dashboard');
     });
 
+    // Logout
+    Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 });
 
 // 404 route

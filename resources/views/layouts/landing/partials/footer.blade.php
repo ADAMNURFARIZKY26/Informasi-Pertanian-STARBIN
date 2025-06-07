@@ -9,10 +9,15 @@
                 </a>
                 <p>Pertanian STARBIN adalah website dari salah satu jurusan yang berada di SMK Negeri 1 Binong yaitu ATPH (Agribisnis Tanaman Pangan Holtikultura). Website ini bertujuan untuk memberikan informasi dan jual beli produk-produk kami di Pertanian SMK Negeri 1 Binong.</p>
                 <div class="social-links d-flex mt-4">
-                    <a href="#"><i class="bi bi-tiktok"></i></a>
-                    <a href="#"><i class="bi bi-instagram"></i></a>
-                    <a href="#"><i class="bi bi-youtube"></i></a>
-                    <a href="#"><i class="bi bi-geo-alt-fill"></i></a>
+                    @foreach ($sosmeds as $sosmed)
+                    <a href="{{ $sosmed->url }}" target="_blank" title="{{ $sosmed->judul }}">
+                        <i class="{{ $sosmed->icon }}"></i>
+                    </a>
+                    @endforeach
+
+                    @if ($sosmeds->isEmpty())
+                    <span class="text-muted">Tidak ada sosial media.</span>
+                    @endif
                 </div>
             </div>
 

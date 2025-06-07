@@ -19,6 +19,7 @@
 
     <!-- Style -->
     <link rel="stylesheet" href="{{asset('authentikasi/sign-in/css/style.css')}}" />
+    <link rel="stylesheet" href="{{asset('authentikasi/sign-in/css/flashmassage.css')}}" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 
@@ -69,46 +70,7 @@
                 aspect-ratio: 1 / 1;
             }
         }
-
-        .custom-alert {
-            position: fixed;
-            top: 20px;
-            right: -400px;
-            /* awal sembunyi */
-            min-width: 300px;
-            max-width: 400px;
-            padding: 15px 20px;
-            z-index: 1055;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            transition: right 0.5s ease-in-out;
-            font-weight: 500;
-        }
-
-        .custom-alert.alert-success {
-            background-color: #d1e7dd;
-            color: #0f5132;
-            border-left: 6px solid #198754;
-        }
-
-        .custom-alert.alert-danger {
-            background-color: #f8d7da;
-            color: #842029;
-            border-left: 6px solid #dc3545;
-        }
-
-        .custom-alert.show {
-            right: 10px;
-            /* munculkan ke kanan layar */
-        }
-
-        .custom-alert.hide {
-            right: -400px;
-            /* sembunyikan kembali */
-        }
     </style>
-
-
 </head>
 
 <body>
@@ -174,32 +136,7 @@
     <script src="{{asset('authentikasi/sign-in/js/popper.min.js')}}"></script>
     <script src="{{asset('authentikasi/sign-in/js/bootstrap.min.js')}}"></script>
     <script src="{{asset('authentikasi/sign-in/js/main.js')}}"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const success = document.getElementById('flash-success');
-            const error = document.getElementById('flash-error');
-
-            [success, error].forEach(alert => {
-                if (alert) {
-                    // Tampilkan alert
-                    setTimeout(() => {
-                        alert.classList.add('show');
-                    }, 100); // Delay sedikit biar transisi smooth
-
-                    // Sembunyikan kembali setelah 4 detik
-                    setTimeout(() => {
-                        alert.classList.remove('show');
-                        alert.classList.add('hide');
-                    }, 4000); // setelah 4 detik mulai keluar ke kanan
-
-                    // Hapus dari DOM setelah 7 detik
-                    setTimeout(() => {
-                        alert.remove();
-                    }, 7000);
-                }
-            });
-        });
-    </script>
+    <script src="{{asset('authentikasi/sign-in/js/flashmassage.js')}}"></script>
 
 </body>
 
