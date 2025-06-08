@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Sosmed;
 
 class LandingController extends Controller
 {
     public function welcome() {
-        return view('welcome');
+        $sosmeds = Sosmed::all();
+        return view('welcome', compact('sosmeds'));
     }
     public function tentangKami() {
         return view('sub_page_landing/tentangKami');

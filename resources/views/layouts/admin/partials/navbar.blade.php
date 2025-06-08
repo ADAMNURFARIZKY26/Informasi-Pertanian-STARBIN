@@ -7,11 +7,9 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
+            <a href="{{route('admin.dashboard')}}" class="nav-link">Dashboard</a>
         </li>
-        <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-        </li>
+        @yield('thisPage')
     </ul>
 
     <!-- Right navbar links -->
@@ -193,25 +191,25 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{route('stafView')}}" class="nav-link">
+                            <a href="{{route('admin.stafView')}}" class="nav-link">
                                 <i class="fas fa-users nav-icon"></i>
                                 <p>Kelola Staf Kami</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('produckView')}}" class="nav-link">
+                            <a href="{{route('admin.produckView')}}" class="nav-link">
                                 <i class="fas fa-box-open nav-icon"></i>
                                 <p>Kelola Produk</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('blogView')}}" class="nav-link">
+                            <a href="{{route('admin.blogView')}}" class="nav-link">
                                 <i class="fas fa-blog nav-icon"></i>
                                 <p>Kelola Blog</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{route('sosmedView')}}" class="nav-link">
+                            <a href="{{route('admin.sosmedView')}}" class="nav-link">
                                 <i class="fas fa-share-alt nav-icon"></i>
                                 <p>Kelola Sosial Media</p>
                             </a>
