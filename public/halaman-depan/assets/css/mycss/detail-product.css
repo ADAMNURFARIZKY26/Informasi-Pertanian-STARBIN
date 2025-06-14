@@ -398,15 +398,22 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    gap: 0.4em; 
+    overflow: hidden;
 }
 
 .btn-icon-text i {
     font-size: 1.1rem;
+    flex-shrink: 0;
 }
 
 .btn-icon-text span {
     font-size: 0.75rem;
     font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
 }
 
 /* Divider Styling */
@@ -1277,7 +1284,8 @@ body {
     min-height: 300px; /* Tinggi minimum untuk gambar */
 }
 
-.displayed-image {
+.displayed-image,
+.displayed-video {
     max-width: 100%;
     max-height: 70vh; /* Batasi tinggi gambar agar tidak terlalu besar */
     object-fit: contain;
@@ -1306,7 +1314,7 @@ body {
 }
 
 .main-image-container:hover .nav-btn {
-    opacity: 1; /* Tampilkan saat hover di container gambar */
+    opacity: 1;
 }
 
 .prev-image-btn {
@@ -1369,6 +1377,7 @@ body {
     border-radius: 4px;
     transition: border-color 0.2s ease;
     margin: 4px;
+    position: relative;
 }
 
 .thumbnail-item img,
@@ -1376,7 +1385,6 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    display: none;
     border-radius: 4px;
 }
 

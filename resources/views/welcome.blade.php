@@ -38,35 +38,8 @@
 </head>
 
 <body class="index-page">
-  <header id="header" class="header fixed-top">
-    <div class="topbar d-flex align-items-center" style="padding: 40px 0;">
-      <div class="container position-relative d-flex align-items-center justify-content-between">
-        <div class="logo d-flex align-items-center">
-          <img src="{{ asset('halaman-depan/assets/img/Logo/Logo .png') }}" alt="Logo" style="padding-right:10px; width: 70px; height: auto; background-size: cover;">
-          <h1 class="sitename mb-0 fs-4">Pertanian STARBIN</h1>
-          <span style="font-size: 2rem;">.</span>
-        </div>
-        <div class="d-flex align-items-center gap-3">
-          <nav id="navmenu" class="navmenu">
-            <ul>
-              <li><a href="#beranda" style="font-size: 1rem;">Beranda</a></li>
-              <li><a href="#tentangkami" style="font-size: 1rem;">Tentang Kami</a></li>
-              <li><a href="#produk" style="font-size: 1rem;">Produk</a></li>
-              <li><a href="#edukasi" style="font-size: 1rem;">Edukasi</a></li>
-              <li><a href="#blog" style="font-size: 1rem;">Blog</a></li>
-              <li><a href="#kontak" style="font-size: 1rem;">Kontak</a></li>
-            </ul>
-            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-          </nav>
-          
-          <a href="{{route('login')}}" class="btn btn-outline-light custom-pill-btn" style="font-size: 1rem; padding: 10px 15px ;">
-            Login
-          </a>
-        </div>
-      </div>
-    </div>
-  </header>
 
+  @include('layouts.landing.partials.header')
   <main class="main">
 
     <section id="beranda" class="hero section accent-background">
@@ -217,10 +190,9 @@
             </div>
           </div>
         </div>
-
         
         <div class="mt-5">
-          <a href="list-product.html">
+          <a href="{{route('list-produk')}}">
             <p class="text-center">Selengkapnya untuk produk >>></p>
           </a>
         </div>
@@ -316,12 +288,10 @@
               </div>
             </a>
           </div>
-          
         </div>
-
         
         <div class="mt-5">
-          <a href="list-product.html">
+          <a href="{{route('list-produk')}}">
             <p class="text-center">Selengkapnya untuk produk >>></p>
           </a>
         </div>
@@ -403,86 +373,19 @@
                   <div class="loading">Loading</div>
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
-
                   <button type="submit" style="border-radius: 5px;">Send Message</button>
                 </div>
-
               </div>
             </form>
           </div>
-
         </div>
-
       </div>
-
     </section>
-
   </main>
-
-  <footer id="footer" class="footer accent-background">
-
-    <div class="container footer-top">
-      <div class="row gy-4">
-        
-        <div class="col-lg-4 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Pertanian STARBIN</span>
-          </a>
-          <p>Pertanian STARBIN adalah website dari salah satu jurusan yang berada di SMK Negeri 1 Binong yaitu ATPH (Agribisnis Tanaman Pangan Holtikultura). Website ini bertujuan untuk memberikan informasi dan jual beli produk-produk kami di Pertanian SMK Negeri 1 Binong.</p>
-          <div class="social-links d-flex mt-4">
-            <a href="#"><i class="bi bi-tiktok"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-youtube"></i></a>
-            <a href="#"><i class="bi bi-geo-alt-fill"></i></a>
-          </div>
-        </div>
-
-        
-        <div class="col-lg-4 col-6 footer-links" style="padding-left: 100px;">
-          <h4>Navigasi</h4>
-          <ul>
-            <li><a href="#beranda">Beranda</a></li>
-            <li><a href="#tentangkami">Tentang Kami</a></li>
-            <li><a href="#produk">Produk Kami</a></li>
-            <li><a href="#edukasi">Edukasi</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#kontak">Kontak</a></li>
-          </ul>
-        </div>
-
-        
-        <div class="col-lg-4 col-md-12 footer-contact text-center text-md-start">
-          <h4>Kontak Kami</h4>
-          <p>Kab.Subang Kec.Binong</p>
-          <p>Belakang Polsek Binong</p>
-          <p>Kode pos 41253</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p class="mb-0">
-        © 2025
-        <a href="https://smkn1binong.sch.id/" target="_blank">
-          SMK Negeri 1 Binong
-        </a>
-      </p>
-      <div class="credits">
-        Made by <strong>11 PPLG angkatan 2023-2026</strong>
-      </div>
-    </div>
-
-  </footer>
-
-
+  @include('layouts.landing.partials.footer')
   
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
   
-  <div id="preloader"></div>
-
   
   <script src="{{ asset('halaman-depan/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('halaman-depan/assets/vendor/php-email-form/validate.js') }}"></script>

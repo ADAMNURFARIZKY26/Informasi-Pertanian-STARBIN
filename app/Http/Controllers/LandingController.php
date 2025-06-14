@@ -15,11 +15,11 @@ class LandingController extends Controller
     public function detaiStaf() {
         return view('sub_page_landing/sub_sub_page/detailStaf');
     }
-    public function produk() {
-        return view('sub_page_landing/produk');
+    public function listProduk() {
+        return view('sub_page_landing/list-product');
     }
     public function detailProduk() {
-        return view('sub_page_landing/detailProduk');
+        return view('sub_page_landing/detail-product');
     }
     public function organik() {
         return view('sub_page_landing/organik');

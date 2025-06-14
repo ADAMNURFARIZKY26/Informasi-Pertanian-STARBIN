@@ -22,6 +22,8 @@ function changeImage(el) {
 // Modal Comentar Media & Gallery Commentar
 class GalleryModalManager {
     constructor() {
+        this.isValidIndex()
+        this.initializeOptimizations(); 
         this.galleryData = this.initializeGalleryData();
         this.state = {
             currentImageIndex: 0,
@@ -51,11 +53,6 @@ class GalleryModalManager {
         this.elements.detailModal = document.getElementById('modalCommentarMedia');
         this.elements.galleryModal = document.getElementById('modal-gallery-comentar');
 
-        if (!this.elements.detailModal || !this.elements.galleryModal) {
-            console.error('Required modal elements not found');
-            return;
-        }
-
         // Detail modal elements
         this.elements.mainImageContainer = this.elements.detailModal.querySelector('.main-image-container');
         this.elements.mediaContainer = this.elements.detailModal.querySelector('.displayed-image')?.parentElement;
@@ -63,6 +60,7 @@ class GalleryModalManager {
         this.elements.nextBtn = this.elements.detailModal.querySelector('#nextImageBtn');
         this.elements.thumbnailList = this.elements.detailModal.querySelector('.thumbnail-list');
         this.elements.viewAllBtn = this.elements.detailModal.querySelector('.view-all-btn');
+        this.videoThumbnailCache = new Map(); // Cache untuk thumbnail video
 
         // Comment elements
         this.elements.commentUser = this.elements.detailModal.querySelector('.comment-user-name');
@@ -100,8 +98,8 @@ class GalleryModalManager {
             {
                 id: 1,
                 type: 'image',
-                imageUrl: 'assets/img/konten/bg-pertanian.jpg',
-                thumbnailUrl: 'assets/img/konten/bg-pertanian.jpg',
+                imageUrl: '/halaman-depan/assets/img/konten/bg-pertanian.jpg',
+                thumbnailUrl: '/halaman-depan/assets/img/konten/bg-pertanian.jpg',
                 userName: 'Pengguna A1',
                 userAvatar: '',
                 rating: 5,
@@ -111,9 +109,10 @@ class GalleryModalManager {
             {
                 id: 2,
                 type: 'video',
-                videoUrl: 'assets/videos/slideshow-tokopedia.mp4',
-                imageUrl: 'assets/videos/slideshow-tokopedia.mp4',
-                thumbnailUrl: 'assets/videos/slideshow-tokopedia.mp4',
+                videoUrl: '/halaman-depan/assets/videos/sample-video.mp4',
+                videoPosterUrl: '/halaman-depan/assets/video-posters/sample-poster-video.jpg', // Dari server
+                imageUrl: null,
+                thumbnailUrl: null,
                 userName: 'Videographer B2',
                 userAvatar: '',
                 rating: 4,
@@ -123,34 +122,22 @@ class GalleryModalManager {
             {
                 id: 3,
                 type: 'image',
-                imageUrl: 'assets/img/konten/bg-pertanian.jpg',
-                thumbnailUrl: 'assets/img/konten/bg-pertanian.jpg',
+                imageUrl: '/halaman-depan/assets/img/konten/bg-pertanian.jpg',
+                thumbnailUrl: '/halaman-depan/assets/img/konten/bg-pertanian.jpg',
                 userName: 'Pengguna C3',
                 userAvatar: '',
                 rating: 3,
                 commentDate: '3 bulan lalu',
                 commentText: 'Gambar ke-3, lumayan lah.'
             },
-            {
-                id: 4,
-                type: 'video',
-                videoUrl: 'assets/videos/slideshow-tokopedia.mp4',
-                imageUrl: 'assets/videos/slideshow-tokopedia.mp4',
-                thumbnailUrl: 'assets/videos/slideshow-tokopedia.mp4',
-                userName: 'Videographer D4',
-                userAvatar: '',
-                rating: 5,
-                commentDate: '1 tahun lalu',
-                commentText: 'Karya video yang luar biasa! Sinematografinya indah.'
-            }
         ];
 
         // Generate additional items
         const additionalItems = Array.from({ length: 20 }, (_, i) => ({
-            id: i + 5,
+            id: i + 4,
             type: 'image',
-            imageUrl: 'assets/img/konten/bg-pertanian.jpg',
-            thumbnailUrl: 'assets/img/konten/bg-pertanian.jpg',
+            imageUrl: '/halaman-depan/assets/img/konten/bg-pertanian.jpg',
+            thumbnailUrl: '/halaman-depan/assets/img/konten/bg-pertanian.jpg', // Asumsikan thumbnail juga dari server
             userName: `Pengguna ${String.fromCharCode(65 + ((i + 4) % 26))}${Math.floor((i + 4) / 26) || ''}${i + 5}`,
             userAvatar: ``,
             rating: ((i + 4) % 5) + 1,
@@ -178,7 +165,29 @@ class GalleryModalManager {
         return window.innerWidth < 992;
     }
 
-    // ===== MEDIA ELEMENT CREATORS =====
+    // ===== GENNERATING ELEMENTS =====
+    initializeOptimizations() {
+        this.mediaCache = new Map();
+        this.activeVideo = null;
+        this.isNavigating = false;
+
+        // Debounced navigation
+        this.debouncedNavigate = this.debounce(this.navigateImage.bind(this), 150);
+    }
+
+    // Utility debounce function
+    debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
     createImageElement(data) {
         const img = document.createElement('img');
         img.src = data.imageUrl;
@@ -187,34 +196,131 @@ class GalleryModalManager {
         return img;
     }
 
+    // createVideoElement, poster dari server
     createVideoElement(data) {
         const video = document.createElement('video');
-        video.src = data.videoUrl || data.imageUrl; // Sumber video utama
-        // video.poster = data.mainVideoPosterUrl || ''; 
-        video.className = 'displayed-image w-100 h-auto';
+        video.poster = data.videoPosterUrl || '/assets/default-img/no-preview-image.jpg';
+        video.className = 'displayed-video w-100 h-auto';
         video.controls = true;
+        video.muted = false;
         video.tabIndex = 0;
-        // Background gelap jika tidak ada poster dan video belum dimuat
-        video.style.backgroundColor = '#000';
+        video.playsInline = true; // Important untuk mobile
+        video.preload = 'metadata';
+        video.style.backgroundColor = data.videoPosterUrl ? 'transparent' : '#e0e0e0';
+
+        const source = document.createElement('source');
+        source.src = data.videoUrl;
+        source.type = this.getVideoMimeType(data.videoUrl);
+        video.appendChild(source);
+        video.appendChild(document.createTextNode('Browser Anda tidak mendukung format video ini.'));
+
+        // Enhanced event listeners
+        this.addVideoEventListeners(video, data);
+
         return video;
     }
 
+    // Get proper MIME type
+    getVideoMimeType(url) {
+        const extension = url.split('.').pop().toLowerCase();
+        switch (extension) {
+            case 'mp4': return 'video/mp4';
+            case 'webm': return 'video/webm';
+            case 'ogg': return 'video/ogg';
+            case 'mov': return 'video/quicktime';
+            default: return 'video/mp4';
+        }
+    }
+
+    // Comprehensive video event handling
+    addVideoEventListeners(video, data) {
+        video.addEventListener('loadedmetadata', () => {
+            console.log('Video metadata loaded:', data.videoUrl);
+        });
+
+        video.addEventListener('canplay', () => {
+            console.log('Video ready to play:', data.videoUrl);
+        });
+
+        video.addEventListener('play', () => {
+            this.setActiveVideo(video);
+        });
+
+        video.addEventListener('error', (e) => {
+            console.error('Video error:', {
+                url: data.videoUrl,
+                error: e,
+                networkState: video.networkState,
+                readyState: video.readyState
+            });
+
+            // Auto-retry setelah error
+            setTimeout(() => {
+                if (video.networkState === HTMLMediaElement.NETWORK_NO_SOURCE) {
+                    console.log('Retrying video load...');
+                    video.load();
+                }
+            }, 1000);
+        });
+
+        video.addEventListener('stalled', () => {
+            console.warn('Video stalled, attempting reload...');
+            setTimeout(() => video.load(), 500);
+        });
+    }
+
+    // Active video management
+    setActiveVideo(video) {
+        if (this.activeVideo && this.activeVideo !== video) {
+            this.activeVideo.pause();
+            this.activeVideo.currentTime = 0;
+        }
+        this.activeVideo = video;
+    }
+
+    // Fallback dengan better error handling
+    createVideoElementFallback(data) {
+        const video = document.createElement('video');
+        video.poster = data.videoPosterUrl || '/assets/default-img/no-preview-image.jpg';
+        video.className = 'displayed-image w-100 h-auto';
+        video.controls = true;
+        video.muted = true;
+        video.tabIndex = 0;
+        video.playsInline = true;
+        video.preload = 'none';
+        video.style.backgroundColor = '#e0e0e0';
+
+        const source = document.createElement('source');
+        source.src = data.videoUrl;
+        source.type = this.getVideoMimeType(data.videoUrl);
+        video.appendChild(source);
+        video.appendChild(document.createTextNode('Browser Anda tidak mendukung format video ini.'));
+
+        // Minimal event handling untuk fallback
+        video.addEventListener('error', () => {
+            console.error('Fallback video also failed:', data.videoUrl);
+        });
+
+        return video;
+    }
+
+    // Thumbnail play icon
     createThumbnailPlayIcon() {
         const icon = document.createElement('span');
         icon.className = 'thumb-play-icon position-absolute top-50 start-50 translate-middle';
         icon.innerHTML = '<i class="bi bi-play-circle-fill fs-5 text-white"></i>';
-        icon.style.cssText = 'pointer-events: none; opacity: 0.85;';
+        icon.style.cssText = 'pointer-events: none; opacity: 0.85; z-index: 2;';
         return icon;
     }
 
-    // ===== DETAIL MODAL METHODS =====
+    // Modal events dengan keyboard support
     bindDetailModalEvents() {
         if (this.elements.prevBtn) {
-            this.elements.prevBtn.addEventListener('click', () => this.navigateImage(-1));
+            this.elements.prevBtn.addEventListener('click', () => this.debouncedNavigate(-1));
         }
 
         if (this.elements.nextBtn) {
-            this.elements.nextBtn.addEventListener('click', () => this.navigateImage(1));
+            this.elements.nextBtn.addEventListener('click', () => this.debouncedNavigate(1));
         }
 
         if (this.elements.viewAllBtn) {
@@ -222,66 +328,153 @@ class GalleryModalManager {
         }
     }
 
+    // Navigation dengan debounce dan state management
     navigateImage(direction) {
+        if (this.isNavigating) return; // Prevent spam navigation
+
         const newIndex = this.state.currentImageIndex + direction;
         if (this.isValidIndex(newIndex)) {
             this.displayImageInDetailModal(newIndex);
         }
     }
 
+    // Main display method dengan proper cleanup
     displayImageInDetailModal(index) {
         if (!this.isValidIndex(index) || !this.elements.mediaContainer) return;
 
-        this.state.currentImageIndex = index;
-        const data = this.galleryData[index];
+        this.isNavigating = true;
 
-        this.renderMainMedia(data);
-        this.updateCommentInfo(data);
-        this.updateThumbnails();
-        this.updateNavigationButtons();
+        try {
+            // Cleanup current media sebelum switch
+            this.cleanupCurrentMedia();
+
+            this.state.currentImageIndex = index;
+            const data = this.galleryData[index];
+
+            this.renderMainMedia(data);
+            this.updateCommentInfo(data);
+            this.updateThumbnails();
+            this.updateNavigationButtons();
+
+        } catch (error) {
+            console.error('Error displaying media:', error);
+        } finally {
+            this.isNavigating = false;
+        }
     }
 
+    // Main media rendering dengan caching dan better error handling
     renderMainMedia(data) {
-        // Clear previous content (tetap)
+        if (!this.elements.mediaContainer || !data) return;
+
+        // Clear previous content
         this.elements.mediaContainer.innerHTML = '';
 
-        // Tambahkan kembali tombol navigasi
+        // Recreate navigation buttons
         const prevBtn = document.createElement('button');
         prevBtn.className = 'btn nav-btn prev-image-btn';
         prevBtn.id = 'prevImageBtn';
         prevBtn.innerHTML = '<i class="bi bi-chevron-left"></i>';
+        prevBtn.setAttribute('aria-label', 'Previous media');
 
         const nextBtn = document.createElement('button');
         nextBtn.className = 'btn nav-btn next-image-btn';
         nextBtn.id = 'nextImageBtn';
         nextBtn.innerHTML = '<i class="bi bi-chevron-right"></i>';
+        nextBtn.setAttribute('aria-label', 'Next media');
 
-        // Tambahkan ke container
         this.elements.mediaContainer.appendChild(prevBtn);
         this.elements.mediaContainer.appendChild(nextBtn);
 
-        // Re-bind click events
-        prevBtn.addEventListener('click', () => this.navigateImage(-1));
-        nextBtn.addEventListener('click', () => this.navigateImage(1));
+        // Bind events with debounced navigation
+        prevBtn.addEventListener('click', () => this.debouncedNavigate(-1));
+        nextBtn.addEventListener('click', () => this.debouncedNavigate(1));
 
-        // Tambahkan media (gambar/video)
-        let mediaElement;
-        if (data.type === 'video') {
-            mediaElement = this.createVideoElement(data);
+        try {
+            let mediaElement;
+            const cacheKey = `${data.type}_${data.videoUrl || data.imageUrl}`;
+
+            if (data.type === 'video') {
+                // Always create fresh video instances (no caching untuk video)
+                mediaElement = this.createVideoElement(data);
+
+                // Force load setelah DOM ready
+                setTimeout(() => {
+                    mediaElement.load();
+                }, 50);
+
+            } else {
+                // Cache images untuk performance
+                if (this.mediaCache && this.mediaCache.has(cacheKey)) {
+                    mediaElement = this.mediaCache.get(cacheKey).cloneNode(true);
+                } else {
+                    mediaElement = this.createImageElement(data);
+                    if (this.mediaCache) {
+                        this.mediaCache.set(cacheKey, mediaElement.cloneNode(true));
+                    }
+                }
+            }
 
             this.elements.mediaContainer.appendChild(mediaElement);
-        } else {
-            mediaElement = this.createImageElement(data);
-            this.elements.mediaContainer.appendChild(mediaElement);
+
+        } catch (error) {
+            console.error('Error rendering media:', error);
+
+            // Enhanced fallback
+            if (data.type === 'video') {
+                try {
+                    const fallbackVideo = this.createVideoElementFallback(data);
+                    this.elements.mediaContainer.appendChild(fallbackVideo);
+                } catch (fallbackError) {
+                    console.error('Fallback also failed:', fallbackError);
+                    this.renderErrorFallback();
+                }
+            } else {
+                this.renderErrorFallback();
+            }
         }
 
-        // Update referensi tombol baru
+        // Update button references
         this.elements.prevBtn = prevBtn;
         this.elements.nextBtn = nextBtn;
-
-        this.updateNavigationButtons(); // pastikan disable state disesuaikan
+        this.updateNavigationButtons();
     }
 
+    // Error fallback UI
+    renderErrorFallback() {
+        const fallbackDiv = document.createElement('div');
+        fallbackDiv.className = 'fallback-media d-flex align-items-center justify-content-center';
+        fallbackDiv.style.cssText = 'min-height: 300px; background-color: #f8f9fa; border: 2px dashed #dee2e6;';
+        fallbackDiv.innerHTML = `
+        <div class="text-center">
+            <i class="bi bi-exclamation-triangle fs-1 text-muted"></i>
+            <p class="mt-2 text-muted">Media tidak dapat dimuat</p>
+            <button class="btn btn-outline-primary btn-sm" onclick="location.reload()">
+                Muat Ulang Halaman
+            </button>
+        </div>
+    `;
+        this.elements.mediaContainer.appendChild(fallbackDiv);
+    }
+
+    // Enhanced image creation
+    createImageElement(data) {
+        const img = document.createElement('img');
+        img.src = data.imageUrl;
+        img.alt = `Image by ${data.userName}`;
+        img.className = 'displayed-image w-100 h-auto';
+        img.style.objectFit = 'contain';
+        img.loading = 'lazy';
+
+        img.addEventListener('error', () => {
+            console.error('Image failed to load:', data.imageUrl);
+            img.src = '/assets/default-img/no-preview-image.jpg';
+        });
+
+        return img;
+    }
+
+    // Comment info update (no change, just for completeness)
     updateCommentInfo(data) {
         if (this.elements.commentUser) this.elements.commentUser.textContent = data.userName;
         if (this.elements.commentAvatar) {
@@ -294,20 +487,25 @@ class GalleryModalManager {
         if (this.elements.commentText) this.elements.commentText.textContent = data.commentText;
     }
 
+    // Thumbnails dengan DocumentFragment untuk performance
     updateThumbnails() {
         if (!this.elements.thumbnailList) return;
+
+        const fragment = document.createDocumentFragment();
 
         this.elements.thumbnailList.innerHTML = '';
         this.setupThumbnailContainer();
 
         this.galleryData.forEach((data, index) => {
             const thumbnailElement = this.createThumbnailElement(data, index);
-            this.elements.thumbnailList.appendChild(thumbnailElement);
+            fragment.appendChild(thumbnailElement);
         });
 
+        this.elements.thumbnailList.appendChild(fragment);
         this.updateActiveThumbnail();
     }
 
+    // Setup thumbnail container (no change)
     setupThumbnailContainer() {
         const classList = this.elements.thumbnailList.classList;
         classList.remove('flex-column', 'flex-row', 'align-items-center');
@@ -320,84 +518,51 @@ class GalleryModalManager {
         }
     }
 
+    // Thumbnail creation dengan better performance
     createThumbnailElement(data, index) {
         const wrapper = document.createElement('div');
-        wrapper.className = 'position-relative';
-        let thumbnail;
-
+        wrapper.className = 'thumbnail-item';
+        wrapper.dataset.index = index;
+        
+        let mediaEl;
         if (data.type === 'video') {
-            thumbnail = document.createElement('video');
-            // Sumber video untuk elemen thumbnail ini
-            thumbnail.src = data.videoUrl || data.imageUrl;
-            thumbnail.alt = `Thumbnail ${data.type} by ${data.userName}`;
-            thumbnail.classList.add('thumbnail-item');
-            thumbnail.muted = true;
-            thumbnail.playsInline = true;
-            // preload='metadata' agar event loadeddata bisa cepat terpicu
-            thumbnail.preload = 'metadata';
-            thumbnail.tabIndex = 0;
-            // Beri background sementara agar tidak putih kosong
-            thumbnail.style.backgroundColor = '#e0e0e0';
+            mediaEl = document.createElement('video');
+            mediaEl.poster = data.videoPosterUrl || '/assets/default-img/no-preview-image.jpg';
+            mediaEl.alt = `Thumbnail video by ${data.userName}`;
+            mediaEl.muted = true;
+            mediaEl.playsInline = true;
+            mediaEl.preload = 'none';
+            mediaEl.tabIndex = 0;
 
-            thumbnail.addEventListener('loadeddata', function onLoadedData() {
-                // Hapus listener agar tidak berjalan berkali-kali
-                thumbnail.removeEventListener('loadeddata', onLoadedData);
-
-                // Coba seek ke frame awal (misal 0.1 detik) untuk menghindari frame hitam
-                thumbnail.currentTime = 0.1;
-
-                thumbnail.addEventListener('seeked', function onSeeked() {
-                    thumbnail.removeEventListener('seeked', onSeeked); // Hapus listener
-                    try {
-                        const canvas = document.createElement('canvas');
-                        if (thumbnail.videoWidth > 0 && thumbnail.videoHeight > 0) {
-                            canvas.width = thumbnail.videoWidth;
-                            canvas.height = thumbnail.videoHeight;
-                            const ctx = canvas.getContext('2d');
-                            ctx.drawImage(thumbnail, 0, 0, canvas.width, canvas.height);
-                            thumbnail.poster = canvas.toDataURL('image/jpeg'); // Buat poster dari canvas
-                            thumbnail.style.backgroundColor = 'transparent'; // Hapus background sementara
-                        } else {
-                            console.warn('Dimensi video tidak tersedia untuk membuat poster:', thumbnail.src);
-                        }
-                    } catch (e) {
-                        console.error("Gagal membuat poster thumbnail video:", e);
-                    }
-                });
-            });
-            thumbnail.addEventListener('error', function onErrorLoading() {
-                console.error('Error memuat video untuk thumbnail:', thumbnail.src);
-                thumbnail.style.backgroundColor = '#333'; // Warna error
-            }, { once: true });
-            // Tidak perlu controls pada thumbnail
+            wrapper.appendChild(mediaEl);
+            wrapper.appendChild(this.createThumbnailPlayIcon());
         } else {
-            thumbnail = document.createElement('img');
-            thumbnail.src = data.thumbnailUrl || data.imageUrl;
-            thumbnail.alt = `Thumbnail ${data.type} by ${data.userName}`;
-            thumbnail.classList.add('thumbnail-item');
+            mediaEl = document.createElement('img');
+            mediaEl.src = data.thumbnailUrl || data.imageUrl;
+            mediaEl.alt = `Thumbnail image by ${data.userName}`;
+            mediaEl.loading = 'lazy';
+            mediaEl.addEventListener('error', () => {
+                mediaEl.src = '/assets/default-img/no-preview-image.jpg';
+            });
+
+            wrapper.appendChild(mediaEl);
         }
-        thumbnail.dataset.index = index;
-        // Add active class if current
+
         if (index === this.state.currentImageIndex) {
-            thumbnail.classList.add('active-thumbnail');
+            wrapper.classList.add('active-thumbnail');
         }
 
-        wrapper.appendChild(thumbnail);
-
-        // Add play icon for videos
-        if (data.type === 'video') {
-            const playIcon = this.createThumbnailPlayIcon();
-            wrapper.appendChild(playIcon);
-        }
-
-        // Click handler
-        thumbnail.addEventListener('click', () => {
-            this.displayImageInDetailModal(index);
-        });
+        // Debounced click handler
+        wrapper.addEventListener('click', this.debounce(() => {
+            if (!this.isNavigating) {
+                this.displayImageInDetailModal(index);
+            }
+        }, 200));
 
         return wrapper;
     }
 
+    // Active thumbnail
     updateActiveThumbnail() {
         if (!this.elements.thumbnailList) return;
 
@@ -411,13 +576,45 @@ class GalleryModalManager {
         });
     }
 
+    // Navigation buttons dengan visual feedback
     updateNavigationButtons() {
+        const isFirst = this.state.currentImageIndex === 0;
+        const isLast = this.state.currentImageIndex === this.galleryData.length - 1;
+
         if (this.elements.prevBtn) {
-            this.elements.prevBtn.disabled = this.state.currentImageIndex === 0;
+            this.elements.prevBtn.disabled = isFirst;
+            this.elements.prevBtn.style.opacity = isFirst ? '0.5' : '1';
         }
         if (this.elements.nextBtn) {
-            this.elements.nextBtn.disabled = this.state.currentImageIndex === this.galleryData.length - 1;
+            this.elements.nextBtn.disabled = isLast;
+            this.elements.nextBtn.style.opacity = isLast ? '0.5' : '1';
         }
+    }
+
+    // ===== NEW UTILITY METHODS =====
+
+    // Cleanup method untuk prevent video issues
+    cleanupCurrentMedia() {
+        if (this.activeVideo) {
+            this.activeVideo.pause();
+            this.activeVideo.currentTime = 0;
+
+            // Remove all event listeners dengan cloning
+            const newVideo = this.activeVideo.cloneNode(true);
+            if (this.activeVideo.parentNode) {
+                this.activeVideo.parentNode.replaceChild(newVideo, this.activeVideo);
+            }
+            this.activeVideo = null;
+        }
+    }
+
+    // Method untuk cleanup saat component destroyed
+    destroy() {
+        this.cleanupCurrentMedia();
+        if (this.mediaCache) {
+            this.mediaCache.clear();
+        }
+        this.activeVideo = null;
     }
 
     // ===== GALLERY MODAL METHODS =====
@@ -430,7 +627,7 @@ class GalleryModalManager {
 
         if (this.elements.galleryModal) {
             this.elements.galleryModal.addEventListener('hidden.bs.modal', () => {
-                // Keep state when modal is hidden
+                this.destroy();
             });
 
             this.elements.galleryModal.addEventListener('shown.bs.modal', () => {
@@ -469,6 +666,7 @@ class GalleryModalManager {
         // Hide detail modal first
         if (this.modals.detail) {
             this.modals.detail.hide();
+            this.destroy();
         }
 
         this.modals.gallery.show();
@@ -509,49 +707,11 @@ class GalleryModalManager {
         imgElement.alt = `Media dari ${data.userName} ${index + 1}`;
 
         if (data.type === 'video') {
-            imgElement.src = ''; // Default atau dikosongka
-            imgElement.style.backgroundColor = '#e0e0e0';
-
-            const tempVideo = document.createElement('video');
-            tempVideo.crossOrigin = "anonymous";
-            tempVideo.src = data.videoUrl || data.imageUrl;
-            tempVideo.preload = 'metadata';
-            tempVideo.muted = true;
-            tempVideo.playsInline = true;
-
-            tempVideo.addEventListener('loadeddata', function onLoadedData() {
-                tempVideo.removeEventListener('loadeddata', onLoadedData); // Hapus listener
-                tempVideo.currentTime = 0.1; // Seek ke detik 0.1
-
-                tempVideo.addEventListener('seeked', function onSeeked() {
-                    tempVideo.removeEventListener('seeked', onSeeked); // Hapus listener
-                    try {
-                        const canvas = document.createElement('canvas');
-                        if (tempVideo.videoWidth > 0 && tempVideo.videoHeight > 0) {
-                            canvas.width = tempVideo.videoWidth;
-                            canvas.height = tempVideo.videoHeight;
-                            const ctx = canvas.getContext('2d');
-                            ctx.drawImage(tempVideo, 0, 0, canvas.width, canvas.height);
-                            imgElement.src = canvas.toDataURL('image/jpeg'); // Set src gambar dari canvas
-                            imgElement.style.backgroundColor = 'transparent'; // Hapus background placeholder
-                        } else {
-                            console.warn('Dimensi video tidak tersedia untuk membuat thumbnail (gallery grid):', tempVideo.src);
-                            // imgElement.src = 'path/to/default-video-icon.png';
-                        }
-                    } catch (e) {
-                        console.error("Gagal membuat thumbnail video dari canvas (gallery grid):", e);
-                        // imgElement.src = 'path/to/error-video-icon.png';
-                    }
-                });
-            });
-            tempVideo.addEventListener('error', function onErrorLoading() {
-                console.error('Error memuat video untuk thumbnail (gallery grid):', tempVideo.src);
-                imgElement.style.backgroundColor = '#333'; // Warna error
-                // imgElement.src = 'path/to/error-video-icon.png'; // Fallback
-            }, { once: true });
-
+            // Asumsikan thumbnail video (sebagai gambar) juga disediakan server
+            // atau gunakan poster video sebagai thumbnail jika thumbnailUrl tidak ada
+            imgElement.src = data.thumbnailUrl || data.videoPosterUrl || '/assets/default-img/no-preview-image.jpg';
+            imgElement.style.backgroundColor = (data.thumbnailUrl || data.videoPosterUrl) ? 'transparent' : '#e0e0e0';
             thumbnailWrapper.appendChild(imgElement);
-
             // Tambahkan ikon play untuk video
             const playIcon = document.createElement('span');
             playIcon.className = 'grid-play-icon position-absolute top-50 start-50 translate-middle';
@@ -711,7 +871,7 @@ class UploadedCommentModalManager {
         this.elements.displayedVideo = this.elements.mainImageContainer.querySelector('.main-video-display');
 
         this.elements.prevButton = this.modalElement.querySelector('#prevImageBtn');
-        this.elements.nextButton = this.modalElement.querySelector('#nextImageBtn');
+        this.elements.nextButton = this.modalElement.querySelector('#nextImageBtn'); // Pastikan ID ini benar di HTML modal ini
         this.elements.thumbnailList = this.modalElement.querySelector('.thumbnail-list');
 
         this.elements.userAvatar = this.modalElement.querySelector('.comment-user-avatar');
@@ -753,7 +913,7 @@ class UploadedCommentModalManager {
     setupThumbnailContainer() {
         if (!this.elements.thumbnailList) return;
         const classList = this.elements.thumbnailList.classList;
-        classList.remove('flex-column', 'flex-row'); 
+        classList.remove('flex-column', 'flex-row');
         classList.add('d-flex', 'align-items-center');
 
         // Tambahkan class spesifik berdasarkan orientasi
@@ -787,16 +947,8 @@ class UploadedCommentModalManager {
         video.style.height = '100%';
         video.style.objectFit = 'cover'; // Penting agar video terpotong rapi
         video.style.display = 'block';
-        video.style.backgroundColor = '#e0e0e0'; // Placeholder saat poster dimuat
-
-        this._ensureVideoPoster(data, video)
-            .then(posterUrl => {
-                if (posterUrl) video.style.backgroundColor = 'transparent';
-            })
-            .catch(error => {
-                console.error(`Gagal membuat poster untuk thumbnail video unggahan ${data.videoUrl}:`, error);
-                video.style.backgroundColor = '#333'; // Indikasi error
-            });
+        video.poster = data.videoPosterUrl || '/assets/default-img/no-preview-image.jpg'; // Poster dari server
+        video.style.backgroundColor = data.videoPosterUrl ? 'transparent' : '#e0e0e0';
         return video;
     }
 
@@ -818,75 +970,6 @@ class UploadedCommentModalManager {
         return icon;
     }
 
-    _ensureVideoPoster(dataItem, videoElementForPosterAttribute) {
-        return new Promise((resolve, reject) => {
-            if (dataItem.type !== 'video') {
-                resolve(null); // Not a video, nothing to do for poster
-                return;
-            }
-
-            if (dataItem.imageUrl && typeof dataItem.imageUrl === 'string' && dataItem.imageUrl.startsWith('data:image')) {
-                // Assume imageUrl already holds a valid poster (e.g., from previous generation)
-                if (videoElementForPosterAttribute) {
-                    videoElementForPosterAttribute.poster = dataItem.imageUrl;
-                }
-                resolve(dataItem.imageUrl);
-                return;
-            }
-
-            // If imageUrl is not a valid poster, generate one
-            const tempVideo = document.createElement('video');
-            tempVideo.src = dataItem.videoUrl;
-            tempVideo.crossOrigin = 'anonymous';
-            tempVideo.preload = 'metadata';
-            tempVideo.muted = true;
-            tempVideo.playsInline = true; // Important for iOS and inline playback
-
-            const handleSeekError = (event) => {
-                console.error('Error seeking video for poster generation:', dataItem.videoUrl, event);
-                reject('Seek error');
-            };
-
-            const handleLoadError = (event) => {
-                console.error('Error loading video metadata for poster generation:', dataItem.videoUrl, event);
-                reject('Load error');
-            };
-
-            tempVideo.addEventListener('loadeddata', function onLoadedData() {
-                tempVideo.removeEventListener('loadeddata', onLoadedData);
-                tempVideo.removeEventListener('error', handleLoadError); // Remove load error listener if loadeddata fired
-
-                tempVideo.currentTime = 0.1; // Seek to a very early frame
-
-                tempVideo.addEventListener('seeked', function onSeeked() {
-                    tempVideo.removeEventListener('seeked', onSeeked);
-                    tempVideo.removeEventListener('error', handleSeekError); // Remove seek error listener
-
-                    if (tempVideo.videoWidth > 0 && tempVideo.videoHeight > 0) {
-                        const canvas = document.createElement('canvas');
-                        canvas.width = tempVideo.videoWidth;
-                        canvas.height = tempVideo.videoHeight;
-                        const ctx = canvas.getContext('2d');
-                        ctx.drawImage(tempVideo, 0, 0, canvas.width, canvas.height);
-                        const posterUrl = canvas.toDataURL('image/jpeg');
-
-                        dataItem.imageUrl = posterUrl; // Cache it on the data object for future use
-
-                        if (videoElementForPosterAttribute) {
-                            videoElementForPosterAttribute.poster = posterUrl;
-                        }
-                        resolve(posterUrl);
-                    } else {
-                        console.warn('Video dimensions not available for poster generation:', dataItem.videoUrl);
-                        reject('No dimensions');
-                    }
-                });
-                tempVideo.addEventListener('error', handleSeekError); // Add seek-specific error listener
-            });
-            tempVideo.addEventListener('error', handleLoadError); // Add load-specific error listener
-        });
-    }
-
     populateThumbnails() {
         if (!this.elements.thumbnailList) return;
         this.elements.thumbnailList.innerHTML = '';
@@ -894,8 +977,7 @@ class UploadedCommentModalManager {
 
         this.mediaData.forEach((data, index) => {
             const wrapper = document.createElement('div');
-            wrapper.className = 'thumbnail-item'; // As per original structure
-            wrapper.style.position = 'relative'; // For play icon positioning
+            wrapper.className = 'thumbnail-item';
             wrapper.style.cursor = 'pointer';
 
             let thumbContentElement;
@@ -945,15 +1027,13 @@ class UploadedCommentModalManager {
                 this.elements.displayedImage.alt = `Media Komentar oleh ${data.userName}`;
                 this.elements.displayedImage.style.display = '';
             } else if (data.type === 'video') {
+                // Hapus timestamp, karena src akan di-set ulang
+                this.elements.displayedVideo.src = '';
                 this.elements.displayedVideo.src = data.videoUrl;
-                this.elements.displayedVideo.style.backgroundColor = '#000'; // Placeholder
-                this._ensureVideoPoster(data, this.elements.displayedVideo)
-                    .then(posterUrl => {
-                        if (posterUrl) this.elements.displayedVideo.style.backgroundColor = 'transparent';
-                    })
-                    .catch(error => {
-                        console.error(`Failed to generate poster for main video ${data.videoUrl}:`, error);
-                    });
+                // Poster akan di-set dari data.videoPosterUrl (diasumsikan dari server)
+                this.elements.displayedVideo.poster = data.videoPosterUrl || '/assets/default-img/no-preview-image.jpg';
+                this.elements.displayedVideo.style.backgroundColor = data.videoPosterUrl ? 'transparent' : '#e0e0e0';
+                this.elements.displayedVideo.load();
                 this.elements.displayedVideo.style.display = '';
             }
         }
@@ -1043,7 +1123,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const exampleMediaData = [
                 {
                     type: 'image',
-                    imageUrl: clickedElement.dataset.imgSrc || 'assets/img/konten/bg-pertanian.jpg',
+                    imageUrl: clickedElement.dataset.imgSrc || '/halaman-depan/assets/img/konten/bg-pertanian.jpg',
                     videoUrl: null,
                     userName: clickedElement.dataset.userName || 'Pengguna Foto Uploader',
                     userAvatar: clickedElement.dataset.userAvatar || '',
@@ -1051,10 +1131,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 },
                 {
                     type: 'video',
-                    imageUrl: clickedElement.dataset.videoPoster || null, // Expects null if poster needs generation
-                    videoUrl: clickedElement.dataset.videoSrc || 'assets/videos/slideshow-tokopedia.mp4',
+                    videoPosterUrl: clickedElement.dataset.videoPoster || '/halaman-depan/assets/video-posters/sample-poster-video.jpg', // Dari server
+                    videoUrl: clickedElement.dataset.videoSrc || 'halaman-depan/assets/videos/sample-video.mp4',
                     userName: clickedElement.dataset.userName || 'Pengguna Video Uploader',
-                    userAvatar: clickedElement.dataset.userAvatar || '',
+                    userAvatar: clickedElement.dataset.userAvatar || '', // imageUrl tidak lagi digunakan untuk poster di sini
                     rating: parseInt(clickedElement.dataset.rating, 10) || 4
                 }
             ];
