@@ -5,7 +5,7 @@
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <title>Daftar Produk - Pertanian SMKN 1 BINONG</title>
         <!-- Favicons -->
-        <link href="{{ asset('halaman-depan/assets/img/Logo/Logo.png') }}" rel="icon" />
+        <link href="{{ asset('halaman-depan/assets/img/Logo/Logo .png') }}" rel="icon" />
         <link href="{{ asset('halaman-depan/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon" />
 
         <!-- Fonts -->

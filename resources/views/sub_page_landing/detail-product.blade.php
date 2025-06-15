@@ -4,12 +4,12 @@
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Portfolio Details - Impact Bootstrap Template</title>
+  <title>Detail Produk</title>
   <meta name="description" content="">
   <meta name="keywords" content="">
 
   <!-- Favicons -->
-  <link href="{{ asset('halaman-depan/assets/img/favicon.png') }}" rel="icon">
+  <link href="{{ asset('halaman-depan/assets/img/Logo/Logo .png') }}" rel="icon">
   <link href="{{ asset('halaman-depan/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -805,7 +805,7 @@
                     <div class="row g-0">
                         <div class="col-lg-9 modal-main-content">
                             <div class="main-image-container">
-                                <img src="{{ asset('halaman-depan/') }}" alt="Media Komentar" class="displayed-image">
+                                <img src="" class="displayed-image">
                                 <video src="" class="displayed-video img-fluid" controls></video>
 
                                 <button class="modal-close-btn">X</button>
