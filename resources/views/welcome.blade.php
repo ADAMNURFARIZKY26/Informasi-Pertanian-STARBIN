@@ -8,23 +8,23 @@
   <meta name="description" content="">
   <meta name="keywords" content="">
 
-  
+
   <link href="{{ asset('halaman-depan/assets/img/Logo/Logo .png') }}" rel="icon">
   <link href="{{ asset('halaman-depan/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
-  
+
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
-  
+
   <link href="{{ asset('halaman-depan/assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
   <link href="{{ asset('halaman-depan/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
   <link href="{{ asset('halaman-depan/assets/vendor/aos/aos.css') }}" rel="stylesheet">
   <link href="{{ asset('halaman-depan/assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('halaman-depan/assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
-  
+
   <link href="{{ asset('halaman-depan/assets/css/main.css') }}" rel="stylesheet">
   <link href="{{ asset('halaman-depan/assets/css/mycss/main-landing.css') }}" rel="stylesheet">
 
@@ -38,8 +38,35 @@
 </head>
 
 <body class="index-page">
+  <header id="header" class="header fixed-top">
+    <div class="topbar d-flex align-items-center" style="padding: 40px 0;">
+      <div class="container position-relative d-flex align-items-center justify-content-between">
+        <div class="logo d-flex align-items-center">
+          <img src="{{ asset('halaman-depan/assets/img/Logo/Logo .png') }}" alt="Logo" style="padding-right:10px; width: 70px; height: auto; background-size: cover;">
+          <h1 class="sitename mb-0 fs-4">Pertanian STARBIN</h1>
+          <span style="font-size: 2rem;">.</span>
+        </div>
+        <div class="d-flex align-items-center gap-3">
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="#beranda" style="font-size: 1rem;">Beranda</a></li>
+              <li><a href="#tentangkami" style="font-size: 1rem;">Tentang Kami</a></li>
+              <li><a href="#produk" style="font-size: 1rem;">Produk</a></li>
+              <li><a href="#edukasi" style="font-size: 1rem;">Edukasi</a></li>
+              <li><a href="#blog" style="font-size: 1rem;">Blog</a></li>
+              <li><a href="#kontak" style="font-size: 1rem;">Kontak</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
 
-  @include('layouts.landing.partials.header')
+          <a href="{{route('login')}}" class="btn btn-outline-light custom-pill-btn" style="font-size: 1rem; padding: 10px 15px ;">
+            Login
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
   <main class="main">
 
     <section id="beranda" class="hero section accent-background">
@@ -60,42 +87,38 @@
         <div class="container position-relative">
           <div class="row gy-4 mt-5">
 
+            @foreach ($sosmeds as $sosmed)
             <div class="col-xl-3 col-md-6">
               <div class="icon-box text-center">
-                <div class="icon"><i class="bi bi-tiktok"></i></div>
-                <h4 class="title"><a href="https://www.tiktok.com" target="_blank" class="stretched-link">TikTok</a></h4>
+                <div class="icon">
+                  <i class="{{ $sosmed->icon }}"></i>
+                </div>
+                <h4 class="title">
+                  <a href="{{ $sosmed->url }}" target="_blank" class="stretched-link">
+                    {{ $sosmed->judul }}
+                  </a>
+                </h4>
               </div>
             </div>
+            @endforeach
 
-            <div class="col-xl-3 col-md-6">
-              <div class="icon-box text-center">
-                <div class="icon"><i class="bi bi-youtube"></i></div>
-                <h4 class="title"><a href="https://www.youtube.com" target="_blank" class="stretched-link">YouTube</a></h4>
+            @if ($sosmeds->isEmpty())
+            <div class="col-12 text-center">
+              <div class="alert alert-warning">
+                <i class="bi bi-exclamation-triangle"></i> Belum ada data sosial media ditambahkan.
               </div>
             </div>
-
-            <div class="col-xl-3 col-md-6">
-              <div class="icon-box text-center">
-                <div class="icon"><i class="bi bi-instagram"></i></div>
-                <h4 class="title"><a href="https://www.instagram.com" target="_blank" class="stretched-link">Instagram</a></h4>
-              </div>
-            </div>
-
-            <div class="col-xl-3 col-md-6">
-              <div class="icon-box text-center">
-                <div class="icon"><i class="bi bi-geo-alt-fill"></i></div>
-                <h4 class="title"><a href="https://www.google.com/maps" target="_blank" class="stretched-link">Maps</a></h4>
-              </div>
-            </div>
+            @endif
 
           </div>
         </div>
       </div>
+
     </section>
 
     <section id="tentangkami" class="about section py-5" style="background-color: #fff;">
       <div class="container">
-        
+
         <div class="container section-title" data-aos="fade-up">
           <h2 class="fw-bold" style="color: #06926f;">Tentang Kami</h2>
           <p class="text-muted mt-3">
@@ -103,16 +126,16 @@
           </p>
         </div>
 
-        
+
         <div class="row align-items-center gy-4">
-          
+
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <div class="shadow rounded-4 overflow-hidden">
               <img src="{{ asset('halaman-depan/assets/img/tentang-kami/pertanian-3.jpg') }}" class="img-fluid w-100" alt="Tentang Kami">
             </div>
           </div>
 
-          
+
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
             <div class="ps-0 ps-lg-4">
               <p class="text-dark mb-4" style="line-height: 1.8;">
@@ -146,16 +169,16 @@
 
     <section id="produk" class="portfolio section py-5" style="background-color: #fff;">
       <div class="container">
-        
+
         <div class="container section-title" data-aos="fade-up">
           <h2 style="color: #06926f;">produk Kami</h2>
           <p class="text-muted">Berikut adalah beberapa produk yang kami miliki</p>
         </div>
 
-        
+
         <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-            
+
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item isotope-item filter-app">
               <a href="{{ route('detail-produk') }}" class="text-decoration-none text-dark">
                 <div class="portfolio-content h-100 border rounded-4 shadow-sm overflow-hidden bg-white transition hover-shadow">
@@ -172,7 +195,7 @@
               </a>
             </div>
 
-            
+
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item isotope-item filter-app">
               <a href="{{ route('detail-produk') }}" class="text-decoration-none text-dark">
                 <div class="portfolio-content h-100 border rounded-4 shadow-sm overflow-hidden bg-white transition hover-shadow">
@@ -199,9 +222,9 @@
       </div>
     </section>
 
-    
+
     <section id="edukasi" class="services section bg-white py-5">
-      
+
       <div class="container section-title text-center mb-5" data-aos="fade-up">
         <h2 class="fw-bold" style="color: #06926f;">Edukasi</h2>
         <p class="text-muted">Kami berbagi wawasan tentang praktik pertanian ramah lingkungan seperti organik dan hidroponik modern.</p>
@@ -210,7 +233,7 @@
       <div class="container">
         <div class="row g-4 justify-content-center" data-aos="fade-up" data-aos-delay="200">
 
-          
+
           <div class="col-md-6">
             <a href="{{ route('organik') }}" class="text-decoration-none edukasi-link">
               <div class="card border-0 shadow-lg rounded-4 overflow-hidden position-relative edukasi-card h-100">
@@ -230,7 +253,7 @@
             </a>
           </div>
 
-          
+
           <div class="col-md-6">
             <a href="{{ route('hidroponik') }}" class="text-decoration-none edukasi-link">
               <div class="card border-0 shadow-lg rounded-4 overflow-hidden position-relative edukasi-card h-100">
@@ -255,10 +278,10 @@
     </section>
 
 
-    
+
     <section id="blog" class="recent-posts section py-5">
 
-      
+
       <div class="container section-title text-center mb-5" data-aos="fade-up">
         <h2 class="fw-bold text-success">Blog</h2>
         <p class="text-muted">Dapatkan informasi terbaru seputar pertanian, kegiatan jurusan, dan inovasi siswa ATPH SMKN 1 Binong.</p>
@@ -267,7 +290,7 @@
       <div class="container">
         <div class="row gy-4">
 
-          
+
           <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <a href="#" class="card-blog d-block text-decoration-none text-dark rounded-4 overflow-hidden shadow-sm position-relative border h-100">
               <div class="post-img overflow-hidden">
@@ -298,10 +321,10 @@
       </div>
     </section>
 
-    
+
     <section id="kontak" class="contact section">
 
-      
+
       <div class="container section-title" data-aos="fade-up">
         <h2>Kontak</h2>
         <p>Jika Anda memiliki pertanyaan, ingin bekerja sama, atau membutuhkan informasi lebih lanjut seputar Jurusan ATPH SMKN 1 Binong, jangan ragu untuk menghubungi kami melalui kontak di bawah ini.</p>
@@ -382,7 +405,70 @@
       </div>
     </section>
   </main>
-  @include('layouts.landing.partials.footer')
+
+  <footer id="footer" class="footer accent-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        
+        <div class="col-lg-4 col-md-12 footer-about">
+          <a href="index.html" class="logo d-flex align-items-center">
+            <span class="sitename">Pertanian STARBIN</span>
+          </a>
+          <p>Pertanian STARBIN adalah website dari salah satu jurusan yang berada di SMK Negeri 1 Binong yaitu ATPH (Agribisnis Tanaman Pangan Holtikultura). Website ini bertujuan untuk memberikan informasi dan jual beli produk-produk kami di Pertanian SMK Negeri 1 Binong.</p>
+          <div class="social-links d-flex mt-4">
+            @foreach ($sosmeds as $sosmed)
+              <a href="{{ $sosmed->url }}" target="_blank" title="{{ $sosmed->judul }}">
+                <i class="{{ $sosmed->icon }}"></i>
+              </a>
+            @endforeach
+
+            @if ($sosmeds->isEmpty())
+              <span class="text-muted">Tidak ada sosial media.</span>
+            @endif
+          </div>
+        </div>
+
+        
+        <div class="col-lg-4 col-6 footer-links" style="padding-left: 100px;">
+          <h4>Navigasi</h4>
+          <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#tentangkami">Tentang Kami</a></li>
+            <li><a href="#produk">Produk Kami</a></li>
+            <li><a href="#edukasi">Edukasi</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+          </ul>
+        </div>
+
+        
+        <div class="col-lg-4 col-md-12 footer-contact text-center text-md-start">
+          <h4>Kontak Kami</h4>
+          <p>Kab.Subang Kec.Binong</p>
+          <p>Belakang Polsek Binong</p>
+          <p>Kode pos 41253</p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+          <p><strong>Email:</strong> <span>info@example.com</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p class="mb-0">
+        © 2025
+        <a href="https://smkn1binong.sch.id/" target="_blank">
+          SMK Negeri 1 Binong
+        </a>
+      </p>
+      <div class="credits">
+        Made by <strong>11 PPLG angkatan 2023-2026</strong>
+      </div>
+    </div>
+
+  </footer>
+
+
   
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
   
