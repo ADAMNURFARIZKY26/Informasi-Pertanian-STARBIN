@@ -398,22 +398,22 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    gap: 0.4em; 
-    overflow: hidden;
+    gap: 0.4em;
+    min-width: 0;
+    flex-shrink: 0;
+    white-space: nowrap;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
 }
 
 .btn-icon-text i {
     font-size: 1.1rem;
-    flex-shrink: 0;
 }
 
 .btn-icon-text span {
     font-size: 0.75rem;
     font-weight: 500;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    min-width: 0;
+    letter-spacing: 0.01em;
 }
 
 /* Divider Styling */
@@ -770,19 +770,11 @@ body {
     cursor: pointer;
 }
 
-.media-item img {
+.media-item img,
+.media-item video {
     width: 100%;
     height: 100%;
     object-fit: cover;
-}
-
-.media-item .play-icon {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: black;
-    font-size: 20px;
 }
 
 .play-icon i:hover {
@@ -1287,7 +1279,7 @@ body {
 .displayed-image,
 .displayed-video {
     max-width: 100%;
-    max-height: 70vh; /* Batasi tinggi gambar agar tidak terlalu besar */
+    max-height: 70vh;
     object-fit: contain;
     display: block;
 }
@@ -1322,7 +1314,6 @@ body {
     right: unset;
     inset-inline-start: 15px;
 }
-
 
 .prev-image-btn:disabled,
 .next-image-btn:disabled {
@@ -1388,17 +1379,26 @@ body {
     border-radius: 4px;
 }
 
+/* For Modal Uploaded Commentar Media */
+.thumbnail-item img.review-product,
+.thumbnail-item video.review-product {
+    width: 100%;
+    height: 100%;
+    object-fit: contain !important;
+    border-radius: 4px;
+}
+
 .video-play-pause-icon {
-  z-index: 10;
-  pointer-events: none;
-  transition: transform 0.2s, opacity 0.2s;
+    z-index: 10;
+    pointer-events: none;
+    transition: transform 0.2s, opacity 0.2s;
 }
 .icon-animate {
-  transform: scale(1.2);
-  opacity: 0.7;
+    transform: scale(1.2);
+    opacity: 0.7;
 }
 .thumbnail-item-wrapper {
-  position: relative;
+    position: relative;
 }
 
 .thumbnail-item.active-thumbnail {
@@ -1432,9 +1432,9 @@ body {
         order: 2;
         border-left: none;
         border-top: 1px solid #dee2e6;
-        height: 155px; 
-        display: flex; 
-        flex-direction: column; 
+        height: 155px;
+        display: flex;
+        flex-direction: column;
     }
 
     .modal-commentar-media .displayed-image {
@@ -1449,9 +1449,9 @@ body {
     }
 
     .modal-commentar-media .thumbnail-item {
-        flex-shrink: 0; 
-        margin-bottom: 0; 
-        margin-right: 8px; 
+        flex-shrink: 0;
+        margin-bottom: 0;
+        margin-right: 8px;
     }
     .modal-commentar-media .thumbnail-item:last-child {
         margin-right: 0;
@@ -1470,11 +1470,11 @@ body {
     .modal-commentar-media .modal-dialog {
         margin: 0;
         max-width: 100%;
-        min-height: 100vh; 
+        min-height: 100vh;
     }
     .modal-commentar-media .modal-content {
         min-height: 100vh;
-        border-radius: 0; 
+        border-radius: 0;
     }
     .modal-commentar-media .main-image-container {
         min-height: 250px;
@@ -1483,9 +1483,9 @@ body {
     .modal-commentar-media .displayed-image {
         object-fit: cover;
     }
-    
+
     .modal-commentar-media .modal-thumbnail-sidebar {
-        height: 155px; 
+        height: 155px;
     }
 
     .modal-commentar-media .midal-thumbnail-sidebar .thumbnail-item {
@@ -1509,7 +1509,9 @@ body {
 }
 
 .gallery-grid-item {
-    width: calc(20% - 8px); /* 5 gambar per baris (100% / 5 = 20%), 8px adalah penyesuaian dari gap (10px * 4 celah / 5 item) */
+    width: calc(
+        20% - 8px
+    ); /* 5 gambar per baris (100% / 5 = 20%), 8px adalah penyesuaian dari gap (10px * 4 celah / 5 item) */
     aspect-ratio: 1 / 1; /* Membuat item menjadi kotak */
     border: 1px solid var(--tokopedia-light-gray);
     border-radius: 6px;
@@ -1575,17 +1577,15 @@ body {
 }
 /* End Modal Gallery Comentar */
 
-
-
 /* <====== Modal Uploaded Comentar Media ======> */
 .modal-uploaded-commentar-media .modal-dialog {
-    max-width: 1000px; 
+    max-width: 1000px;
 }
 
 .modal-uploaded-commentar-media .modal-content {
     border: none;
-    border-radius: 8px; 
-    overflow: hidden; 
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 @media (max-width: 991.98px) {
@@ -1614,12 +1614,12 @@ body {
     }
 
     .modal-uploaded-commentar-media .thumbnail-item {
-        flex-shrink: 0; 
-        margin-bottom: 0; 
-        margin-right: 8px; 
+        flex-shrink: 0;
+        margin-bottom: 0;
+        margin-right: 8px;
     }
     .modal-uploaded-commentar-media .thumbnail-item:last-child {
-        margin-right: 0; 
+        margin-right: 0;
     }
 
     .modal-uploaded-commentar-media .displayed-image {
@@ -1645,12 +1645,12 @@ body {
         min-height: 250px;
     }
 
-     .modal-commentar-media .displayed-image {
+    .modal-commentar-media .displayed-image {
         object-fit: cover;
     }
 
     .modal-uploaded-commentar-media .modal-thumbnail-sidebar {
-        height: 140px !important; 
+        height: 140px !important;
     }
 
     .modal-uploaded-commentar-media .midal-thumbnail-sidebar .thumbnail-item {

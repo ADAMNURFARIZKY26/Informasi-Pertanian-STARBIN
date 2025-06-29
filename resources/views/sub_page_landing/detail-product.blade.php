@@ -2,38 +2,38 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <title>Detail Produk</title>
-  <meta name="description" content="">
-  <meta name="keywords" content="">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Detail Produk</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="">
 
-  <!-- Favicons -->
-  <link href="{{ asset('halaman-depan/assets/img/Logo/Logo .png') }}" rel="icon">
-  <link href="{{ asset('halaman-depan/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    <!-- Favicons -->
+    <link href="{{ asset('halaman-depan/assets/img/Logo/Logo .png') }}" rel="icon">
+    <link href="{{ asset('halaman-depan/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
 
-  <!-- Vendor CSS Files -->
-  <link rel="stylesheet" href="{{ asset('halaman-depan/assets/vendor/bootstrap/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('halaman-depan/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
-  <link rel="stylesheet" href="{{ asset('halaman-depan/assets/vendor/aos/aos.css') }}">
-  <link rel="stylesheet" href="{{ asset('halaman-depan/assets/vendor/glightbox/css/glightbox.min.css') }}">
-  <link rel="stylesheet" href="{{ asset('halaman-depan/assets/vendor/swiper/swiper-bundle.min.css') }}">
+    <!-- Vendor CSS Files -->
+    <link rel="stylesheet" href="{{ asset('halaman-depan/assets/vendor/bootstrap/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('halaman-depan/assets/vendor/bootstrap-icons/bootstrap-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('halaman-depan/assets/vendor/aos/aos.css') }}">
+    <link rel="stylesheet" href="{{ asset('halaman-depan/assets/vendor/glightbox/css/glightbox.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('halaman-depan/assets/vendor/swiper/swiper-bundle.min.css') }}">
 
-  <!-- Main CSS File -->
-  <link rel="stylesheet" href="{{ asset('halaman-depan/assets/css/main.css') }}">
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="{{ asset('halaman-depan/assets/css/main.css') }}">
 
-  <!-- Mycss -->
-  <link rel="stylesheet" href="{{ asset('halaman-depan/assets/css/mycss/landingpage.css') }}">
-  <link rel="stylesheet" href="{{ asset('halaman-depan/assets/css/mycss/detail-product.css') }}">
+    <!-- Mycss -->
+    <link rel="stylesheet" href="{{ asset('halaman-depan/assets/css/mycss/landingpage.css') }}">
+    <link rel="stylesheet" href="{{ asset('halaman-depan/assets/css/mycss/detail-product.css') }}">
 </head>
 
 <body class="portfolio-details-page modal-open-support">
 
-  @include('layouts.landing.partials.header')
+    @include('layouts.landing.partials.header')
     <main class="main" style="padding-top: 90px; box-sizing: border-box;">
         <div class="container">
             <!-- Breadcrumb -->
@@ -48,7 +48,7 @@
                     </ol>
                 </nav>
             </div>
-            
+
             <div class="row">
                 <!-- Product Images Section -->
                 <div class="col-lg-5 col-md-6 ">
@@ -60,19 +60,19 @@
                                 <span class="discount-badge bg-danger">25%</span>
                             </div>
                         </div>
-                        
+
                         <!-- Another product images -->
                         <div class="d-flex gap-2 flex-wrap">
                             <div class="product-thumbnail active" id="productThumbnail" onclick="changeImage()">
                                 <img src="{{ asset('halaman-depan/') }}" alt="Thumbnail 1">
                             </div>
-                            <div class="product-thumbnail" id="productThumbnail"  onclick="changeImage()">
+                            <div class="product-thumbnail" id="productThumbnail" onclick="changeImage()">
                                 <img src="{{ asset('halaman-depan/') }}" alt="Thumbnail 2">
                             </div>
-                            <div class="product-thumbnail" id="productThumbnail"  onclick="changeImage()">
+                            <div class="product-thumbnail" id="productThumbnail" onclick="changeImage()">
                                 <img src="{{ asset('halaman-depan/') }}" alt="Thumbnail 3">
                             </div>
-                            <div class="product-thumbnail" id="productThumbnail"  onclick="changeImage()">
+                            <div class="product-thumbnail" id="productThumbnail" onclick="changeImage()">
                                 <img src="{{ asset('halaman-depan/') }}" alt="Thumbnail 4">
                             </div>
                         </div>
@@ -82,13 +82,13 @@
                 <!-- Product Info Section -->
                 <div class="col-lg-4 col-md-6">
                     <h1 class="name-product h4 fw-bold mb-3 text-dark fw-semibold" id="name-product">Lem Pengganti Paku Sekrup Tembok Kayu Metal Keramik No More Nail 60 Gr</h1>
-                    
+
                     <!-- Rating -->
                     <div class="rating-container d-flex align-items-center mb-3" id="rating-container">
                         <span class="sold text-muted me-3">5rb+ terjual • </span>
-                        
+
                         <div class="rating-stars">
-                            <i class="bi bi-star-fill"></i>   <!-- Jumlah icon ratingnya adalah 5, nanti half atau fill nya dan ratingnya akan disesuaikan dengan data -->
+                            <i class="bi bi-star-fill"></i> <!-- Jumlah icon ratingnya adalah 5, nanti half atau fill nya dan ratingnya akan disesuaikan dengan data -->
                         </div>
                         <span class="rating text-muted">4.8 (2.1rb ulasan)</span>
                     </div>
@@ -147,7 +147,7 @@
                                 Spesifikasi: 1. 100% baru &amp; kualitas tinggi 2. Dapat menopang berat hingga 23kg 3. Tanpa membuat lubang yang akan merusak dinding...
                             </p>
                         </div>
-                        
+
                         <div id="fullDescription" class="description-content" style="display: none;">
                             <p class="deskripsi-product mb-2">
                                 New Product!^^^ NO MORE NAIL GLUE merupakan lem pengganti paku dan sekrup yang mempunyai daya rekat sangat kuat yang dapat di gunakan untuk pemasangan kayu panel, partisi lantai, peralatan kamar mandi, metal, bata, keramik, MDF, karpet, pajangan dan pernak-pernik gantungan pada tembok yang biasanya memerlukan paku atau sekrup.
@@ -169,7 +169,7 @@
                                 • Mudah digunakan tanpa alat tambahan
                             </p>
                         </div>
-                        
+
                         <button class="btn btn-link p-0 text-tokopedia fw-bold small text-decoration-none" id="toggleDescription" onclick="toggleDescription()">
                             Lihat Selengkapnya
                         </button>
@@ -180,25 +180,25 @@
                         <div class="mb-3">
                             <h6 class="fw-bold mb-0">Pengiriman</h6>
                         </div>
-                        
+
                         <!-- Info lokasi -->
                         <div class="d-flex align-items-start mb-2">
                             <i class="bi bi-geo-alt text-muted me-2" style="font-size: 0.875rem;"></i>
                             <div class="flex-grow-1">
                                 <div class="small text-dark">
-                                    <span>Dikirim dari : </span> 
+                                    <span>Dikirim dari : </span>
                                     <strong>Jakarta Barat</strong>
                                 </div>
                             </div>
                         </div>
-                        
+
                         <!-- Info Harga Pengiriman -->
                         <div class="d-flex align-items-start mb-2">
                             <i class="bi bi-truck text-muted me-2" style="font-size: 0.875rem;"></i>
                             <div class="flex-grow-1">
                                 <div class="small">
                                     <div class="text-dark mb-1">
-                                        <span class="fw-bold">Ongkir mulai : </span> 
+                                        <span class="fw-bold">Ongkir mulai : </span>
                                         <strong>Rp8.000</strong>
                                     </div>
                                     <div class="text-muted" style="font-size: 0.75rem;">
@@ -221,7 +221,7 @@
                         <div class="quantity">
                             <p class="text-dark fw-bold mb-0">Atur jumlah dan catatan</p>
                             <div class="d-flex align-items-center justify-content-between mb-3">
-                                <div class="quantity-selector-modern border-light-subtle" >
+                                <div class="quantity-selector-modern border-light-subtle">
                                     <button class="quantity-min quantity-btn-modern" id="quantity-min" onclick="decreaseQuantity()">
                                         <i class="bi bi-dash text-tokopedia fs-5"></i>
                                     </button>
@@ -231,7 +231,8 @@
                                     </button>
                                 </div>
                                 <div class="stok text-end mt-2">
-                                    <div class="small text-muted">Stok Total: <p class="text-dark fw-bold small">1000</p></div>
+                                    <div class="small text-muted">Stok Total: <p class="text-dark fw-bold small">1000</p>
+                                    </div>
                                 </div>
                             </div>
 
@@ -277,7 +278,7 @@
             </div>
 
             <!-- Rating -->
-            <h4 class="h4 fs-4 text-dark fw-bold mt-5">Rating</h4> <!-- Title Rating --> 
+            <h4 class="h4 fs-4 text-dark fw-bold mt-5">Rating</h4> <!-- Title Rating -->
 
             <div class="rating-section rounded p-4 mx-auto mb-5 border-light-subtle">
                 <div class="row align-items-center">
@@ -288,13 +289,13 @@
                             <span class="fs-1 fw-bold text-dark lh-1">5.0</span>
                             <span class="fs-4 fw-medium rating-out-of lh-1">/ 5.0</span>
                         </div>
-                        
+
                         <!-- Jumlah rating -->
                         <div class="jumlah-rating">
                             <span class="small text-gray">10 rating • 7 ulasan</span>
                         </div>
                     </div>
-                    
+
                     <!-- Rating progress -->
                     <div class="col-md-8">
                         <div class="row">
@@ -310,7 +311,7 @@
                                         </div>
                                         <span class="text-muted fw-medium text-end rating-count">(10)</span>
                                     </div>
-                                    
+
                                     <!-- 4 Bintang -->
                                     <div class="d-flex align-items-center gap-2 small">
                                         <span class="text-warning fw-semibold rating-number">
@@ -321,7 +322,7 @@
                                         </div>
                                         <span class="text-muted fw-medium text-end rating-count">(0)</span>
                                     </div>
-                                    
+
                                     <!-- 3 Bintang -->
                                     <div class="d-flex align-items-center gap-2 small">
                                         <span class="text-warning fw-semibold rating-number">
@@ -348,7 +349,7 @@
                                         </div>
                                         <span class="text-muted fw-medium text-end rating-count">(0)</span>
                                     </div>
-                                    
+
                                     <!-- 1 Star -->
                                     <div class="d-flex align-items-center gap-2 small">
                                         <span class="text-warning fw-semibold rating-number">
@@ -486,7 +487,7 @@
                         <div class="photo-gallery-wrapper mb-3">
                             <h6 class="fw-bold mb-3">FOTO & VIDEO PEMBELI</h6>
 
-                            <div class="photo-product-gallery d-flex flex-wrap justify-content-center gap-2"  id="photoGalleryContainer">
+                            <div class="photo-product-gallery d-flex flex-wrap justify-content-center gap-2" id="photoGalleryContainer">
                                 <!-- Gambar Thumbnail -->
                                 <div class="commentar-media rounded overflow-hidden" data-image-index="0">
                                     <img src="{{ asset('halaman-depan/assets/img/konten/bg-pertanian.jpg')}}" id="commentarMedia" class="h-100 w-100 object-fit-contain rounded" alt="Foto pembeli 1">
@@ -563,7 +564,7 @@
                                 </div>
                                 <button class="menu-button">⋮</button>
                             </div>
-                            
+
                             <div class="comment-content">
                                 <div class="comment-text collapsed" id="comment-text">
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed accusamus explicabo nulla, cupiditate quasi assumenda, porro earum doloremque alias cum fuga laboriosam dolorum iusto vitae voluptate eius nihil non ex tempore corrupti a! Est quam, a illum similique natus eaque ut. Ab, optio provident perspiciatis tempora delectus debitis aperiam blanditiis quasi accusantium velit amet at molestiae consequuntur voluptas! Voluptatibus quam itaque, magnam minus excepturi modi! Ducimus, accusantium incidunt. Voluptas provident vero recusandae quibusdam assumenda aliquid cum labore sit omnis soluta? Architecto quaerat minima maxime quibusdam reiciendis ullam suscipit similique aspernatur. Magni est ducimus at quia voluptatibus voluptate porro cum iure cupiditate consequuntur libero dolore doloribus, molestias reiciendis quod reprehenderit sit nulla totam, culpa quo ipsa eveniet. Exercitationem accusantium reiciendis cum in unde porro sunt beatae dolores recusandae est. At, quidem blanditiis ipsam laboriosam cum repellat incidunt, minus, voluptatibus impedit porro ullam eligendi earum soluta alias eveniet dolorum sapiente reiciendis totam ad? Maxime eveniet voluptates perferendis asperiores deserunt minus. Provident architecto, maiores maxime asperiores non soluta pariatur consectetur nobis quae veniam id excepturi tenetur deserunt est deleniti ut! Fugit nisi fuga unde veniam quo labore cum! Enim dolorum fugit deserunt necessitatibus vero, ullam similique libero, rerum atque, at optio maxime cumque.
@@ -571,28 +572,34 @@
                                 <button class="toggle-button" onclick="toggleComment('comment-text', this)">Selengkapnya</button>
                             </div>
 
+                            <!-- Media yang diupload -->
                             <div class="comment-media">
                                 <!-- Video -->
-                                <div class="media-item">
+                                <div class="media-item" data-media-index="0">
                                     <div class="uploaded-commentar-video media-video">
-                                        <div class="play-icon fw-semibold">
-                                            <i class="bi bi-play-fill lg"></i>
+                                        <video muted poster="{{asset('halaman-depan/assets/video-posters/sample-poster-video.jpg')}}">
+                                            <source src="{{asset('halaman-depan/assets/videos/sample-video.mp4')}}">
+                                        </video>
+
+                                        <div class="play-icon fw-semibold ">
+                                            <i class="bi bi-play-circle-fill fs-5 text-white position-absolute top-50 start-50 translate-middle"></i>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Foto -->
-                                <div class="media-item">
+                                <div class="media-item" data-media-index="1">
                                     <div class="uploaded-commentar-image media-image">
-                                        <img src="{{ asset('halaman-depan/assets/img/konten/bg-pertanian.jpg') }}" alt="Uploaded Media Comentar">
+                                        <img src={{asset('halaman-depan/assets/img/konten/bg-pertanian.jpg')}} alt="Uploaded Media Comentar">
                                     </div>
                                 </div>
                             </div>
 
+                            <!-- Actions -->
                             <div class="comment-actions">
                                 <div class="helpful-count">
                                     <svg class="helpful-icon" viewBox="0 0 16 16" fill="currentColor">
-                                        <path d="M8.864 2.176C8.394 1.706 7.775 1.5 7.2 1.5c-.575 0-1.194.206-1.664.676L5 2.712 4.464 2.176C3.994 1.706 3.375 1.5 2.8 1.5c-.575 0-1.194.206-1.664.676-.94.94-.94 2.452 0 3.392L5 9.432l3.864-3.864c.94-.94.94-2.452 0-3.392z"/>
+                                        <path d="M8.864 2.176C8.394 1.706 7.775 1.5 7.2 1.5c-.575 0-1.194.206-1.664.676L5 2.712 4.464 2.176C3.994 1.706 3.375 1.5 2.8 1.5c-.575 0-1.194.206-1.664.676-.94.94-.94 2.452 0 3.392L5 9.432l3.864-3.864c.94-.94.94-2.452 0-3.392z" />
                                     </svg>
                                     <span>3 orang terbantu</span>
                                 </div>
@@ -602,6 +609,7 @@
                                 </div>
                             </div>
 
+                            <!-- Balasan Komentar -->
                             <div class="comment-replies-section bg-light" id="replies1" style="display: none;">
                                 <div class="reply-item">
                                     <div class="comment-header">
@@ -616,11 +624,11 @@
                                             </div>
                                         </div>
                                     </div>
-                                    
+
                                     <div class="comment-content">
                                         <div class="comment-text">
-                                            Terima kasih telah berbelanja di Cable_man. Bagikan link toko kami 
-                                            <span style="color: #00aa5b;">https://www.tokopedia.com/cableman2</span> 
+                                            Terima kasih telah berbelanja di Cable_man. Bagikan link toko kami
+                                            <span style="color: #00aa5b;">https://www.tokopedia.com/cableman2</span>
                                             kepada teman-teman Anda dan favoritkan Toko kami untuk terus update mengenai stok dan produk terbaru
                                         </div>
                                     </div>
@@ -637,7 +645,7 @@
                     <li class="page-item disabled">
                         <button class="page-link" tabindex="-1" aria-disabled="truebutton">
                             <i class="bi bi-chevron-left"></i>
-                        </a>
+                            </a>
                     </li>
 
                     <li class="page-item active">
@@ -682,62 +690,62 @@
         </div>
     </main>
 
-  <footer id="footer" class="footer accent-background">
-    <div class="container footer-top">
-      <div class="row gy-4">
-        <div class="col-lg-5 col-md-12 footer-about">
-          <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Impact</span>
-          </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
-          <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter-x"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
-          </div>
+    <footer id="footer" class="footer accent-background">
+        <div class="container footer-top">
+            <div class="row gy-4">
+                <div class="col-lg-5 col-md-12 footer-about">
+                    <a href="index.html" class="logo d-flex align-items-center">
+                        <span class="sitename">Impact</span>
+                    </a>
+                    <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+                    <div class="social-links d-flex mt-4">
+                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                        <a href=""><i class="bi bi-facebook"></i></a>
+                        <a href=""><i class="bi bi-instagram"></i></a>
+                        <a href=""><i class="bi bi-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>Useful Links</h4>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About us</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Terms of service</a></li>
+                        <li><a href="#">Privacy policy</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-2 col-6 footer-links">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#">Web Design</a></li>
+                        <li><a href="#">Web Development</a></li>
+                        <li><a href="#">Product Management</a></li>
+                        <li><a href="#">Marketing</a></li>
+                        <li><a href="#">Graphic Design</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                    <h4>Contact Us</h4>
+                    <p>A108 Adam Street</p>
+                    <p>New York, NY 535022</p>
+                    <p>United States</p>
+                    <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
+                    <p><strong>Email:</strong> <span>info@example.com</span></p>
+                </div>
+            </div>
         </div>
 
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Useful Links</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
-          </ul>
+        <div class="container copyright text-center mt-4">
+            <p>© <span>Copyright</span> <strong class="px-1 sitename">Impact</strong> <span>All Rights Reserved</span></p>
+            <div class="credits">
+                Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+            </div>
         </div>
-
-        <div class="col-lg-2 col-6 footer-links">
-          <h4>Our Services</h4>
-          <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
-            <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
-          </ul>
-        </div>
-
-        <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
-          <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
-          <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="container copyright text-center mt-4">
-      <p>© <span>Copyright</span> <strong class="px-1 sitename">Impact</strong> <span>All Rights Reserved</span></p>
-      <div class="credits">
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
-  </footer>
+    </footer>
 
     <!-- Modals -->
 
@@ -747,11 +755,11 @@
             <div class="modal-content border-0 rounded-2 p-4">
                 <div class="d-flex justify-content-between align-items-start mb-4">
                     <h5 class="modal-title fw-semibold" id="productPreviewModalLabel">
-                    Lem Keramik, Kayu, Metal dan Batu Super Kuat No More Nail Dextone
+                        Lem Keramik, Kayu, Metal dan Batu Super Kuat No More Nail Dextone
                     </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                
+
                 <div class="row">
                     <!-- Gambar Utama -->
                     <div class="col-12 col-md-9 d-flex justify-content-center align-items-center mb-3 mb-md-0">
@@ -768,19 +776,19 @@
                                     <img src="{{ asset('halaman-depan/') }}" onclick="changeImage(this)" class="img-thumbnail border-success cursor-pointer" alt="thumb 1">
                                 </div>
                             </div>
-                            
+
                             <div class="col-3 col-md-6">
                                 <div class="other-thumb">
                                     <img src="{{ asset('halaman-depan/') }}" onclick="changeImage(this)" class="img-thumbnail cursor-pointer" alt="thumb 2">
                                 </div>
                             </div>
-                            
+
                             <div class="col-3 col-md-6">
                                 <div class="other-thumb">
                                     <img src="{{ asset('halaman-depan/') }}" onclick="changeImage(this)" class="img-thumbnail cursor-pointer" alt="thumb 3">
                                 </div>
                             </div>
-                            
+
                             <div class="col-3 col-md-6">
                                 <div class="other-thumb">
                                     <img src="{{ asset('halaman-depan/') }}" onclick="changeImage(this)" class="img-thumbnail cursor-pointer" alt="thumb 4">
@@ -856,8 +864,8 @@
                 <div class="modal-body gallery-grid-container">
                     <!-- Diisi dari javascript -->
                 </div>
-                
-                <div class="modal-footer justify-content-center" style="display: none;"> 
+
+                <div class="modal-footer justify-content-center" style="display: none;">
                     <div class="spinner-border text-success" role="status">
                         <span class="visually-hidden">Loading...</span>
                     </div>
@@ -879,13 +887,13 @@
                         <div class="col-lg-9 modal-main-content">
                             <!-- Uploaded Foto Komentar -->
                             <div class="main-image-container">
-                                <img src="{{ asset('halaman-depan/') }}" alt="Media Komentar" class="displayed-image main-image-display">
-                                <video src="" controls class="displayed-media main-video-display" style="display:none; max-width: 100%; max-height: 70vh;"></video>
+                                <img src="" alt="Media Komentar" class="displayed-image main-image-display">
+                                <video src="" controls class="displayed-media main-video-display"></video>
 
                                 <button class="btn nav-btn prev-image-btn" id="prevImageBtn"><i class="bi bi-chevron-left"></i></button>
                                 <button class="btn nav-btn next-image-btn" id="nextImageBtn"><i class="bi bi-chevron-right"></i></button>
                             </div>
-                            
+
                             <!-- Info Komentar -->
                             <div class="image-comment-section p-3">
                                 <div class="comment-user-info d-flex align-items-center mb-2">
@@ -914,29 +922,29 @@
         </div>
     </div>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-  <!-- Vendor JS Files -->
-  <script src="{{ asset('halaman-depan/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-  <script src="{{ asset('halaman-depan/assets/vendor/php-email-form/validate.js')}}"></script>
-  <script src="{{ asset('halaman-depan/assets/vendor/aos/aos.js')}}"></script>
-  <script src="{{ asset('halaman-depan/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
-  <script src="{{ asset('halaman-depan/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
-  <script src="{{ asset('halaman-depan/assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
-  <script src="{{ asset('halaman-depan/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
-  <script src="{{ asset('halaman-depan/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('halaman-depan/assets/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('halaman-depan/assets/vendor/php-email-form/validate.js')}}"></script>
+    <script src="{{ asset('halaman-depan/assets/vendor/aos/aos.js')}}"></script>
+    <script src="{{ asset('halaman-depan/assets/vendor/glightbox/js/glightbox.min.js')}}"></script>
+    <script src="{{ asset('halaman-depan/assets/vendor/swiper/swiper-bundle.min.js')}}"></script>
+    <script src="{{ asset('halaman-depan/assets/vendor/purecounter/purecounter_vanilla.js')}}"></script>
+    <script src="{{ asset('halaman-depan/assets/vendor/imagesloaded/imagesloaded.pkgd.min.js')}}"></script>
+    <script src="{{ asset('halaman-depan/assets/vendor/isotope-layout/isotope.pkgd.min.js')}}"></script>
 
-  <!-- Main JS File -->
-  <script src="{{ asset('halaman-depan/assets/js/main.js') }}"></script>
+    <!-- Main JS File -->
+    <script src="{{ asset('halaman-depan/assets/js/main.js') }}"></script>
 
-  <!-- Myjs -->
-  <script src="{{ asset('halaman-depan/assets/js/myjs/landingpage.js') }}"></script>
-  <script src="{{ asset('halaman-depan/assets/js/myjs/detail-product.js') }}"></script>
-  <script src="{{ asset('halaman-depan/assets/js/myjs/modals-detail-product.js') }}"></script>
+    <!-- Myjs -->
+    <script src="{{ asset('halaman-depan/assets/js/myjs/landingpage.js') }}"></script>
+    <script src="{{ asset('halaman-depan/assets/js/myjs/detail-product.js') }}"></script>
+    <script src="{{ asset('halaman-depan/assets/js/myjs/modals-detail-product.js') }}"></script>
 </body>
 
 </html>

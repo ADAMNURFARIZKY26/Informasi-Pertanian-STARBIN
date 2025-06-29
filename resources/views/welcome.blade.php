@@ -157,7 +157,7 @@
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
             
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item isotope-item filter-app">
-              <a href="portfolio-details.html" class="text-decoration-none text-dark">
+              <a href="{{ route('detail-produk') }}" class="text-decoration-none text-dark">
                 <div class="portfolio-content h-100 border rounded-4 shadow-sm overflow-hidden bg-white transition hover-shadow">
                   <img src="{{ asset('halaman-depan/assets/img/portfolio/foto-cabai.jpg') }}"
                     class="img-fluid w-100"
@@ -174,7 +174,7 @@
 
             
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item isotope-item filter-app">
-              <a href="portfolio-details.html" class="text-decoration-none text-dark">
+              <a href="{{ route('detail-produk') }}" class="text-decoration-none text-dark">
                 <div class="portfolio-content h-100 border rounded-4 shadow-sm overflow-hidden bg-white transition hover-shadow">
                   <img src="{{ asset('halaman-depan/assets/img/portfolio/foto-cabai.jpg') }}"
                     class="img-fluid w-100"
