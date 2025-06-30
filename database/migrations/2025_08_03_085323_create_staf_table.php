@@ -14,9 +14,7 @@ return new class extends Migration {
             $table->string('deskripsi');
             $table->integer('nomor');
             $table->string('email');
-            $table->string('ig')->nullable();
-            $table->string('tiktok')->nullable();
-            $table->string('facebook')->nullable();
+            $table->string('foto');
             $table->timestamps();
         });
     }

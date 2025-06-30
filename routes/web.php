@@ -27,7 +27,7 @@ Route::middleware('guest')->group(function () {
     // Landing
     Route::get('/', [LandingController::class, 'welcome'])->name('welcome');
     Route::get('/tentangKami', [LandingController::class, 'tentangKami'])->name('tentangKami');
-    Route::get('/tentangKami/detaiStaf', [LandingController::class, 'detaiStaf'])->name('detaiStaf');
+    Route::get('/tentangKami/staf/{id}', [LandingController::class, 'detaiStaf'])->name('detaiStaf');
     Route::get('/produk', [LandingController::class, 'produk'])->name('produk');
     Route::get('/produk/detailProduk', [LandingController::class, 'detailProduk'])->name('detailProduk');
     Route::get('/organik', [LandingController::class, 'organik'])->name('organik');
@@ -41,7 +41,7 @@ Route::middleware('guest')->group(function () {
     Route::get('/organik/perawatan', [LandingController::class, 'perawatanOrganik'])->name('perawatanOrganik');
     Route::get('/organik/pengendalian', [LandingController::class, 'pengendalianOrganik'])->name('pengendalianOrganik');
     Route::get('/organik/panen', [LandingController::class, 'panenOrganik'])->name('panenOrganik');
-    Route::get('/organik//pengolahan', [LandingController::class, 'pengolahanOrganik'])->name('pengolahanOrganik');
+    Route::get('/organik//pengolahan',[LandingController::class, 'pengolahanOrganik'])->name('pengolahanOrganik');
     Route::get('/hidroponik', [LandingController::class, 'hidroponik'])->name('hidroponik');
     Route::get('/hidroponik/sayuranDaun', [LandingController::class, 'sayuranDaunHidrophonik'])->name('sayuranDaunHidrophonik');
     Route::get('/hidroponik/sayuranBuah', [LandingController::class, 'sayuranBuahHidrophonik'])->name('sayuranBuahHidrophonik');
@@ -79,7 +79,11 @@ Route::middleware(['auth'])->group(function () {
     // ADMIN
     Route::middleware(['role:Admin'])->group(function () {
         Route::get('/admin/dashboard', [DashboardAdminController::class, 'index'])->name('admin.dashboard');
+        // staf
         Route::get('/admin/kelolaStaf', [KontenLandingController::class, 'stafView'])->name('admin.stafView');
+        Route::post('/staff/store', [KontenLandingController::class, 'stafStore'])->name('staff.store');
+        Route::delete('/staff/{id}', [KontenLandingController::class, 'stafDestroy'])->name('staff.destroy');
+
         Route::get('/admin/kelolaProduk', [KontenLandingController::class, 'produckView'])->name('admin.produckView');
         Route::get('/admin/kelolaBlog', [KontenLandingController::class, 'blogView'])->name('admin.blogView');
         // sosmed

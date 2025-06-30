@@ -8,6 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Models\User;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -26,11 +27,19 @@ class AuthenticatedSessionController extends Controller
     {
         $credentials = $request->only('email', 'password');
 
-        // Coba login
-        if (!Auth::attempt($credentials)) {
-            return back()->with('error', 'Email atau password salah.')->withInput();
+        // Cek apakah email terdaftar
+        $user = User::where('email', $credentials['email'])->first();
+
+        if (!$user) {
+            return back()->with('error', 'Email belum terdaftar.')->withInput();
         }
 
+        // Jika email terdaftar, cek password
+        if (!Auth::attempt($credentials)) {
+            return back()->with('error', 'Password salah.')->withInput();
+        }
+
+        // Autentikasi berhasil
         $request->session()->regenerate();
         $user = Auth::user();
 

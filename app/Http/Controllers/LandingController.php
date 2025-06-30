@@ -4,98 +4,131 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Sosmed;
+use App\Models\Staf;
 
 class LandingController extends Controller
 {
-    public function welcome() {
-        $sosmeds = Sosmed::all();
-        return view('welcome', compact('sosmeds'));
+    public function welcome()
+    {
+        return view('welcome');
     }
-    public function tentangKami() {
-        return view('sub_page_landing/tentangKami');
+    public function tentangKami()
+    {
+        $stafs = Staf::all();
+        return view('sub_page_landing.tentangKami', compact('stafs'));
     }
-    public function detaiStaf() {
-        return view('sub_page_landing/sub_sub_page/detailStaf');
+    public function detaiStaf($id)
+    {
+        $staf = Staf::findOrFail($id); // Jika tidak ketemu, akan otomatis 404
+        return view('sub_page_landing.sub_sub_page.detailStaf', compact('staf'));
     }
-    public function produk() {
+
+    public function produk()
+    {
         return view('sub_page_landing/produk');
     }
-    public function detailProduk() {
+    public function detailProduk()
+    {
         return view('sub_page_landing/detailProduk');
     }
-    public function organik() {
+    public function organik()
+    {
         return view('sub_page_landing/organik');
     }
-    public function sayuranOrganik() {
+    public function sayuranOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/jenis-jenis/sayuran');
     }
-    public function buahOrganik() {
+    public function buahOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/jenis-jenis/buah');
     }
-    public function herbalOrganik() {
+    public function herbalOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/jenis-jenis/herbal');
     }
-    public function panganOrganik() {
+    public function panganOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/jenis-jenis/pangan');
     }
-    public function persiapanOrganik() {
+    public function persiapanOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/langkah-langkah/persiapan');
     }
-    public function penyemaianOrganik() {
+    public function penyemaianOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/langkah-langkah/penyemaian');
     }
-    public function penanamanOrganik() {
+    public function penanamanOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/langkah-langkah/penanaman');
     }
-    public function perawatanOrganik() {
+    public function perawatanOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/langkah-langkah/perawatan');
     }
-    public function pengendalianOrganik() {
+    public function pengendalianOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/langkah-langkah/pengendalian');
     }
-    public function panenOrganik() {
+    public function panenOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/langkah-langkah/panen');
     }
-    public function pengolahanOrganik() {
+    public function pengolahanOrganik()
+    {
         return view('sub_page_landing/sub_sub_page/organik/langkah-langkah/pengolahan');
     }
-    public function hidroponik() {
+    public function hidroponik()
+    {
         return view('sub_page_landing/hidroponik');
     }
-    public function sayuranDaunHidrophonik() {
+    public function sayuranDaunHidrophonik()
+    {
         return view('sub_page_landing/sub_sub_page/hidrophonik/jenis-jenis/sayurandaun');
     }
-    public function sayuranBuahHidrophonik() {
+    public function sayuranBuahHidrophonik()
+    {
         return view('sub_page_landing/sub_sub_page/hidrophonik/jenis-jenis/sayuranbuah');
     }
-    public function herbalHidroponik() {
+    public function herbalHidroponik()
+    {
         return view('sub_page_landing/sub_sub_page/hidrophonik/jenis-jenis/herbal');
     }
-    public function persiapanHidrophonik() {
+    public function persiapanHidrophonik()
+    {
         return view('sub_page_landing/sub_sub_page/hidrophonik/langkah-langkah/persiapan');
     }
-    public function penyemaianHidrophonik() {
+    public function penyemaianHidrophonik()
+    {
         return view('sub_page_landing/sub_sub_page/hidrophonik/langkah-langkah/penyemaian');
     }
-    public function pemeliharaanHidrophonik() {
+    public function pemeliharaanHidrophonik()
+    {
         return view('sub_page_landing/sub_sub_page/hidrophonik/langkah-langkah/pemeliharaan');
     }
-    public function pengendalianHidrophonik() {
+    public function pengendalianHidrophonik()
+    {
         return view('sub_page_landing/sub_sub_page/hidrophonik/langkah-langkah/pengendalian');
     }
-    public function panenHidrophonik() {
+    public function panenHidrophonik()
+    {
         return view('sub_page_landing/sub_sub_page/hidrophonik/langkah-langkah/panen');
     }
-    public function PascaPanenHidrophonik() {
+    public function PascaPanenHidrophonik()
+    {
         return view('sub_page_landing/sub_sub_page/hidrophonik/langkah-langkah/pascapanen');
     }
-    public function blog() {
+    public function blog()
+    {
         return view('sub_page_landing/blog');
     }
-    public function detailBlog() {
+    public function detailBlog()
+    {
         return view('sub_page_landing/sub_sub_page/detailblog');
     }
-    public function Kontak() {
+    public function Kontak()
+    {
         return view('welcome');
     }
 }

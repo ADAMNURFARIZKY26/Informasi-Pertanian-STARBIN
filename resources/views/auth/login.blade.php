@@ -82,7 +82,7 @@
 
     @if (session('error'))
     <div class="custom-alert alert-danger" id="flash-error">
-        <strong>Gagal!</strong> {{ session('error') }}
+        <strong>Error!</strong> {{ session('error') }}
     </div>
     @endif
 
