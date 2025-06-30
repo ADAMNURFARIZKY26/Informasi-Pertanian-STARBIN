@@ -29,7 +29,8 @@ Route::middleware('guest')->group(function () {
     Route::get('/tentangKami', [LandingController::class, 'tentangKami'])->name('tentangKami');
     Route::get('/tentangKami/staf/{id}', [LandingController::class, 'detaiStaf'])->name('detaiStaf');
     Route::get('/produk', [LandingController::class, 'produk'])->name('produk');
-    Route::get('/produk/detailProduk', [LandingController::class, 'detailProduk'])->name('detailProduk');
+    Route::get('/daftar-produk', [LandingController::class, 'listProduk'])->name('list-produk');
+    Route::get('/daftar-produk/detail-produk', [LandingController::class, 'detailProduk'])->name('detail-produk');
     Route::get('/organik', [LandingController::class, 'organik'])->name('organik');
     Route::get('/organik/sayuran', [LandingController::class, 'sayuranOrganik'])->name('sayuranOrganik');
     Route::get('/organik/buah', [LandingController::class, 'buahOrganik'])->name('buahOrganik');

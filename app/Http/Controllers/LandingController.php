@@ -27,9 +27,11 @@ class LandingController extends Controller
     {
         return view('sub_page_landing/produk');
     }
-    public function detailProduk()
-    {
-        return view('sub_page_landing/detailProduk');
+    public function listProduk() {
+        return view('sub_page_landing/list-product');
+    }
+    public function detailProduk() {
+        return view('sub_page_landing/detail-product');
     }
     public function organik()
     {

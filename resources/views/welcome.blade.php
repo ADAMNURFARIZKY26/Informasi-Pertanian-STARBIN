@@ -180,7 +180,7 @@
           <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
 
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item isotope-item filter-app">
-              <a href="portfolio-details.html" class="text-decoration-none text-dark">
+              <a href="{{ route('detail-produk') }}" class="text-decoration-none text-dark">
                 <div class="portfolio-content h-100 border rounded-4 shadow-sm overflow-hidden bg-white transition hover-shadow">
                   <img src="{{ asset('halaman-depan/assets/img/portfolio/foto-cabai.jpg') }}"
                     class="img-fluid w-100"
@@ -197,7 +197,7 @@
 
 
             <div class="col-lg-3 col-md-4 col-sm-6 portfolio-item isotope-item filter-app">
-              <a href="portfolio-details.html" class="text-decoration-none text-dark">
+              <a href="{{ route('detail-produk') }}" class="text-decoration-none text-dark">
                 <div class="portfolio-content h-100 border rounded-4 shadow-sm overflow-hidden bg-white transition hover-shadow">
                   <img src="{{ asset('halaman-depan/assets/img/portfolio/foto-cabai.jpg') }}"
                     class="img-fluid w-100"
@@ -213,10 +213,9 @@
             </div>
           </div>
         </div>
-
-
+        
         <div class="mt-5">
-          <a href="list-product.html">
+          <a href="{{route('list-produk')}}">
             <p class="text-center">Selengkapnya untuk produk >>></p>
           </a>
         </div>
@@ -312,12 +311,10 @@
               </div>
             </a>
           </div>
-
         </div>
-
-
+        
         <div class="mt-5">
-          <a href="list-product.html">
+          <a href="{{route('list-produk')}}">
             <p class="text-center">Selengkapnya untuk produk >>></p>
           </a>
         </div>
@@ -399,20 +396,14 @@
                   <div class="loading">Loading</div>
                   <div class="error-message"></div>
                   <div class="sent-message">Your message has been sent. Thank you!</div>
-
                   <button type="submit" style="border-radius: 5px;">Send Message</button>
                 </div>
-
               </div>
             </form>
           </div>
-
         </div>
-
       </div>
-
     </section>
-
   </main>
 
   <footer id="footer" class="footer accent-background">
@@ -480,10 +471,7 @@
 
   
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
   
-  <div id="preloader"></div>
-
   
   <script src="{{ asset('halaman-depan/assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('halaman-depan/assets/vendor/php-email-form/validate.js') }}"></script>
