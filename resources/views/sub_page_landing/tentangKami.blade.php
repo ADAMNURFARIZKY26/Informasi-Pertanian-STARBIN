@@ -111,16 +111,16 @@
       <h2 class="fw-bold text-theme-green">Staf Kami</h2>
     </div>
     <div class="row g-4" data-aos="fade-up">
-      <!-- Cards -->
+      @foreach($stafs as $staf)
       <div class="col-md-4 col-sm-6">
-        <a href="{{route('detaiStaf')}}" class="card card-hover text-center border-0 shadow h-100 text-decoration-none text-dark">
+        <a href="{{ route('detaiStaf', $staf->id) }}" class="card card-hover text-center border-0 shadow h-100 text-decoration-none text-dark">
           <div class="card-body">
-            <img src="{{ asset('halaman-depan/assets/img/testimonials/testimonials-2.jpg') }}" alt="Staf" class="rounded-circle mb-3" width="120" height="120">
-            <h5 class="card-title">Siti Rahmawati</h5>
+            <img src="{{ asset('pictures/staf/' . $staf->foto) }}" alt="{{ $staf->nama }}" class="rounded-circle mb-3" width="120" height="120">
+            <h5 class="card-title">{{ $staf->nama }}</h5>
           </div>
         </a>
       </div>
-
+      @endforeach
     </div>
   </div>
 </section>

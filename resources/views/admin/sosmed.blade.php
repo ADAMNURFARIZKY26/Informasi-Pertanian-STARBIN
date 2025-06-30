@@ -1,5 +1,5 @@
 @extends('layouts.admin.main')
-@section('title', 'Dashboard')
+@section('title', 'KelolaSosmed')
 @section('thisPage')
 <li class="nav-item d-none d-sm-inline-block">
     <a href="{{route('admin.sosmedView')}}" class="nav-link">Sosial Media</a>
@@ -20,7 +20,7 @@
 
 @if (session('error'))
 <div class="custom-alert alert-danger" id="flash-error">
-    <strong>Gagal!</strong> {{ session('error') }}
+    <strong>Error!</strong> {{ session('error') }}
 </div>
 @endif
 
@@ -114,7 +114,7 @@
                             </tr>
                         </thead>
                         <tbody id="data-link">
-                            @forelse ($sosmed as $index => $item)
+                            @forelse ($sosmeds as $index => $item)
                             <tr data-id="{{ $item->id }}">
                                 <td>
                                     <div class="fw-bold text-primary">{{ $index + 1 }}</div>

@@ -17,8 +17,6 @@ class Staf extends Model
         'deskripsi',
         'nomor',
         'email',
-        'ig',
-        'tiktok',
-        'facebook',
+        'foto',
     ];
 }
