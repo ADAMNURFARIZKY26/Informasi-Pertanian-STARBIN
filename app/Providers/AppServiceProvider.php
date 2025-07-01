@@ -21,6 +21,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-          View::share('sosmeds', Sosmed::all());
+        View::share('sosmeds', Sosmed::all());
     }
 }

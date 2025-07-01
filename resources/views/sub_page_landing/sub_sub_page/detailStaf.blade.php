@@ -110,42 +110,33 @@
 
           <!-- Foto Staf sebagai cover -->
           <div class="col-md-4 d-flex align-items-center justify-content-center p-3" style="background-color: #06926f; border-radius: 20px;">
-            <img src="{{asset('halaman-depan/assets/img/testimonials/testimonials-2.jpg')}}" alt="Staf" class="img-fluid rounded-circle shadow" style="width: 200px; height: 200px; object-fit: cover; border: 5px solid white;">
+            <img src="{{ asset('pictures/staf/' . $staf->foto) }}" alt="{{ $staf->nama }}" class="img-fluid rounded-circle shadow" style="width: 200px; height: 200px; object-fit: cover; border: 5px solid white;">
           </div>
 
           <!-- Informasi pribadi -->
           <div class="col-md-8">
             <div class="card-body">
-              <h3 class="card-title mb-2 fw-bold text-success">Andini Rahmawati</h3>
-              <p class="text-muted mb-4">Manajer Operasional</p>
+              <h3 class="card-title mb-2 fw-bold text-success">{{ $staf->nama }}</h3>
 
               <div class="row mb-2">
                 <div class="col-sm-5 fw-semibold">Tanggal Lahir</div>
-                <div class="col-sm-7">12 Maret 1990</div>
-              </div>
-              <div class="row mb-2">
-                <div class="col-sm-5 fw-semibold">Tanggal Bergabung</div>
-                <div class="col-sm-7">5 Januari 2022</div>
+                <div class="col-sm-7">{{ \Carbon\Carbon::parse($staf->tanggal_lahir)->translatedFormat('d F Y') }}</div>
               </div>
               <div class="row mb-2">
                 <div class="col-sm-5 fw-semibold">Nomor Telepon</div>
-                <div class="col-sm-7">+62 812-3456-7890</div>
+                <div class="col-sm-7">{{ $staf->nomor }}</div>
               </div>
               <div class="row mb-2">
                 <div class="col-sm-5 fw-semibold">Email</div>
-                <div class="col-sm-7">andini@organik.com</div>
-              </div>
-              <div class="row mb-2">
-                <div class="col-sm-5 fw-semibold">Alamat</div>
-                <div class="col-sm-7">Jl. Melati No. 10, Bandung</div>
+                <div class="col-sm-7">{{ $staf->nomor }}</div>
               </div>
 
               <br>
               <hr>
 
-              <h5 class="fw-semibold mt-3 text-success">Tentang Staf</h5>
+              <h5 class="fw-semibold mt-3 text-success">Tentang {{ $staf->nama }}</h5>
               <p class="veg-desc">
-                Andini adalah individu yang berdedikasi tinggi dalam mengelola operasional harian kami. Dengan pengalaman lebih dari 5 tahun di bidang agribisnis, ia memastikan setiap proses berjalan efisien dan ramah lingkungan. Ketertarikannya pada pertanian organik menjadikannya bagian penting dalam tim kami.
+                {{ $staf->deskripsi }}
               </p>
             </div>
           </div>
@@ -155,7 +146,6 @@
     </div>
   </div>
 </div>
-</main>
 
 <!-- Tombol Kembali -->
 <div class="text-center my-4 back-button">

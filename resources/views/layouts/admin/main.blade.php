@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{asset('dashboard-admin/plugins/daterangepicker/daterangepicker.css')}}" />
     <link rel="stylesheet" href="{{asset('dashboard-admin/plugins/summernote/summernote-bs4.min.css')}}" />
     <link rel="stylesheet" href="{{asset('authentikasi/sign-in/css/flashmassage.css')}}" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.0/font/bootstrap-icons.min.css" rel="stylesheet">
 </head>
 
 <body class="hold-transition sidebar-mini layout-navbar-fixed">
@@ -50,6 +51,7 @@
     <script src="{{asset('dashboard-admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
     <script src="{{asset('dashboard-admin/dist/js/adminlte.js')}}"></script>
     <script src="{{asset('dashboard-admin/dist/js/pages/dashboard.js')}}"></script>
+    <script src="{{asset('authentikasi/sign-in/js/flashmassage.js')}}"></script>
 </body>
 
 </html>
