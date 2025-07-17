@@ -1,0 +1,296 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Daftar Akun</title>
+
+    <!-- icon page -->
+    <link rel="icon" type="image/png" href="images/google.png">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    
+    <!-- style pop-up -->
+    <style>
+      @keyframes slideUp {
+        from { transform: translate(-50%, 100%); }
+        to { transform: translate(-50%, 0); }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="mb-3">
+      <a href="#" class="btn btn-sm back-btn">
+        <i class="bi bi-arrow-left me-1"></i>
+      </a>
+    </div>
+
+    <div class="content">
+      <div class="container">
+        <div class="row">
+          <!-- Gambar -->
+          <div class="col-md-5 d-none d-md-flex align-items-center justify-content-center">
+            <div style="width: 100%; height: 400px; border: 5px solid #008374; border-radius: 20px; overflow: hidden;">
+              <img src="images/smart-farming-iot-agriculture.webp" alt="Ilustrasi"
+                  style="width: 100%; height: 100%; object-fit: cover;">
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div class="col-md-7 contents">
+            <div class="row justify-content-center">
+              <div class="col-md-12">
+                <div class="mb-4">
+                  <h3 style="font-weight: bold; color: #008374;">Daftar Akun</h3>
+                  <p class="mb-4">Silakan isi formulir di bawah ini untuk membuat akun baru.</p>
+                </div>
+
+                <form action="#" method="post" class="custom-form" onsubmit="return validateForm()">
+                  <!-- Baris 1: Nama & Email -->
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="text" class="form-control" id="fullname" placeholder="Nama Lengkap" required>
+                      <small class="form-text text-muted">Masukkan nama lengkap Anda.</small>
+                      <small id="errorNama" class="text-danger"></small>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <input type="email" class="form-control" id="email" placeholder="Alamat Email" required>
+                      <small class="form-text text-muted">Gunakan alamat email aktif Anda.</small>
+                      <small id="errorEmail" class="text-danger"></small>
+                    </div>
+                  </div>
+
+                  <!-- Baris 2: Password & Telepon -->
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="password" class="form-control" id="password" placeholder="Kata Sandi" required>
+                      <small class="form-text text-muted">Masukan kata sandi Anda.</small>
+                      <small id="errorPassword" class="text-danger"></small>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">+62</span>
+                        </div>
+                        <input type="text" class="form-control" id="telepon" placeholder="Nomor Telepon" required>
+                      </div>
+                      <small class="text-muted">Masukan nomor telepon Anda.</small><br>
+                      <small id="errorTelepon" class="text-danger"></small>
+                    </div>
+                  </div>
+
+                  <!-- Baris 3: Tanggal Lahir & Jenis Kelamin -->
+                  <div class="form-row">
+                    <div class="form-group col-md-6">
+                      <input type="date" class="form-control" id="tanggal_lahir" required>
+                      <small class="form-text text-muted">Pilih tanggal lahir Anda.</small>
+                      <small id="errorTanggalLahir" class="text-danger"></small>
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label class="d-block mb-2">Jenis Kelamin</label>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="laki" value="Laki-laki" required>
+                        <label class="form-check-label" for="laki">Laki-laki</label>
+                      </div>
+                      <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="gender" id="perempuan" value="Perempuan">
+                        <label class="form-check-label" for="perempuan">Perempuan</label>
+                      </div>
+                      <small class="form-text text-muted">Pilih jenis kelamin Anda.</small>
+                      <small id="errorGender" class="text-danger"></small>
+                    </div>
+                  </div>
+
+                  <!-- Tombol Submit -->
+                  <input type="submit" value="Daftar" class="btn btn-primary btn-block btn-konfr" style="background-color: #008374;">
+
+                  <!-- Divider Sosial -->
+                  <span class="d-block text-center my-4 text-muted">&mdash; atau daftar dengan &mdash;</span>
+
+                  <div class="text-center mt-4">
+                    <a href="#" class="btn btn-light d-flex align-items-center justify-content-center" style="border: 1px solid #ccc; width: 100%; padding: 10px 15px; border-radius: 5px;">
+                      <img src="images/google.png" alt="Google Icon" style="width: 20px; height: 20px; margin-right: 10px;">
+                      <span style="font-weight: 500; color: #444;">Masuk dengan Google</span>
+                    </a>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Overlay Background (untuk cegah klik luar) -->
+    <div id="verifikasiOverlay" style="display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background-color: rgba(0,0,0,0.4); z-index: 999;"></div>
+
+    <!-- Popup Kode Verifikasi -->
+    <div id="verifikasiPopup" style="display: none; position: fixed; bottom: 35%; left: 50%; transform: translateX(-50%); background: white; border-radius: 15px; padding: 30px; width: 90%; max-width: 500px; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.3); animation: slideUp 0.4s ease-out;">
+      <h4 class="text-center mb-3" style="color: #008374;">Verifikasi Kode</h4>
+      <p class="text-center mb-4">Masukkan 6 digit kode yang dikirim ke email Anda.</p>
+      <div class="d-flex justify-content-center mb-4">
+        <input type="text" maxlength="1" class="kode-input mx-1 text-center" style="width: 50px; height: 55px; font-size: 22px; border: 2px solid #008374; border-radius: 10px;" />
+        <input type="text" maxlength="1" class="kode-input mx-1 text-center" style="width: 50px; height: 55px; font-size: 22px; border: 2px solid #008374; border-radius: 10px;" />
+        <input type="text" maxlength="1" class="kode-input mx-1 text-center" style="width: 50px; height: 55px; font-size: 22px; border: 2px solid #008374; border-radius: 10px;" />
+        <input type="text" maxlength="1" class="kode-input mx-1 text-center" style="width: 50px; height: 55px; font-size: 22px; border: 2px solid #008374; border-radius: 10px;" />
+        <input type="text" maxlength="1" class="kode-input mx-1 text-center" style="width: 50px; height: 55px; font-size: 22px; border: 2px solid #008374; border-radius: 10px;" />
+        <input type="text" maxlength="1" class="kode-input mx-1 text-center" style="width: 50px; height: 55px; font-size: 22px; border: 2px solid #008374; border-radius: 10px;" />
+      </div>
+      <div class="text-center">
+        <button class="btn btn-success px-5" style="background-color: #008374;;" onclick="submitKode()">Verifikasi</button>
+      </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      function validateForm() {
+        // Tampilkan overlay dan popup
+        document.getElementById("verifikasiOverlay").style.display = "block";
+        document.getElementById("verifikasiPopup").style.display = "block";
+
+        // Fokus ke input pertama
+        setTimeout(() => {
+          document.querySelector(".kode-input").focus();
+        }, 300);
+
+        // Mencegah form langsung terkirim
+        return false;
+      }
+
+      // Navigasi antar input
+      document.addEventListener("DOMContentLoaded", function() {
+        const kodeInputs = document.querySelectorAll(".kode-input");
+
+        kodeInputs.forEach((input, index) => {
+          input.addEventListener("input", () => {
+            if (input.value.length === 1 && index < 5) {
+              kodeInputs[index + 1].focus();
+            }
+          });
+
+          input.addEventListener("keydown", (e) => {
+            if (e.key === "Backspace" && input.value === "" && index > 0) {
+              kodeInputs[index - 1].focus();
+            }
+          });
+        });
+
+        // Cegah klik di luar popup
+        document.getElementById("verifikasiOverlay").addEventListener("click", function(e) {
+          e.stopPropagation();
+        });
+      });
+
+      function submitKode() {
+        let kode = "";
+        document.querySelectorAll(".kode-input").forEach(input => kode += input.value);
+
+        if (kode.length === 6) {
+          alert("Kode berhasil diverifikasi: " + kode);
+          // Tutup popup dan overlay
+          document.getElementById("verifikasiPopup").style.display = "none";
+          document.getElementById("verifikasiOverlay").style.display = "none";
+          // Lanjutkan submit form ke server jika perlu
+        } else {
+          alert("Kode harus 6 digit lengkap.");
+        }
+      }
+    </script>
+    <script>
+      function validateForm() {
+        let isValid = true;
+
+        // Ambil semua nilai input
+        const nama = document.getElementById('fullname').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const password = document.getElementById('password').value.trim();
+        const telepon = document.getElementById('telepon').value.trim();
+        const tanggalLahir = document.getElementById('tanggal_lahir').value;
+        const gender = document.querySelector('input[name="gender"]:checked');
+
+        // Reset error
+        document.getElementById('errorNama').innerText = '';
+        document.getElementById('errorEmail').innerText = '';
+        document.getElementById('errorPassword').innerText = '';
+        document.getElementById('errorTelepon').innerText = '';
+        document.getElementById('errorTanggalLahir').innerText = '';
+        document.getElementById('errorGender').innerText = '';
+
+        // Validasi Nama
+        if (nama.length < 5) {
+          document.getElementById('errorNama').innerText = 'Nama minimal 5 karakter.';
+          isValid = false;
+        }
+
+        // Validasi Email
+        if (!email.includes('@')) {
+          document.getElementById('errorEmail').innerText = 'Alamat email tidak valid.';
+          isValid = false;
+        }
+
+        // Validasi Password
+        if (password.length < 8) {
+          document.getElementById('errorPassword').innerText = 'Kata sandi minimal 8 karakter.';
+          isValid = false;
+        }
+
+        // Validasi Telepon
+        const teleponRegex = /^[0-9]{11,12}$/;
+        if (!teleponRegex.test(telepon)) {
+          document.getElementById('errorTelepon').innerText = 'Nomor telepon harus 11–12 digit angka.';
+          isValid = false;
+        }
+
+        // Validasi Umur
+        if (!tanggalLahir) {
+          document.getElementById('errorTanggalLahir').innerText = 'Tanggal lahir harus diisi.';
+          isValid = false;
+        } else {
+          const lahir = new Date(tanggalLahir);
+          const hariIni = new Date();
+          let umur = hariIni.getFullYear() - lahir.getFullYear();
+          const bulan = hariIni.getMonth() - lahir.getMonth();
+          if (bulan < 0 || (bulan === 0 && hariIni.getDate() < lahir.getDate())) umur--;
+
+          if (umur < 10) {
+            document.getElementById('errorTanggalLahir').innerText = 'Umur minimal harus 10 tahun.';
+            isValid = false;
+          }
+        }
+
+        // Validasi Gender
+        if (!gender) {
+          document.getElementById('errorGender').innerText = 'Pilih salah satu jenis kelamin.';
+          isValid = false;
+        }
+
+        if (!isValid) return false;
+
+        // Jika valid, tampilkan popup verifikasi
+        document.getElementById("verifikasiOverlay").style.display = "block";
+        document.getElementById("verifikasiPopup").style.display = "block";
+
+        setTimeout(() => {
+          document.querySelector(".kode-input").focus();
+        }, 300);
+
+        return false; // Jangan submit dulu
+      }
+      </script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+:root {
+    --main-green: #008374;
+}
+
+body {
+    background-color: #008374;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.change-box {
+    max-width: 500px;
+    margin: 120px auto;
+    padding: 40px 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.change-box h4 {
+    color: var(--main-green);
+}
+
+.btn-green {
+    background-color: var(--main-green);
+    color: #fff;
+    border: none;
+}
+
+.btn-green:hover {
+    background-color: #006f62;
+}
+
+small.text-danger {
+    display: none;
+}
